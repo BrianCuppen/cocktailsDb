@@ -12,3 +12,8 @@ public class Glass
     [Key]
     public int Id { get; set; }
 }
+
+    public class GlassList
+    {
+        public List<Glass> Glasses { get; set; }
+    }

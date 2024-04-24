@@ -10,8 +10,8 @@ I'll be using the free accessible cocktaildb that stores different type of drink
 
 This project will include :
     - Dotnet web application ✔
-    - EF Database using MySql (with data seeding)
-    - Different kind of HTTP endpoints
+    - EF Database using MySql (with data seeding) ✔
+    - Different kind of HTTP endpoints ✔
     - REST Client files (http.rest)
     - Swagger Documentation
     - FluentValidation
@@ -38,3 +38,8 @@ This project will include :
 ## 1 -  EF preperation
  - Created project structure (context)
  - added newtonsoft for correct data binding
+
+## 2 - Route Creation
+- Created Repository & Services
+- Created HTTP Endpoints plus testing
+- added fluent validation

@@ -5,11 +5,15 @@ public class Ingredient
     [Key]
     public int Id { get; set; }
 
-    public string DbDrinkId { get; set; }
     [ForeignKey("Drink")]
     public int IdOfDrink { get; set; }
+
+    [JsonProperty("strDrink")]
+    public string DrinkName { get; set; }
+
     // Navigation property for the Drink entity
     public Drink Drink { get; set; }
+
     private string? _ingredient1;
     private string? _ingredient2;
     private string? _ingredient3;

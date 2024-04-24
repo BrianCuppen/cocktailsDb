@@ -19,6 +19,20 @@ namespace cocktailDb.Migrations
                 .HasAnnotation("ProductVersion", "7.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("cocktailDb.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("cocktailDb.Models.Drink", b =>
                 {
                     b.Property<int>("Id")
@@ -37,8 +51,8 @@ namespace cocktailDb.Migrations
                     b.Property<string>("DbDrinkId")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Glass")
-                        .HasColumnType("longtext");
+                    b.Property<int?>("GlassTypeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Iba")
                         .HasColumnType("longtext");
@@ -46,23 +60,18 @@ namespace cocktailDb.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("IngredientsId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Instructions")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("MeasurementsId")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsEdited")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IngredientsId");
-
-                    b.HasIndex("MeasurementsId");
+                    b.HasIndex("GlassTypeId");
 
                     b.ToTable("Drinks");
                 });
@@ -104,7 +113,7 @@ namespace cocktailDb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("DbDrinkId")
+                    b.Property<string>("DrinkName")
                         .HasColumnType("longtext");
 
                     b.Property<int>("IdOfDrink")
@@ -139,7 +148,7 @@ namespace cocktailDb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("DbDrinkId")
+                    b.Property<string>("DrinkName")
                         .HasColumnType("longtext");
 
                     b.Property<int>("IdOfDrink")
@@ -170,23 +179,17 @@ namespace cocktailDb.Migrations
 
             modelBuilder.Entity("cocktailDb.Models.Drink", b =>
                 {
-                    b.HasOne("cocktailDb.Models.Ingredient", "Ingredients")
+                    b.HasOne("cocktailDb.Models.Glass", "GlassType")
                         .WithMany()
-                        .HasForeignKey("IngredientsId");
+                        .HasForeignKey("GlassTypeId");
 
-                    b.HasOne("cocktailDb.Models.Measurement", "Measurements")
-                        .WithMany()
-                        .HasForeignKey("MeasurementsId");
-
-                    b.Navigation("Ingredients");
-
-                    b.Navigation("Measurements");
+                    b.Navigation("GlassType");
                 });
 
             modelBuilder.Entity("cocktailDb.Models.Ingredient", b =>
                 {
                     b.HasOne("cocktailDb.Models.Drink", "Drink")
-                        .WithOne()
+                        .WithOne("Ingredients")
                         .HasForeignKey("cocktailDb.Models.Ingredient", "IdOfDrink")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -197,12 +200,19 @@ namespace cocktailDb.Migrations
             modelBuilder.Entity("cocktailDb.Models.Measurement", b =>
                 {
                     b.HasOne("cocktailDb.Models.Drink", "Drink")
-                        .WithOne()
+                        .WithOne("Measurements")
                         .HasForeignKey("cocktailDb.Models.Measurement", "IdOfDrink")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Drink");
+                });
+
+            modelBuilder.Entity("cocktailDb.Models.Drink", b =>
+                {
+                    b.Navigation("Ingredients");
+
+                    b.Navigation("Measurements");
                 });
 #pragma warning restore 612, 618
         }

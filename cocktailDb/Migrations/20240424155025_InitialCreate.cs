@@ -15,6 +15,20 @@ namespace cocktailDb.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Emails",
                 columns: table => new
                 {
@@ -55,15 +69,19 @@ namespace cocktailDb.Migrations
                     Category = table.Column<string>(type: "longtext", nullable: true),
                     Iba = table.Column<string>(type: "longtext", nullable: true),
                     Alcoholic = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    Glass = table.Column<string>(type: "longtext", nullable: true),
+                    GlassTypeId = table.Column<int>(type: "int", nullable: true),
                     Instructions = table.Column<string>(type: "longtext", nullable: true),
                     ImageUrl = table.Column<string>(type: "longtext", nullable: true),
-                    IngredientsId = table.Column<int>(type: "int", nullable: true),
-                    MeasurementsId = table.Column<int>(type: "int", nullable: true)
+                    IsEdited = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Drinks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Drinks_Glasses_GlassTypeId",
+                        column: x => x.GlassTypeId,
+                        principalTable: "Glasses",
+                        principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -73,8 +91,8 @@ namespace cocktailDb.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    DbDrinkId = table.Column<string>(type: "longtext", nullable: true),
                     IdOfDrink = table.Column<int>(type: "int", nullable: false),
+                    DrinkName = table.Column<string>(type: "longtext", nullable: true),
                     Ingredient1 = table.Column<string>(type: "longtext", nullable: true),
                     Ingredient2 = table.Column<string>(type: "longtext", nullable: true),
                     Ingredient3 = table.Column<string>(type: "longtext", nullable: true),
@@ -99,8 +117,8 @@ namespace cocktailDb.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    DbDrinkId = table.Column<string>(type: "longtext", nullable: true),
                     IdOfDrink = table.Column<int>(type: "int", nullable: false),
+                    DrinkName = table.Column<string>(type: "longtext", nullable: true),
                     Measure1 = table.Column<string>(type: "longtext", nullable: true),
                     Measure2 = table.Column<string>(type: "longtext", nullable: true),
                     Measure3 = table.Column<string>(type: "longtext", nullable: true),
@@ -120,14 +138,9 @@ namespace cocktailDb.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Drinks_IngredientsId",
+                name: "IX_Drinks_GlassTypeId",
                 table: "Drinks",
-                column: "IngredientsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Drinks_MeasurementsId",
-                table: "Drinks",
-                column: "MeasurementsId");
+                column: "GlassTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ingredients_IdOfDrink",
@@ -140,38 +153,16 @@ namespace cocktailDb.Migrations
                 table: "Measurements",
                 column: "IdOfDrink",
                 unique: true);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Drinks_Ingredients_IngredientsId",
-                table: "Drinks",
-                column: "IngredientsId",
-                principalTable: "Ingredients",
-                principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Drinks_Measurements_MeasurementsId",
-                table: "Drinks",
-                column: "MeasurementsId",
-                principalTable: "Measurements",
-                principalColumn: "Id");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Drinks_Ingredients_IngredientsId",
-                table: "Drinks");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Drinks_Measurements_MeasurementsId",
-                table: "Drinks");
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Emails");
-
-            migrationBuilder.DropTable(
-                name: "Glasses");
 
             migrationBuilder.DropTable(
                 name: "Ingredients");
@@ -181,6 +172,9 @@ namespace cocktailDb.Migrations
 
             migrationBuilder.DropTable(
                 name: "Drinks");
+
+            migrationBuilder.DropTable(
+                name: "Glasses");
         }
     }
 }

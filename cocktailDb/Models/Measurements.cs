@@ -4,9 +4,12 @@ public class Measurement
 {
     public int Id { get; set; }
 
-    public string DbDrinkId { get; set; }
     [ForeignKey("Drink")]
     public int IdOfDrink { get; set; }
+
+    [JsonProperty("strDrink")]
+    public string DrinkName { get; set; }
+
     // Navigation property for the Drink entity
     public Drink Drink { get; set; }
     private string? _measure1;

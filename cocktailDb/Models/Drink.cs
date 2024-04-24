@@ -5,8 +5,10 @@ public class Drink
     //primary key
     [Key]
     public int Id { get; set; }
+
     [JsonProperty("idDrink")]
     public string DbDrinkId { get; set; }
+
     [JsonProperty("strDrink")]
     public string? Name { get; set; }
     private string? _alternateName;
@@ -28,8 +30,9 @@ public class Drink
         get => _alcoholic == "Alcoholic";
         set => _alcoholic = value ? "Alcoholic" : "Non Alcoholic";
     }
-    [JsonProperty("strGlass")]
-    public string? Glass { get; set; }
+    
+    public Glass GlassType { get; set; }
+    
     [JsonProperty("strInstructions")]
     public string? Instructions { get; set; }
     [JsonProperty("strDrinkThumb")]
@@ -38,5 +41,8 @@ public class Drink
     public Ingredient Ingredients { get; set; }
 
     public Measurement Measurements { get; set; }
+
+    //IsEdited property default false
+    public bool IsEdited { get; set; } = false;
 
 }

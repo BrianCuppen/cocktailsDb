@@ -1,0 +1,21 @@
+GET http://localhost:5000/drinks
+###
+GET http://localhost:5000/drinks/1
+###
+POST http://localhost:5000/drinks
+Content-Type: application/json
+
+{
+    "dbDrinkId": "11007",
+  "name": "Margarita",
+  "alternateName": "Tommy's Margarita",
+  "category": "Cocktail",
+  "iba": "Contemporary Classics",
+  "alcoholic": true,
+  "glassType": null,
+  "imageUrl": "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
+  "ingredients": null,
+  "measurements": null,
+  "isEdited": false
+    
+}
