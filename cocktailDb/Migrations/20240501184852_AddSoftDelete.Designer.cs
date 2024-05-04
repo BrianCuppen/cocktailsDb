@@ -3,6 +3,7 @@ using System;
 using CocktailDb.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace cocktailDb.Migrations
 {
     [DbContext(typeof(CocktailContext))]
-    partial class CocktailContextModelSnapshot : ModelSnapshot
+    [Migration("20240501184852_AddSoftDelete")]
+    partial class AddSoftDelete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,9 +143,6 @@ namespace cocktailDb.Migrations
                     b.Property<string>("Ingredient5")
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("tinyint(1)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("IdOfDrink")
@@ -162,9 +162,6 @@ namespace cocktailDb.Migrations
 
                     b.Property<int>("IdOfDrink")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Measure1")
                         .HasColumnType("longtext");

@@ -3,14 +3,17 @@ namespace cocktailDb.Repositories;
 public interface IDrinkRepository
 {
     void AddCategories();
-    List<Drink> GetAllDrinks();
-    Drink GetDrinkById(int id);
-    Drink AddDrink(Drink drink);
-    Drink UpdateDrink(Drink drink);
-    bool DeleteDrink(int id);
-    List<Drink> GetDrinkByCategory(string category);
-    List<Drink> GetDrinkByGlass(string glass);
-    List<Drink> GetDrinkByAlcoholic(bool alcoholic);
+    Task<IEnumerable<Drink>> GetAllDrinksAsync();
+    Task<Drink> GetDrinkByIdAsync(int id);
+    Task<Drink> GetDrinkByDbDrinkIdAsync(string dbDrinkId);
+    Task<Drink> GetDrinkByNameAsync(string name);
+    Task<Drink> AddDrinkAsync(Drink drink);
+    Task<Drink> UpdateDrinkAsync(Drink drink);
+    Task DeleteDrinkAsync(int id);
+    Task<IEnumerable<Category>> GetCategoriesAsync();
+    Task<IEnumerable<Drink>> GetDrinkByCategoryAsync(string category);
+    Task<IEnumerable<Drink>> GetDrinkByGlassAsync(string glass);
+    Task<IEnumerable<Drink>> GetDrinkByAlcoholicAsync(bool alcoholic);
 }
 public class DrinkRepository : IDrinkRepository
 {
@@ -52,154 +55,81 @@ public class DrinkRepository : IDrinkRepository
     }
 
     //get all drinks
-    public List<Drink> GetAllDrinks()
+    public async Task<IEnumerable<Drink>> GetAllDrinksAsync()
     {
-        try
-        {
-            return _context.Drinks.ToList();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        return await _context.Drinks.Where(drink => !drink.IsDeleted).ToListAsync();
     }
 
+
     //get drink by id
-    public Drink GetDrinkById(int id)
+    public async Task<Drink> GetDrinkByIdAsync(int id)
     {
-        try
-        {
-            return _context.Drinks.FirstOrDefault(d => d.Id == id);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        return await _context.Drinks.FirstOrDefaultAsync(d => d.Id == id && !d.IsDeleted);
+    }
+
+    //get drink by name
+    public async Task<Drink> GetDrinkByNameAsync(string name)
+    {
+        return await _context.Drinks.FirstOrDefaultAsync(d => d.Name == name);
+    }
+
+    //get drink by dbDrinkId
+    public async Task<Drink> GetDrinkByDbDrinkIdAsync(string dbDrinkId)
+    {
+        return await _context.Drinks.FirstOrDefaultAsync(d => d.DbDrinkId == dbDrinkId);
     }
 
     //add a drink
-    public Drink AddDrink(Drink drink)
+    public async Task<Drink> AddDrinkAsync(Drink drink)
     {
-        //check if the drink name or id exists
-        if (_context.Drinks.Any(d => d.Name == drink.Name || d.Id == drink.Id || d.DbDrinkId == drink.DbDrinkId))
-        {
-            Console.WriteLine("Drink already exists");
-            return null;
-        }
-        try
-        {
-            //set IsEdited to true
-            drink.IsEdited = true;
-            _context.Drinks.Add(drink);
-            _context.SaveChanges();
-            return drink;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        _context.Drinks.Add(drink);
+        await _context.SaveChangesAsync();
+        return drink;
     }
 
     //update a drink
-    public Drink UpdateDrink(Drink drink)
+    public async Task<Drink> UpdateDrinkAsync(Drink drink)
     {
-        try
-        {
-            //set IsEdited to true
-            drink.IsEdited = true;
-            _context.Drinks.Update(drink);
-            _context.SaveChanges();
-            return drink;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        //set IsEdited to true
+        drink.IsEdited = true;
+        _context.Entry(drink).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+        return drink;
     }
 
     //delete a drink
-    public bool DeleteDrink(int id)
+    public async Task DeleteDrinkAsync(int id)
     {
-        try
-        {
-            var drink = _context.Drinks.FirstOrDefault(d => d.Id == id);
-            if (drink != null)
-            {
-                _context.Drinks.Remove(drink);
-                _context.SaveChanges();
-                return true;
-            }
-            Console.WriteLine("Drink not found");
-            return false;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return false;
-        }
+        var drink = await _context.Drinks.FindAsync(id);
+        //set IsDeleted to true
+        drink.IsDeleted = true;
+        //_context.Drinks.Remove(drink);
+        await _context.SaveChangesAsync();
     }
-    
+
+    //GetCategories
+    public async Task<IEnumerable<Category>> GetCategoriesAsync()
+    {
+        return await _context.Categories.ToListAsync();
+    }
+
     //GetDrinkByCategory
-    public List<Drink> GetDrinkByCategory(string category)
+    public async Task<IEnumerable<Drink>> GetDrinkByCategoryAsync(string category)
     {
-        try
-        {
-        //check if the category exists
-        if (_context.Drinks.Any(d => d.Category == category))
-        {
-            return _context.Drinks.Where(d => d.Category == category).ToList();
-        }
-        Console.WriteLine("Category not found");
-        return null;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        return await _context.Drinks.Where(d => d.Category == category && !d.IsDeleted).ToListAsync();
     }
+
 
     //GetDrinkByGlass
-    public List<Drink> GetDrinkByGlass(string glass)
+    public async Task<IEnumerable<Drink>> GetDrinkByGlassAsync(string glass)
     {
-        try
-        {
-        //check if the glass exists
-        if (_context.Drinks.Any(d => d.GlassType.Name == glass))
-        {
-            return _context.Drinks.Where(d => d.GlassType.Name == glass).ToList();
-        }
-        Console.WriteLine("Glass not found");
-        return null;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        return await _context.Drinks.Where(d => d.GlassType.Name == glass && !d.IsDeleted).ToListAsync();
     }
 
+
     //GetDrinkByAlcoholic
-    public List<Drink> GetDrinkByAlcoholic(bool alcoholic)
+    public async Task<IEnumerable<Drink>> GetDrinkByAlcoholicAsync(bool alcoholic)
     {
-        try
-        {
-        //check if the alcoholic exists
-        if (_context.Drinks.Any(d => d.Alcoholic == alcoholic))
-        {
-            return _context.Drinks.Where(d => d.Alcoholic == alcoholic).ToList();
-        }
-        Console.WriteLine("Alcoholic not found");
-        return null;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        return await _context.Drinks.Where(d => d.Alcoholic == alcoholic && !d.IsDeleted).ToListAsync();
     }
 }

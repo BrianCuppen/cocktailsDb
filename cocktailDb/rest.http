@@ -6,8 +6,8 @@ POST http://localhost:5000/drinks
 Content-Type: application/json
 
 {
-    "dbDrinkId": "11007",
-  "name": "Margarita",
+    "dbDrinkId": "test",
+  "name": "Test",
   "alternateName": "Tommy's Margarita",
   "category": "Cocktail",
   "iba": "Contemporary Classics",
@@ -16,6 +16,57 @@ Content-Type: application/json
   "imageUrl": "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
   "ingredients": null,
   "measurements": null,
-  "isEdited": false
-    
+  "isEdited": false,
+    "GlassType": {
+        "name": "Old-fashioned glass"
+    }
 }
+###
+POST http://localhost:5000/drinks
+Content-Type: application/json
+
+{
+    "dbDrinkId": "tester",
+  "name": "Test",
+  "alternateName": "Tommy's Margarita",
+  "category": "Cocktail",
+  "iba": "Contemporary Classics",
+  "alcoholic": true,
+  "glassType": null,
+  "imageUrl": "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
+  "ingredients": null,
+  "measurements": null,
+  "isEdited": false,
+    "GlassType": {
+        "name": "New-fashioned glass"
+    }
+}
+###
+DELETE http://localhost:5000/drinks/18
+###
+GET http://localhost:5000/drinks/category
+###
+GET http://localhost:5000/drinks/category/Cocktail
+### OK
+GET http://localhost:5000/glasses
+### 
+GET http://localhost:5000/drinks/glasses/Highball glass
+### STOP HERE
+GET http://localhost:5000/alcoholicDrinks/alcoholic
+###
+GET http://localhost:5000/alcoholicDrinks/non-alcoholic
+###
+GET http://localhost:5000/glasses/2
+###
+POST  http://localhost:5000/glasses
+Content-Type: application/json
+
+{
+    "name": "Potential glass"
+}
+###
+DELETE http://localhost:5000/glasses/2
+###
+GET http://localhost:5000/ingredients
+###
+GET http://localhost:5000/ingredients/2

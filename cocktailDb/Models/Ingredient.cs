@@ -54,4 +54,6 @@ public class Ingredient
         get => _ingredient5;
         set => _ingredient5 = value ?? "";
     }
+
+    public bool IsDeleted { get; set; }
 }

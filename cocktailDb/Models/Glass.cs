@@ -7,10 +7,15 @@ public class GlassResponse
 
 public class Glass
 {
+    [Key]
+    public int Id { get; set; }
+    
     [JsonProperty("strGlass")]
     public string? Name { get; set; }
     [Key]
-    public int Id { get; set; }
+
+    public bool IsDeleted { get; set; } = false; // Set default value
+    
 }
 
     public class GlassList

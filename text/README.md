@@ -33,7 +33,7 @@ This project will include :
 
 
 ## Initial push
-- Created a new dotnet web application + EF prep
+- Created a new dotnet web application + EF prep 
 
 ## 1 -  EF preperation
  - Created project structure (context)

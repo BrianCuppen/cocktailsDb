@@ -2,6 +2,7 @@ namespace cocktailDb.Models;
 
 public class Measurement
 {
+    [Key]
     public int Id { get; set; }
 
     [ForeignKey("Drink")]
@@ -9,6 +10,8 @@ public class Measurement
 
     [JsonProperty("strDrink")]
     public string DrinkName { get; set; }
+    
+    public bool IsDeleted { get; set; }
 
     // Navigation property for the Drink entity
     public Drink Drink { get; set; }

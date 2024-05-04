@@ -45,4 +45,6 @@ public class Drink
     //IsEdited property default false
     public bool IsEdited { get; set; } = false;
 
+    public bool IsDeleted { get; set; } = false; // Set default value
+
 }

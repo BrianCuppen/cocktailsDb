@@ -3,10 +3,11 @@ namespace cocktailDb.Repositories;
 public interface IGlassRepository
 {
     void AddGlasses();
-    List<Glass> GetAllGlasses();
-    Glass GetGlassById(int id);
-    Glass AddGlass(Glass glass);
-    bool DeleteGlass(int id);
+    Task<List<Glass>> GetAllGlassesAsync();
+    Task<Glass> GetGlassByIdAsync(int id);
+    Task<Glass> GetGlassByNameAsync(string name);
+    Task<Glass> AddGlassAsync(Glass glass);
+    Task<bool> DeleteGlassAsync(int id);
 }
 public class GlassRepository : IGlassRepository
 {
@@ -47,63 +48,38 @@ public class GlassRepository : IGlassRepository
     }
 
     //get all glasses
-    public List<Glass> GetAllGlasses()
-    {
-        try
-        {
-            return _context.Glasses.ToList();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
-    }
+    public async Task<List<Glass>> GetAllGlassesAsync() => await _context.Glasses.Where(g => !g.IsDeleted).ToListAsync();
 
     //get glass by id
-    public Glass GetGlassById(int id)
+    public async Task<Glass> GetGlassByIdAsync(int id)
     {
-        try
-        {
-            return _context.Glasses.FirstOrDefault(g => g.Id == id);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        return await _context.Glasses.FirstOrDefaultAsync(g => g.Id == id && !g.IsDeleted);
+    }
+
+    //get glass by name
+    public async Task<Glass> GetGlassByNameAsync(string name)
+    {
+        return await _context.Glasses.FirstOrDefaultAsync(g => g.Name == name);
     }
 
     //add a glass
-    public Glass AddGlass(Glass glass)
+    public async Task<Glass> AddGlassAsync(Glass glass)
     {
-        try
-        {
-            _context.Glasses.Add(glass);
-            _context.SaveChanges();
-            return glass;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return null;
-        }
+        _context.Glasses.Add(glass);
+        await _context.SaveChangesAsync();
+        return glass;
     }
 
     //delete a glass
-    public bool DeleteGlass(int id)
+    public async Task<bool> DeleteGlassAsync(int id)
     {
-        try
-        {
-            var glass = _context.Glasses.FirstOrDefault(g => g.Id == id);
-            _context.Glasses.Remove(glass);
-            _context.SaveChanges();
-            return true;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return false;
-        }
+        var glass = _context.Glasses.FirstOrDefault(g => g.Id == id);
+        //set IsDeleted to true
+        glass.IsDeleted = true;
+        //_context.Glasses.Remove(glass);
+        await _context.SaveChangesAsync();
+        return true;
+
     }
+    
 }

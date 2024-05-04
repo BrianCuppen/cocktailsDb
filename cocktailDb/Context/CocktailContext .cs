@@ -13,16 +13,20 @@ public class CocktailContext : DbContext
 
     private readonly IConfiguration _config;
 
-    public CocktailContext(IConfiguration config)
-    {
-        _config = config;
-    }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public CocktailContext(DbContextOptions<CocktailContext> options) : base(options)
     {
-        string connectionString = _config.GetConnectionString("CocktailDbConnection");
-        optionsBuilder.UseMySQL(connectionString);
     }
+    // public CocktailContext(IConfiguration config)
+    // {
+    //     _config = config;
+    // }
+
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     string connectionString = _config.GetConnectionString("CocktailDbConnection");
+    //     optionsBuilder.UseMySQL(connectionString);
+    // }
 
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {

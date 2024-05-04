@@ -60,3 +60,9 @@ C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\obj\Debug\net8.
 C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\obj\Debug\net8.0\cocktailDb.pdb
 C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\obj\Debug\net8.0\cocktailDb.genruntimeconfig.cache
 C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\obj\Debug\net8.0\ref\cocktailDb.dll
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\obj\Debug\net8.0\cocktailDb.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\MailKit.dll
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\MimeKit.dll
