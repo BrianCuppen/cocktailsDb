@@ -25,24 +25,35 @@ public interface ICocktailService
     Task<IEnumerable<Measurement>> GetAllMeasurementsAsync();
     Task<Measurement> GetMeasurementByIdAsync(int id);
 }
-public class CocktailService : ICocktailService
+public class CocktailService() : ICocktailService
 {
     private readonly IDrinkRepository _drinkRepository;
     private readonly IGlassRepository _glassRepository;
     private readonly IIngredientRepository _ingredientRepository;
     private readonly IMeasurementRepository _measurementRepository;
+    private readonly IMemoryCache _memoryCache;
 
-    public CocktailService(IDrinkRepository drinkRepository, IGlassRepository glassRepository, IIngredientRepository ingredientRepository, IMeasurementRepository measurementRepository)
+    public CocktailService(IDrinkRepository drinkRepository, IGlassRepository glassRepository, IIngredientRepository ingredientRepository, IMeasurementRepository measurementRepository, IMemoryCache memoryCache)
+        : this()
     {
         _drinkRepository = drinkRepository;
         _glassRepository = glassRepository;
         _ingredientRepository = ingredientRepository;
         _measurementRepository = measurementRepository;
+        _memoryCache = memoryCache;
     }
 
     //get all drinks
-    public async Task<IEnumerable<Drink>> GetAllDrinksAsync() => await _drinkRepository.GetAllDrinksAsync();
+    //public async Task<IEnumerable<Drink>> GetAllDrinksAsync() => await _drinkRepository.GetAllDrinksAsync();
 
+    public Task<IEnumerable<Drink>> GetAllDrinksAsync() // chache => if the called again it'll use what is stored in cache
+    {
+        return _memoryCache.GetOrCreateAsync("drinks", async entry =>
+        {
+            entry.SlidingExpiration = TimeSpan.FromSeconds(10);
+            return await _drinkRepository.GetAllDrinksAsync();
+        });
+    }
     //get drink by id
     public async Task<Drink> GetDrinkByIdAsync(int id)
     {

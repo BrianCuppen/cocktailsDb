@@ -8,9 +8,42 @@ builder.Services.AddDbContext<CocktailContext>(options =>
     options.UseMySQL(config.Server);
 });
 
+builder.Logging.ClearProviders();
+// Serilog configuration		
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+    .MinimumLevel.Debug()
+    .CreateLogger();
+// Register Serilog
+builder.Logging.AddSerilog(logger);
+
+//caching
+builder.Services.AddMemoryCache();
+
+//background service
+builder.Services.AddSingleton<DrinkBackgroundService>();
+builder.Services.AddHostedService(provider => provider.GetRequiredService<DrinkBackgroundService>());
+
+//mailserver
+var mailSettingsSection = builder.Configuration.GetSection("MailServerSettings");
+builder.Services.Configure<MailServerSettings>(mailSettingsSection);
+
+//validator
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<DrinkValidator>());
 //builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+
+//automapper
 builder.Services.AddAutoMapper(typeof(Program));
+
+//Swagger Doc
+builder.Services.AddEndpointsApiExplorer();
+// builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    // Add the ConflictingActionsResolver as a workaround for conflicting method/path combinations
+    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+});
 
 builder.Services.AddScoped<IDrinkRepository, DrinkRepository>();
 builder.Services.AddScoped<IGlassRepository, GlassRepository>();
@@ -19,7 +52,27 @@ builder.Services.AddScoped<IMeasurementRepository, MeasurementRepository>();
 builder.Services.AddScoped<ICocktailService, CocktailService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
+//vesioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.ApiVersionReader = new HeaderApiVersionReader("api-version");
+});
+
+
 var app = builder.Build();
+
+//swagger Doc
+app.UseSwagger();
+app.UseSwaggerUI(); //http://localhost:5000/Swagger/index.html
+
+//define versioning
+var versionSet = app.NewApiVersionSet()
+.HasApiVersion(1, 0)
+.HasApiVersion(2, 0).Build();
+
 
 //exception
 app.UseExceptionHandler(c => c.Run(async context =>
@@ -36,7 +89,6 @@ app.UseExceptionHandler(c => c.Run(async context =>
     }
 }));
 
-
 //seeding
 using (var scope = app.Services.CreateScope())
 {
@@ -52,83 +104,131 @@ using (var scope = app.Services.CreateScope())
     drinkRepository.AddCategories();
 }
 
-
 app.MapGet("/", () => "Hello Backend!");
 
-//get all drinks
-app.MapGet("/drinks", async (ICocktailService service) =>
+app.MapGet("/stop", (DrinkBackgroundService bs) =>
 {
-    return Results.Ok(await service.GetAllDrinksAsync());
+    bs.StopAsync(new System.Threading.CancellationToken());
+    return "Stopped";
 });
 
-
-//get drink by id
-app.MapGet("/drinks/{id}", async (ICocktailService service, int id) =>
+app.MapGet("/start", (DrinkBackgroundService bs) =>
 {
-    return Results.Ok(await service.GetDrinkByIdAsync(id));
+    bs.StartAsync(new System.Threading.CancellationToken());
+    return "Started";
 });
 
-// app.MapGet("/v2/drinks/{id}", async (ICocktailService service, int id, IMapper mapper) =>
-// {
-//     var drink = await service.GetDrinkByIdAsync(id);
-//     var drinkDTO = mapper.Map<DrinkDTO>(drink);
-//     return Results.Ok(drinkDTO);
-// });
-app.MapGet("/v2/drinks/{id}", async (ICocktailService service, int id, IMapper mapper) =>
+//Mailserver
+app.MapGet("settings", (IOptions<MailServerSettings> settings) =>
 {
-    var mapped = mapper.Map<DrinkDTO>(await service.GetDrinkByIdAsync(id),opts => 
+    app.Logger.LogWarning(settings.Value.ServerName);
+    return Results.Ok(settings);
+});
+
+// Drinks Endpoints
+app.Map("/drinks", drinks =>
+{
+    drinks.UseRouting();
+
+    drinks.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("", async (ICocktailService service) =>
     {
-        opts.Items["GlassType"] = service.GetGlassByIdAsync(id);
-        opts.Items["IngredientList"] = service.GetIngredientByIdAsync(id);
-        opts.Items["MeasurementList"] = service.GetMeasurementByIdAsync(id);
+        return Results.Ok(await service.GetAllDrinksAsync());
     });
-    return Results.Ok(mapped);
-});
 
-//add a drink
-app.MapPost("/drinks", async (IValidator<Drink> validator, ICocktailService service, Drink drink) =>
-{
-    var validationResult = validator.Validate(drink);
-    if (!validationResult.IsValid)
+    endpoints.MapGet("/v1/{id}", async (ICocktailService service, int id,ILoggerFactory loggerFactory) =>
     {
-        var errors = validationResult.Errors.Select(x => new { errors = x.ErrorMessage });
-        return Results.BadRequest(errors);
-    }
-    return Results.Created("Drink added to database", await service.AddDrinkAsync(drink)); // normally code 201 CREATED
+        var logger = loggerFactory.CreateLogger("DrinkRequestLogger");
+        var result = await service.GetDrinkByIdAsync(id);
+        logger.LogInformation($"{result.Name} was requested by version 1", result);
+
+        return Results.Ok(result);
+    }).WithApiVersionSet(versionSet).MapToApiVersion(1.0);
+
+    endpoints.MapGet("/v2/{id}", async (ICocktailService service, int id, IMapper mapper,ILoggerFactory loggerFactory) =>
+    {
+        var mapped = mapper.Map<DrinkDTO>(await service.GetDrinkByIdAsync(id), opts =>
+        {
+            opts.Items["GlassType"] = service.GetGlassByIdAsync(id);
+            opts.Items["IngredientList"] = service.GetIngredientByIdAsync(id);
+            opts.Items["MeasurementList"] = service.GetMeasurementByIdAsync(id);
+        });
+            var logger = loggerFactory.CreateLogger("DrinkRequestLogger");
+            logger.LogInformation($"{mapped.Name} was requested by version 2", mapped);
+        return Results.Ok(mapped);
+    }).WithApiVersionSet(versionSet).MapToApiVersion(2.0);
+
+    //GetCategory
+    endpoints.MapGet("/category", async (ICocktailService service) =>
+    {
+        return Results.Ok(await service.GetCategoriesAsync());
+    });
+
+    //GetDrinkByCategory
+    endpoints.MapGet("/category/{category}", async (ICocktailService service, string category) =>
+    {
+        return Results.Ok(await service.GetDrinkByCategoryAsync(category));
+    });
+
+    //add a drink
+    endpoints.MapPost("/", async (IValidator<Drink> validator, ICocktailService service, Drink drink) =>
+    {
+        var validationResult = validator.Validate(drink);
+        if (!validationResult.IsValid)
+        {
+            var errors = validationResult.Errors.Select(x => new { errors = x.ErrorMessage });
+            return Results.BadRequest(errors);
+        }
+        return Results.Created("Drink added to database", await service.AddDrinkAsync(drink)); // normally code 201 CREATED
+    });
+
+    //update a drink (doesnt really update for some reason)
+    endpoints.MapPut("/", async (ICocktailService service, Drink drink) =>
+    {
+        return Results.Ok(await service.UpdateDrinkAsync(drink));
+    });
+
+    //delete a drink
+    endpoints.MapDelete("/{id}", async (ICocktailService service, int id) =>
+    {
+        await service.DeleteDrinkAsync(id);
+        return Results.Ok("Drink deleted.");
+    });
+});
 });
 
-//update a drink (doesnt really update for some reason)
-app.MapPut("/drinks", async (ICocktailService service, Drink drink) =>
+// Glass Endpoints
+app.Map("/glasses", glass =>
 {
-    return Results.Ok(await service.UpdateDrinkAsync(drink));
-});
+    glass.UseRouting();
 
-//delete a drink
-app.MapDelete("/drinks/{id}", async (ICocktailService service, int id) =>
+    glass.UseEndpoints(endpoints =>
 {
-    await service.DeleteDrinkAsync(id);
-    return Results.Ok("Drink deleted.");
+    endpoints.MapGet("/", async (ICocktailService service) =>
+    {
+        return Results.Ok(await service.GetAllGlassesAsync());
+    });
+
+    endpoints.MapGet("/{id}", async (ICocktailService service, int id) =>
+    {
+        return Results.Ok(await service.GetGlassByIdAsync(id));
+    });
+
+    endpoints.MapPost("/", async (ICocktailService service, Glass glass) =>
+    {
+        return Results.Created("Glass added to database", await service.AddGlassAsync(glass));
+    });
+
+    endpoints.MapDelete("/{id}", async (ICocktailService service, int id) =>
+    {
+        await service.DeleteGlassAsync(id);
+        return Results.Ok("Glass deleted.");
+    });
+});
 });
 
-//GetCategory
-app.MapGet("/drinks/category", async (ICocktailService service) =>
-{
-    return Results.Ok(await service.GetCategoriesAsync());
-});
-
-//GetDrinkByCategory
-app.MapGet("/drinks/category/{category}", async (ICocktailService service, string category) =>
-{
-    return Results.Ok(await service.GetDrinkByCategoryAsync(category));
-});
-
-//GetAllGlassesAsync
-app.MapGet("/glasses", async (ICocktailService service) =>
-{
-    return Results.Ok(await service.GetAllGlassesAsync());
-});
-
-//GetDrinkByGlass NOT OK
+//GetDrinkByGlass
 app.MapGet("/drinks/glasses/{glass}", async (ICocktailService service, string glass) =>
 {
     return Results.Ok(await service.GetDrinkByGlassAsync(glass));
@@ -147,52 +247,34 @@ app.MapGet("/alcoholicDrinks/{alcoholic}", async (ICocktailService service, stri
     }
 });
 
-//get glass by id
-app.MapGet("/glasses/{id}", async (ICocktailService service, int id) =>
+// Ingredient Endpoints
+app.Map("/ingredients", ingredients =>
 {
-    var glass = await service.GetGlassByIdAsync(id);
-    return Results.Ok(glass);
-});
+    ingredients.UseRouting();
 
-//add a glass
-app.MapPost("/glasses", async (ICocktailService service, Glass glass) =>
+    ingredients.UseEndpoints(endpoints =>
 {
-    var newGlass = await service.AddGlassAsync(glass);
-    return Results.Created($"/glasses/{newGlass.Id}", newGlass);
+    endpoints.MapGet("/", async (ICocktailService service) =>
+    {
+        return Results.Ok(await service.GetAllIngredientsAsync());
+    });
+
+    endpoints.MapGet("/{id}", async (ICocktailService service, int id) =>
+    {
+        return Results.Ok(await service.GetIngredientByIdAsync(id));
+    });
 });
-
-//delete a glass
-app.MapDelete("/glasses/{id}", async (ICocktailService service, int id) =>
-{
-    await service.DeleteGlassAsync(id);
-    return Results.Ok("Glass deleted.");
 });
-
-
-//get all ingredients
-app.MapGet("/ingredients", async (ICocktailService service) =>
-{
-    return Results.Ok(await service.GetAllIngredientsAsync());
-});
-
-//get ingredient by id
-app.MapGet("/ingredients/{id}", async (ICocktailService service, int id) =>
-{
-    return Results.Ok(await service.GetIngredientByIdAsync(id));
-});
-
 
 //download of a specific category
 app.MapGet("/download/{category}", async (ICocktailService service, string category) =>
 {
-var fileStreamResult = await service.DownloadDrinksAsync(category);
-var memoryStream = new MemoryStream();
-await fileStreamResult.FileStream.CopyToAsync(memoryStream);
-var fileBytes = memoryStream.ToArray();
-return Results.File(fileBytes, "application/json", $"{category}.csv");
+    var fileStreamResult = await service.DownloadDrinksAsync(category);
+    var memoryStream = new MemoryStream();
+    await fileStreamResult.FileStream.CopyToAsync(memoryStream);
+    var fileBytes = memoryStream.ToArray();
+    return Results.File(fileBytes, "application/json", $"{category}.csv");
 });
-
-
 
 //upload a drink
 app.MapPost("/upload", async (ICocktailService service, IFormFile file, IValidator<Drink> validator) =>

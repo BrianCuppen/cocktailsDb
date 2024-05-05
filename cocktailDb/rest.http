@@ -1,8 +1,9 @@
 GET http://localhost:5000/drinks
 ###
-GET http://localhost:5000/drinks/1
+GET http://localhost:5000/drinks/v1/1
 ###
-GET http://localhost:5000/v2/drinks/1
+GET http://localhost:5000/drinks/v2/1
+api-version: 2.0    
 ###
 POST http://localhost:5000/drinks
 Content-Type: application/json

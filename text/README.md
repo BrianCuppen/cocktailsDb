@@ -15,12 +15,13 @@ This project will include :
     - REST Client files (http.rest) ✔
     - Swagger Documentation
     - FluentValidation ✔
-    - Automapper
-    - Route Groups
+    - Automapper ✔
+    - Route Groups ✔
     - API Keys for security
-    - Versioning
-    - Caching
-    - Background Services
+    - Versioning ✔
+    - Caching ✔
+    - Background Services ✔
+    - Logging ✔
     - Testing
         + Unit 
         + Integration 
@@ -33,16 +34,30 @@ This project will include :
 
 
 ## Initial push
-- Created a new dotnet web application + EF prep 
+    - Created a new dotnet web application + EF prep 
 
 ## 1 -  EF preperation
- - Created project structure (context)
- - added newtonsoft for correct data binding
+    - Created project structure (context)
+    - added newtonsoft for correct data binding
 
 ## 2 - Route Creation
-- Created Repository & Services
-- Created HTTP Endpoints plus testing
-- added fluent validation
-- upload and download endpoint
-- automapper
-- versioning
+    - Created Repository & Services
+    - Created HTTP Endpoints plus testing
+    - added fluent validation
+    - upload and download endpoint
+    - automapper
+    - versioning
+
+## 3 - Efficiency & Documentation
+    -  Swagger Doc x
+    - Route groups
+    - Caching
+    - Background Services
+    - Logging
+## 4 Security & Testing
+    - API Keys
+    - Unit Tests
+    - Integration Tests
+
+## 5 Blazor UI & Extensions
+    - Blazor

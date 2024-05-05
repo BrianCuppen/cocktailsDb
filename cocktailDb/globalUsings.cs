@@ -14,5 +14,12 @@ global using CocktailDb.Services;
 global using CocktailDb.Contexts;
 global using CocktailDb.Validators;
 global using CocktailDb.DTO;
+global using CocktailDb.MailServerSettings;
 global using System;
 global using System.Text;
+global using Microsoft.Extensions.Options;
+global using Asp.Versioning;
+global using Asp.Versioning.Conventions;
+global using Microsoft.Extensions.Caching.Memory;
+global using Serilog;
+
