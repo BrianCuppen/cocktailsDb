@@ -1,4 +1,4 @@
-namespace cocktailDb.Repositories;
+namespace CocktailDb.Repositories;
 
 public interface IGlassRepository
 {

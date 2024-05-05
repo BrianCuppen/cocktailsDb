@@ -1,4 +1,4 @@
-namespace cocktailDb.Models;
+namespace CocktailDb.Models;
 
 public class Measurement
 {
@@ -13,8 +13,6 @@ public class Measurement
     
     public bool IsDeleted { get; set; }
 
-    // Navigation property for the Drink entity
-    public Drink Drink { get; set; }
     private string? _measure1;
     private string? _measure2;
     private string? _measure3;

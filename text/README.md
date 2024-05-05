@@ -12,9 +12,9 @@ This project will include :
     - Dotnet web application ✔
     - EF Database using MySql (with data seeding) ✔
     - Different kind of HTTP endpoints ✔
-    - REST Client files (http.rest)
+    - REST Client files (http.rest) ✔
     - Swagger Documentation
-    - FluentValidation
+    - FluentValidation ✔
     - Automapper
     - Route Groups
     - API Keys for security
@@ -43,3 +43,6 @@ This project will include :
 - Created Repository & Services
 - Created HTTP Endpoints plus testing
 - added fluent validation
+- upload and download endpoint
+- automapper
+- versioning

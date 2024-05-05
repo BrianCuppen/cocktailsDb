@@ -1,5 +1,3 @@
-using cocktailDb.Models;
-
 namespace CocktailDb.Contexts;
 
 public class CocktailContext : DbContext
@@ -11,23 +9,10 @@ public class CocktailContext : DbContext
     public DbSet<Email> Emails { get; set; }
     public DbSet<Category> Categories { get; set; }
 
-    private readonly IConfiguration _config;
-
 
     public CocktailContext(DbContextOptions<CocktailContext> options) : base(options)
     {
     }
-    // public CocktailContext(IConfiguration config)
-    // {
-    //     _config = config;
-    // }
-
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     string connectionString = _config.GetConnectionString("CocktailDbConnection");
-    //     optionsBuilder.UseMySQL(connectionString);
-    // }
-
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Drink>()
@@ -39,18 +24,20 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     modelBuilder.Entity<Ingredient>()
         .HasKey(i => i.Id);
 
-    modelBuilder.Entity<Ingredient>()
-        .HasOne(i => i.Drink)                                // Specify the navigation property
-        .WithOne(d => d.Ingredients)                         // Specify the reverse navigation property
-        .HasForeignKey<Ingredient>(i => i.IdOfDrink);       // Specify the foreign key property
+    modelBuilder.Entity<Drink>()
+        .HasOne(d => d.GlassType)
+        .WithOne()
+        .HasForeignKey<Drink>(d => d.GlassTypeId);
 
-    modelBuilder.Entity<Measurement>()
-        .HasKey(m => m.Id);
+    modelBuilder.Entity<Drink>()
+        .HasOne(d => d.Ingredient)
+        .WithOne()
+        .HasForeignKey<Drink>(d => d.IngredientId);
 
-    modelBuilder.Entity<Measurement>()
-        .HasOne(m => m.Drink)                                // Specify the navigation property
-        .WithOne(d => d.Measurements)                         // Specify the reverse navigation property
-        .HasForeignKey<Measurement>(m => m.IdOfDrink);       // Specify the foreign key property
+    modelBuilder.Entity<Drink>()
+        .HasOne(d => d.Measurement)
+        .WithOne()
+        .HasForeignKey<Drink>(d => d.MeasurementId);
 
     modelBuilder.Entity<Email>()
         .HasKey(e => e.Id);
@@ -60,88 +47,102 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 
     //seeding
-    public void SeedData()
-    {
-        if (!Drinks.Any())
+        public void SeedData()
         {
-            var drinks = new List<Drink>
+            if (!Drinks.Any())
             {
-                new Drink
+                var drinks = new List<Drink>
                 {
-                    DbDrinkId = "11007",
-                    Name = "Margarita",
-                    AlternateName = "Tommy's Margarita",
-                    Category = "Cocktail",
-                    Iba = "Contemporary Classics",
-                    Alcoholic = true,
-                    Instructions = "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.",
-                    ImageUrl = "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
-                    GlassType = new Glass
+                    new Drink
                     {
-                        Name = "Cocktail glass"
+                        DbDrinkId = "11007",
+                        Name = "Margarita",
+                        AlternateName = "Tommy's Margarita",
+                        Category = "Cocktail",
+                        Iba = "Contemporary Classics",
+                        Alcoholic = true,
+                        Instructions = "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.",
+                        ImageUrl = "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
+                        GlassType = new Glass
+                        {
+                            Name = "Cocktail glass"
+                        },
+                        Ingredient = new Ingredient
+                        {
+                            IdOfDrink = 1,
+                            DrinkName = "Margarita",
+                            Ingredient1 = "Tequila",
+                            Ingredient2 = "1 1/2 oz"
+                        },
+                        Measurement = new Measurement
+                        {
+                            IdOfDrink = 1,
+                            DrinkName = "Margarita",
+                            Measure1 = "Triple sec",
+                            Measure2 = "1/2 oz"
+                        }
                     },
-                    Ingredients = new Ingredient
+                    new Drink
                     {
-                        Ingredient1 = "Tequila",
-                        Ingredient2 = "1 1/2 oz"
+                        DbDrinkId = "11000",
+                        Name = "Mojito",
+                        Category = "Cocktail",
+                        Iba = "Contemporary Classics",
+                        Alcoholic = true,
+                        Instructions = "Muddle mint leaves with sugar and lime juice. Add a splash of soda water and fill the glass with cracked ice. Pour the rum and top with soda water. Garnish and serve with straw.",
+                        ImageUrl = "https://www.thecocktaildb.com/images/media/drink/3z6xdi1589574603.jpg",
+                        AlternateName="totaly different name",
+                        GlassType = new Glass
+                        {
+                            Name = "Highball glass"
+                        },
+                        Ingredient = new Ingredient
+                        {
+                            IdOfDrink = 2,
+                            DrinkName = "Mojito",
+                            Ingredient1 = "Light rum",
+                            Ingredient2 = "2-3 oz"
+                        },
+                        Measurement = new Measurement
+                        {
+                            IdOfDrink = 2,
+                            DrinkName = "Mojito",
+                            Measure1 = "Lime",
+                            Measure2 = "Juice of 1"
+                        }
                     },
-                    Measurements = new Measurement
+                    new Drink
                     {
-                        Measure1 = "Triple sec",
-                        Measure2 = "1/2 oz"
+                        DbDrinkId = "11001",
+                        Name = "Old Fashioned",
+                        Category = "Cocktail",
+                        Iba = "Unforgettables",
+                        Alcoholic = true,
+                        Instructions = "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Garnish with orange twist, and a cocktail cherry.",
+                        ImageUrl = "https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg",
+                        AlternateName="totaly different name",
+                        GlassType = new Glass
+                        {
+                            Name = "Old-fashioned glass"
+                        },
+                        Ingredient = new Ingredient
+                        {
+                            IdOfDrink = 3,
+                            DrinkName = "Old Fashioned",
+                            Ingredient1 = "Bourbon",
+                            Ingredient2 = "4.5 cL"
+                        },
+                        Measurement = new Measurement
+                        {
+                            IdOfDrink = 3,
+                            DrinkName = "Old Fashioned",
+                            Measure1 = "Angostura bitters",
+                            Measure2 = "2 dashes"
+                        }
                     }
-                },
-                new Drink
-                {
-                    DbDrinkId = "11000",
-                    Name = "Mojito",
-                    Category = "Cocktail",
-                    Iba = "Contemporary Classics",
-                    Alcoholic = true,
-                    Instructions = "Muddle mint leaves with sugar and lime juice. Add a splash of soda water and fill the glass with cracked ice. Pour the rum and top with soda water. Garnish and serve with straw.",
-                    ImageUrl = "https://www.thecocktaildb.com/images/media/drink/3z6xdi1589574603.jpg",
-                    GlassType = new Glass
-                    {
-                        Name = "Highball glass"
-                    },
-                    Ingredients = new Ingredient
-                    {
-                        Ingredient1 = "Light rum",
-                        Ingredient2 = "2-3 oz"
-                    },
-                    Measurements = new Measurement
-                    {
-                        Measure1 = "Lime",
-                        Measure2 = "Juice of 1"
-                    }
-                },
-                new Drink
-                {
-                    DbDrinkId = "11001",
-                    Name = "Old Fashioned",
-                    Category = "Cocktail",
-                    Iba = "Unforgettables",
-                    Alcoholic = true,
-                    Instructions = "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Garnish with orange twist, and a cocktail cherry.",
-                    ImageUrl = "https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg",
-                    GlassType = new Glass
-                    {
-                        Name = "Old-fashioned glass"
-                    },
-                    Ingredients = new Ingredient
-                    {
-                        Ingredient1 = "Bourbon",
-                        Ingredient2 = "4.5 cL"
-                    },
-                    Measurements = new Measurement
-                    {
-                        Measure1 = "Angostura bitters",
-                        Measure2 = "2 dashes"
-                    }
-                }
-            };
-            Drinks.AddRange(drinks);
-            SaveChanges();
+                };
+                Drinks.AddRange(drinks);
+                SaveChanges();
         }
         if (!Emails.Any())
         {

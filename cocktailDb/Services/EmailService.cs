@@ -22,7 +22,7 @@ public class EmailService : IEmailService
         {
             Text = @"Hello, here is the recipe for your drink: " + drink.Name + "(" + drink.Category +")" + "\n" +
                     "glass type: " + drink.GlassType.Name + "\n" +
-                   "Ingredients: " + drink.Ingredients + "\n" +
+                   "Ingredients: " + drink.Ingredient + "\n" +
                    "Instructions: " + drink.Instructions + "\n" +
                    "url: "+ drink.ImageUrl + "\n" +
                    "Enjoy!"

@@ -1,4 +1,4 @@
-namespace cocktailDb.Models;
+namespace CocktailDb.Models;
 
 public class Category
 {

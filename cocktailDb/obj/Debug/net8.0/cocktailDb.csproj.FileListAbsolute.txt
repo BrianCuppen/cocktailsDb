@@ -66,3 +66,5 @@ C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.
 C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\MailKit.dll
 C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\MimeKit.dll
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

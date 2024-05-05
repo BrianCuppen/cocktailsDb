@@ -1,4 +1,4 @@
-namespace cocktailDb.Models;
+namespace CocktailDb.Models;
 
 public class Drink
 {
@@ -31,20 +31,28 @@ public class Drink
         set => _alcoholic = value ? "Alcoholic" : "Non Alcoholic";
     }
     
-    public Glass GlassType { get; set; }
     
     [JsonProperty("strInstructions")]
     public string? Instructions { get; set; }
     [JsonProperty("strDrinkThumb")]
     public string? ImageUrl { get; set; }
 
-    public Ingredient Ingredients { get; set; }
 
-    public Measurement Measurements { get; set; }
+    public Glass GlassType { get; set; }
+    public Ingredient Ingredient { get; set; }
+    public Measurement Measurement { get; set; }
 
     //IsEdited property default false
     public bool IsEdited { get; set; } = false;
 
     public bool IsDeleted { get; set; } = false; // Set default value
+
+    // Navigation properties
+    [ForeignKey("Glass")]
+    public int GlassTypeId { get; set; }
+    [ForeignKey("Ingredient")]
+    public int IngredientId { get; set; }
+    [ForeignKey("Measurement")]
+    public int MeasurementId { get; set; }
 
 }

@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Diagnostics;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +9,8 @@ builder.Services.AddDbContext<CocktailContext>(options =>
 });
 
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<DrinkValidator>());
+//builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IDrinkRepository, DrinkRepository>();
 builder.Services.AddScoped<IGlassRepository, GlassRepository>();
@@ -58,15 +58,31 @@ app.MapGet("/", () => "Hello Backend!");
 //get all drinks
 app.MapGet("/drinks", async (ICocktailService service) =>
 {
-    return Results.Ok(await service.GetAllDrinksAsync());  
+    return Results.Ok(await service.GetAllDrinksAsync());
 });
 
 
 //get drink by id
 app.MapGet("/drinks/{id}", async (ICocktailService service, int id) =>
 {
-
     return Results.Ok(await service.GetDrinkByIdAsync(id));
+});
+
+// app.MapGet("/v2/drinks/{id}", async (ICocktailService service, int id, IMapper mapper) =>
+// {
+//     var drink = await service.GetDrinkByIdAsync(id);
+//     var drinkDTO = mapper.Map<DrinkDTO>(drink);
+//     return Results.Ok(drinkDTO);
+// });
+app.MapGet("/v2/drinks/{id}", async (ICocktailService service, int id, IMapper mapper) =>
+{
+    var mapped = mapper.Map<DrinkDTO>(await service.GetDrinkByIdAsync(id),opts => 
+    {
+        opts.Items["GlassType"] = service.GetGlassByIdAsync(id);
+        opts.Items["IngredientList"] = service.GetIngredientByIdAsync(id);
+        opts.Items["MeasurementList"] = service.GetMeasurementByIdAsync(id);
+    });
+    return Results.Ok(mapped);
 });
 
 //add a drink
@@ -78,7 +94,7 @@ app.MapPost("/drinks", async (IValidator<Drink> validator, ICocktailService serv
         var errors = validationResult.Errors.Select(x => new { errors = x.ErrorMessage });
         return Results.BadRequest(errors);
     }
-    return Results.Created("Drink added to database",await service.AddDrinkAsync(drink)); // normally code 201 CREATED
+    return Results.Created("Drink added to database", await service.AddDrinkAsync(drink)); // normally code 201 CREATED
 });
 
 //update a drink (doesnt really update for some reason)
@@ -113,7 +129,7 @@ app.MapGet("/glasses", async (ICocktailService service) =>
 });
 
 //GetDrinkByGlass NOT OK
-app.MapGet("/drinks/glass/{glass}", async (ICocktailService service, string glass) =>
+app.MapGet("/drinks/glasses/{glass}", async (ICocktailService service, string glass) =>
 {
     return Results.Ok(await service.GetDrinkByGlassAsync(glass));
 });
@@ -132,17 +148,17 @@ app.MapGet("/alcoholicDrinks/{alcoholic}", async (ICocktailService service, stri
 });
 
 //get glass by id
-app.MapGet("/glasses/{id}", (ICocktailService service, int id) =>
+app.MapGet("/glasses/{id}", async (ICocktailService service, int id) =>
 {
-    var glass = service.GetGlassByIdAsync(id);
-    return glass;
+    var glass = await service.GetGlassByIdAsync(id);
+    return Results.Ok(glass);
 });
 
 //add a glass
-app.MapPost("/glasses", (ICocktailService service, Glass glass) =>
+app.MapPost("/glasses", async (ICocktailService service, Glass glass) =>
 {
-    var newGlass = service.AddGlassAsync(glass);
-    return newGlass;
+    var newGlass = await service.AddGlassAsync(glass);
+    return Results.Created($"/glasses/{newGlass.Id}", newGlass);
 });
 
 //delete a glass
@@ -164,6 +180,26 @@ app.MapGet("/ingredients/{id}", async (ICocktailService service, int id) =>
 {
     return Results.Ok(await service.GetIngredientByIdAsync(id));
 });
+
+
+//download of a specific category
+app.MapGet("/download/{category}", async (ICocktailService service, string category) =>
+{
+var fileStreamResult = await service.DownloadDrinksAsync(category);
+var memoryStream = new MemoryStream();
+await fileStreamResult.FileStream.CopyToAsync(memoryStream);
+var fileBytes = memoryStream.ToArray();
+return Results.File(fileBytes, "application/json", $"{category}.csv");
+});
+
+
+
+//upload a drink
+app.MapPost("/upload", async (ICocktailService service, IFormFile file, IValidator<Drink> validator) =>
+{
+    var drinks = await service.UploadDrinkAsync(file, validator);
+    return Results.Created("Drinks added to database", drinks);
+}).DisableAntiforgery();
 
 
 app.Run("http://localhost:5000");

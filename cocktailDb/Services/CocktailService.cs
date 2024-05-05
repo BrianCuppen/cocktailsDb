@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace CocktailDb.Services;
 
 public interface ICocktailService
@@ -9,7 +11,7 @@ public interface ICocktailService
     Task<Drink> UpdateDrinkAsync(Drink drink);
     Task DeleteDrinkAsync(int id);
     Task<IEnumerable<Category>> GetCategoriesAsync();
-    Task<IEnumerable<Drink>> GetDrinkByCategoryAsync(string category);
+    Task<List<Drink>> GetDrinkByCategoryAsync(string category);
     Task<IEnumerable<Glass>> GetAllGlassesAsync();
     Task<IEnumerable<Drink>> GetDrinkByGlassAsync(string glass);
     Task<Glass> GetGlassByIdAsync(int id);
@@ -18,6 +20,10 @@ public interface ICocktailService
     Task<IEnumerable<Ingredient>> GetAllIngredientsAsync();
     Task<Ingredient> GetIngredientByIdAsync(int id);
     Task<IEnumerable<Drink>> GetDrinksByAlcoholicAsync(bool alcoholic);
+    Task<FileStreamResult> DownloadDrinksAsync(string category);
+    Task<IResult> UploadDrinkAsync(IFormFile file, IValidator<Drink> validator);
+    Task<IEnumerable<Measurement>> GetAllMeasurementsAsync();
+    Task<Measurement> GetMeasurementByIdAsync(int id);
 }
 public class CocktailService : ICocktailService
 {
@@ -41,6 +47,10 @@ public class CocktailService : ICocktailService
     public async Task<Drink> GetDrinkByIdAsync(int id)
     {
         var result = await _drinkRepository.GetDrinkByIdAsync(id) ?? throw new Exception("Drink not found");
+        //get the glass, ingredient and measurement from this drink and add it to the result
+        result.GlassType = await _glassRepository.GetGlassByIdAsync(result.GlassTypeId);
+        result.Ingredient = await _ingredientRepository.GetIngredientByIdAsync(result.IngredientId);
+        result.Measurement = await _measurementRepository.GetMeasurementByIdAsync(result.MeasurementId);
         return result;
     }
 
@@ -60,23 +70,23 @@ public class CocktailService : ICocktailService
         {
             throw new Exception("Drink already exists");
         }
-
-        //check glasstype
-        Glass existingGlassType = await _glassRepository.GetGlassByNameAsync(drink.GlassType.Name);
-
         // If the glass type doesn't exist, add it to the database
-        if (existingGlassType == null)
+        if (await _glassRepository.GetGlassByNameAsync(drink.GlassType.Name) == null)
         {
-            // Set IsEdited to true
-            drink.IsEdited = true;
-
-            // Add the new glass type to the database
             drink.GlassType = await _glassRepository.AddGlassAsync(drink.GlassType);
         }
         else
         {
             // Set the drink's GlassType property to the existing glass type
-            drink.GlassType = existingGlassType;
+            drink.GlassType = await _glassRepository.GetGlassByNameAsync(drink.GlassType.Name);
+            //set Ingredient.DrinkName
+            drink.Ingredient.DrinkName = drink.Name;
+            drink.Measurement.DrinkName = drink.Name;
+        }
+        // If the category doesn't exist, add it to the database
+        if (await _drinkRepository.GetCategoryByNameAsync(drink.Category.ToLower()) == null)
+        {
+            await _drinkRepository.AddCategoryAsync(drink.Category);
         }
         return await _drinkRepository.AddDrinkAsync(drink);
     }
@@ -100,9 +110,9 @@ public class CocktailService : ICocktailService
     public async Task<IEnumerable<Category>> GetCategoriesAsync() => await _drinkRepository.GetCategoriesAsync();
 
     //GetDrinkByCategory
-    public async Task<IEnumerable<Drink>> GetDrinkByCategoryAsync(string category)
+    public async Task<List<Drink>> GetDrinkByCategoryAsync(string category)
     {
-        var result =  await _drinkRepository.GetDrinkByCategoryAsync(category) ?? throw new Exception("No drinks found, wrong category");
+        List<Drink> result = await _drinkRepository.GetDrinkByCategoryAsync(category) ?? throw new Exception("No drinks found, wrong category");
         return result;
     }
 
@@ -113,6 +123,13 @@ public class CocktailService : ICocktailService
     public async Task<IEnumerable<Drink>> GetDrinkByGlassAsync(string glass)
     {
         var result = await _drinkRepository.GetDrinkByGlassAsync(glass) ?? throw new Exception("No drinks found, wrong glass");
+        //get the glass, ingredient and measurement from this drink and add it to the result
+        foreach (var drink in result)
+        {
+            drink.GlassType = await _glassRepository.GetGlassByIdAsync(drink.GlassTypeId);
+            drink.Ingredient = await _ingredientRepository.GetIngredientByIdAsync(drink.IngredientId);
+            drink.Measurement = await _measurementRepository.GetMeasurementByIdAsync(drink.MeasurementId);
+        }
         return result;
     }
 
@@ -155,5 +172,162 @@ public class CocktailService : ICocktailService
     public async Task<IEnumerable<Drink>> GetDrinksByAlcoholicAsync(bool alcoholic)
     {
         return await _drinkRepository.GetDrinkByAlcoholicAsync(alcoholic);
+    }
+
+    //download drinks
+public async Task<FileStreamResult> DownloadDrinksAsync(string category)
+{
+    // Retrieve all Drinks from that category
+    var drinks = await GetDrinkByCategoryAsync(category);
+
+    // Create a StringBuilder to construct the CSV content
+    var csvContent = new StringBuilder();
+
+    // Append header row
+    csvContent.AppendLine($"Name,AlternateName,Category,IBA,Alcoholic,GlassType");
+
+    // Append data rows
+    foreach (var drink in drinks)
+    {
+        // Construct the CSV row with the desired information
+        var alcoholic = drink.Alcoholic ? "Alcoholic" : "Non-Alcoholic";
+        var csvRow = $"{drink.Name},{drink.AlternateName ?? "N/A"},{drink.Category ?? "N/A"},{drink.Iba ?? "N/A"},{alcoholic},{drink.GlassType?.Name ?? "N/A"}";
+
+        csvContent.AppendLine(csvRow);
+    }
+
+    // Convert the CSV content to bytes
+    byte[] csvBytes = Encoding.UTF8.GetBytes(csvContent.ToString());
+
+    // Create a MemoryStream from the CSV bytes
+    var memoryStream = new MemoryStream(csvBytes);
+
+    // Return the FileStreamResult
+    return new FileStreamResult(memoryStream, "text/csv")
+    {
+        FileDownloadName = "drinks.csv"
+    };
+}
+
+    //upload a drink
+    public async Task<IResult> UploadDrinkAsync(IFormFile file, IValidator<Drink> validator)
+    {
+        try
+        {
+            if (file == null || file.Length == 0)
+            {
+                return Results.BadRequest("File not selected or empty.");
+            }
+
+            // Save the uploaded file to a local folder
+            string uploadFolder = "./uploads";
+            string filePath = Path.Combine(uploadFolder, file.FileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            // Read the content of the uploaded file
+            using var reader = new StreamReader(file.OpenReadStream());
+            var content = await reader.ReadToEndAsync();
+
+            // Parse the content of the file to extract drink objects
+            var drinkObjects = ParseDrinkObjects(content);
+
+            // Convert each drink object into a Drink object and store it in the database
+            foreach (var drinkObject in drinkObjects)
+            {
+                // Convert drinkObject to Drink model
+                var drink = ConvertToDrink(drinkObject);
+
+                // Validate the Drink model
+                var validationResult = validator.Validate(drink);
+                if (!validationResult.IsValid)
+                {
+                    var errors = validationResult.Errors.Select(x => new { errors = x.ErrorMessage });
+                    //don't add it 
+                    return Results.BadRequest(errors);
+                }
+
+                // Add the Drink to the database
+                await AddDrinkAsync(drink);
+            }
+
+            return Results.Ok($"Uploaded {drinkObjects.Count} drinks successfully. File saved at: {filePath}");
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem($"Internal server error: {ex.Message}", statusCode: StatusCodes.Status500InternalServerError);
+        }
+    }
+
+    List<Drink> ParseDrinkObjects(string content)
+    {
+        var drinkObjects = new List<Drink>();
+
+        // Split the content into lines
+        var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+        // Skip the first line (header row) if present
+        var dataLines = lines.Skip(1);
+
+        // Iterate over each line
+        foreach (var line in dataLines)
+        {
+            // Parse the line to extract drink properties
+            var properties = line.Split(',');
+
+            // Create a new DrinkObject instance and populate its properties
+            var drinkObject = new Drink
+            {
+                DbDrinkId = properties[0].Trim('"'),
+                Name = properties[1].Trim('"'),
+                AlternateName = properties[2].Trim('"'),
+                Category = properties[3].Trim('"'),
+                Iba = properties[4].Trim('"'),
+                Alcoholic = bool.Parse(properties[5].Trim('"')), // Remove surrounding quotes before parsing
+                ImageUrl = properties[6].Trim('"'),
+                //Ingredients = properties[7], // Assuming ingredients are provided as a string in the CSV
+                //Measurements = properties[8], // Assuming measurements are provided as a string in the CSV
+                IsEdited = bool.Parse(properties[9].Trim('"')), // Remove surrounding quotes before parsing
+                GlassType = new Glass { Name = properties[10].Trim('"') }
+            };
+
+            // Add the parsed drink object to the list
+            drinkObjects.Add(drinkObject);
+        }
+
+        return drinkObjects;
+    }
+
+    Drink ConvertToDrink(Drink drinkObject)
+    {
+        // Convert DrinkObject to Drink model
+        var drink = new Drink
+        {
+            Name = drinkObject.Name,
+            AlternateName = drinkObject.AlternateName,
+            Category = drinkObject.Category,
+            Iba = drinkObject.Iba,
+            Alcoholic = drinkObject.Alcoholic,
+            ImageUrl = drinkObject.ImageUrl,
+            Ingredient = drinkObject.Ingredient,
+            Measurement = drinkObject.Measurement,
+            IsEdited = drinkObject.IsEdited,
+            GlassType = drinkObject.GlassType
+        };
+
+        return drink;
+    }
+
+    //GetAllMeasurementsAsync
+    public async Task<IEnumerable<Measurement>> GetAllMeasurementsAsync() => await _measurementRepository.GetAllMeasurementsAsync();
+
+    //GetMeasurementByIdAsync
+    public async Task<Measurement> GetMeasurementByIdAsync(int id)
+    {
+        var result = await _measurementRepository.GetMeasurementByIdAsync(id) ?? throw new Exception("Measurement not found");
+        return result;
     }
 }

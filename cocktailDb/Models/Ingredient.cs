@@ -1,5 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
-namespace cocktailDb.Models;
+namespace CocktailDb.Models;
 public class Ingredient
 {
     [Key]
@@ -10,9 +9,6 @@ public class Ingredient
 
     [JsonProperty("strDrink")]
     public string DrinkName { get; set; }
-
-    // Navigation property for the Drink entity
-    public Drink Drink { get; set; }
 
     private string? _ingredient1;
     private string? _ingredient2;

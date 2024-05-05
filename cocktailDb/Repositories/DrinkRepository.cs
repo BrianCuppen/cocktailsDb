@@ -1,4 +1,4 @@
-namespace cocktailDb.Repositories;
+namespace CocktailDb.Repositories;
 
 public interface IDrinkRepository
 {
@@ -11,7 +11,9 @@ public interface IDrinkRepository
     Task<Drink> UpdateDrinkAsync(Drink drink);
     Task DeleteDrinkAsync(int id);
     Task<IEnumerable<Category>> GetCategoriesAsync();
-    Task<IEnumerable<Drink>> GetDrinkByCategoryAsync(string category);
+    Task<Category> GetCategoryByNameAsync(string name);
+    Task<Category> AddCategoryAsync(string category);
+    Task<List<Drink>> GetDrinkByCategoryAsync(string category);
     Task<IEnumerable<Drink>> GetDrinkByGlassAsync(string glass);
     Task<IEnumerable<Drink>> GetDrinkByAlcoholicAsync(bool alcoholic);
 }
@@ -113,8 +115,24 @@ public class DrinkRepository : IDrinkRepository
         return await _context.Categories.ToListAsync();
     }
 
+    //GetCategoryByName
+    public async Task<Category> GetCategoryByNameAsync(string name)
+    {
+        return await _context.Categories.FirstOrDefaultAsync(c => c.Name.ToLower() == name);
+    }
+
+    //AddCategory
+    public async Task<Category> AddCategoryAsync(string category)
+    {
+        var newCategory = new Category { Name = category };
+        _context.Categories.Add(newCategory);
+        await _context.SaveChangesAsync();
+        return newCategory;
+    }
+
+
     //GetDrinkByCategory
-    public async Task<IEnumerable<Drink>> GetDrinkByCategoryAsync(string category)
+    public async Task<List<Drink>> GetDrinkByCategoryAsync(string category)
     {
         return await _context.Drinks.Where(d => d.Category == category && !d.IsDeleted).ToListAsync();
     }

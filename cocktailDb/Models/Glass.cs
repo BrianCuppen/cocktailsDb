@@ -1,4 +1,5 @@
-namespace cocktailDb.Models;
+
+namespace CocktailDb.Models;
 
 public class GlassResponse
 {
@@ -12,10 +13,8 @@ public class Glass
     
     [JsonProperty("strGlass")]
     public string? Name { get; set; }
-    [Key]
 
     public bool IsDeleted { get; set; } = false; // Set default value
-    
 }
 
     public class GlassList
