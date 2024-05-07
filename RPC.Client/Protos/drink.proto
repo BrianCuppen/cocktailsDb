@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package CocktailDb.RPC.Models; 
+
+// Represents a CocktailDb with an optional ID and name.
+message Drink {
+  int32 drink_id = 1; // Brand unique identifier
+  string name = 2;     // Brand name.
+}

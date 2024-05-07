@@ -13,23 +13,23 @@ This project will include :
     - EF Database using MySql (with data seeding) ✔
     - Different kind of HTTP endpoints ✔
     - REST Client files (http.rest) ✔
-    - Swagger Documentation
+    - Swagger Documentation x
     - FluentValidation ✔
     - Automapper ✔
     - Route Groups ✔
-    - API Keys for security
+    - API Keys for security ✔
     - Versioning ✔
     - Caching ✔
     - Background Services ✔
     - Logging ✔
     - Testing
-        + Unit 
-        + Integration 
-        + K6
-    - Blazor UI
+        + Unit  X
+        + Integration  ✔
+        + K6 ✔
+    - Blazor UI ✔
     - Extensions
-        + GraphQl
-        + Extra fancy stuff
+        + GraphQl x
+        + Extra fancy stuff x
     
 
 

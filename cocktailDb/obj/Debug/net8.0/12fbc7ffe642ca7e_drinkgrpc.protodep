@@ -1,0 +1,3 @@
+obj\Debug\net8.0/Drinkgrpc.cs \
+obj\Debug\net8.0/DrinkgrpcGrpc.cs: Protos/drink.proto\
+ Protos/drinkgrpc.proto

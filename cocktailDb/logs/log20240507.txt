@@ -29675,3 +29675,1579 @@ WHERE NOT (`d`.`IsDeleted`)
 2024-05-07 13:38:20.564 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
 2024-05-07 13:38:20.565 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
 2024-05-07 13:38:20.568 +02:00 [DBG] Hosting stopped
+2024-05-07 14:10:44.677 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:10:45.090 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:10:45.295 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:10:45.299 +02:00 [DBG] Created DbConnection. (2ms).
+2024-05-07 14:10:45.303 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:10:45.307 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (3ms).
+2024-05-07 14:10:45.308 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (6ms).
+2024-05-07 14:10:45.311 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.333 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.339 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:10:45.349 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:10:45.353 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.358 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (2ms).
+2024-05-07 14:10:45.375 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:10:45.475 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:10:45.488 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.492 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.493 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:10:45.494 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:10:45.495 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:10:45.497 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:10:45.500 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:10:45.504 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.506 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 3ms reading results.
+2024-05-07 14:10:45.508 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.509 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:10:45.511 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:10:45.514 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:10:45.516 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.519 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.520 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:10:45.520 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:10:45.521 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:10:45.522 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:10:45.525 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:10:45.527 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.528 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 14:10:45.530 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.531 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:10:45.533 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:10:45.537 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.539 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (2ms).
+2024-05-07 14:10:45.552 +02:00 [DBG] Hosting starting
+2024-05-07 14:10:45.570 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:10:45.576 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:10:45.613 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:10:45.622 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:10:45.623 +02:00 [DBG] Created DbConnection. (1ms).
+2024-05-07 14:10:45.625 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.634 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.636 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:10:45.637 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:10:45.638 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:10:45.639 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:10:45.647 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:10:45.665 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:10:45.666 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:10:45.667 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:10:45.668 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:10:45.669 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:10:45.669 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:10:45.670 +02:00 [DBG] Hosting started
+2024-05-07 14:10:45.696 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:10:45.699 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:10:45.700 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:10:45.703 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.705 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 55ms reading results.
+2024-05-07 14:10:45.707 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:10:45.709 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:10:45.711 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:11:07.987 +02:00 [DBG] Connection id "0HN3EHR3D53NE" accepted.
+2024-05-07 14:11:07.989 +02:00 [DBG] Connection id "0HN3EHR3D53NE" started.
+2024-05-07 14:11:07.989 +02:00 [DBG] Connection id "0HN3EHR3D53NF" accepted.
+2024-05-07 14:11:07.990 +02:00 [DBG] Connection id "0HN3EHR3D53NF" started.
+2024-05-07 14:11:08.013 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:11:08.017 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:11:08.058 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:11:08.059 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:11:08.119 +02:00 [DBG] Connection id "0HN3EHR3D53NE" completed keep alive response.
+2024-05-07 14:11:08.121 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 109.4668ms
+2024-05-07 14:11:08.211 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:11:08.213 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:11:08.214 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:11:08.219 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-07 14:11:08.335 +02:00 [DBG] Connection id "0HN3EHR3D53NE" completed keep alive response.
+2024-05-07 14:11:08.337 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 125.9716ms
+2024-05-07 14:11:13.856 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2024-05-07 14:11:13.862 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:11:13.863 +02:00 [DBG] Request matched endpoint 'HTTP: GET /'
+2024-05-07 14:11:13.866 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:11:13.873 +02:00 [INF] Unauthorized access attempt at 7-5-2024 14:11:13 with Key 
+2024-05-07 14:11:13.874 +02:00 [DBG] Connection id "0HN3EHR3D53NE" completed keep alive response.
+2024-05-07 14:11:13.876 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 401 null null 19.1014ms
+2024-05-07 14:11:15.120 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2024-05-07 14:11:15.122 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:11:15.123 +02:00 [DBG] Request matched endpoint 'HTTP: GET /'
+2024-05-07 14:11:15.124 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:11:15.125 +02:00 [INF] Unauthorized access attempt at 7-5-2024 14:11:15 with Key 
+2024-05-07 14:11:15.125 +02:00 [DBG] Connection id "0HN3EHR3D53NE" completed keep alive response.
+2024-05-07 14:11:15.126 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 401 null null 6.7919ms
+2024-05-07 14:12:18.367 +02:00 [INF] Application is shutting down...
+2024-05-07 14:12:18.368 +02:00 [DBG] Hosting stopping
+2024-05-07 14:12:18.373 +02:00 [DBG] Connection id "0HN3EHR3D53NE" disconnecting.
+2024-05-07 14:12:18.373 +02:00 [DBG] Connection id "0HN3EHR3D53NF" disconnecting.
+2024-05-07 14:12:18.374 +02:00 [DBG] Connection id "0HN3EHR3D53NE" stopped.
+2024-05-07 14:12:18.374 +02:00 [DBG] Connection id "0HN3EHR3D53NF" stopped.
+2024-05-07 14:12:18.375 +02:00 [DBG] Connection id "0HN3EHR3D53NE" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:12:18.376 +02:00 [DBG] Connection id "0HN3EHR3D53NF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:12:18.380 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:12:18.381 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:12:18.382 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:12:18.384 +02:00 [DBG] Hosting stopped
+2024-05-07 14:14:41.419 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:15:11.659 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:15:12.101 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:15:12.322 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:15:12.326 +02:00 [DBG] Created DbConnection. (3ms).
+2024-05-07 14:15:12.331 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:15:12.335 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (3ms).
+2024-05-07 14:15:12.338 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (8ms).
+2024-05-07 14:15:12.342 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.367 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.372 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:15:12.383 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:15:12.387 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.391 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:15:12.408 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:15:12.512 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:15:12.526 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.529 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.530 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:15:12.531 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:15:12.532 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2024-05-07 14:15:12.534 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:15:12.537 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:15:12.540 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.542 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 3ms reading results.
+2024-05-07 14:15:12.544 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.545 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:15:12.547 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:15:12.551 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:15:12.554 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.555 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.557 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:15:12.558 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:15:12.558 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:15:12.559 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:15:12.562 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:15:12.564 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.565 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 14:15:12.566 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.567 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:15:12.569 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:15:12.571 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.573 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:15:12.593 +02:00 [DBG] Hosting starting
+2024-05-07 14:15:12.616 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:15:12.624 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:15:12.668 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:15:12.678 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:15:12.679 +02:00 [DBG] Created DbConnection. (1ms).
+2024-05-07 14:15:12.682 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.687 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.689 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:15:12.690 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:15:12.691 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:15:12.693 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:15:12.704 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:15:12.727 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:15:12.738 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:15:12.739 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:15:12.740 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:15:12.741 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:15:12.742 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:15:12.743 +02:00 [DBG] Hosting started
+2024-05-07 14:15:12.752 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:15:12.753 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:15:12.755 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:15:12.758 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.759 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 53ms reading results.
+2024-05-07 14:15:12.762 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:15:12.763 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:15:12.765 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:15:16.857 +02:00 [DBG] Connection id "0HN3EHTDII9GS" accepted.
+2024-05-07 14:15:16.858 +02:00 [DBG] Connection id "0HN3EHTDII9GS" started.
+2024-05-07 14:15:16.858 +02:00 [DBG] Connection id "0HN3EHTDII9GT" accepted.
+2024-05-07 14:15:16.860 +02:00 [DBG] Connection id "0HN3EHTDII9GT" started.
+2024-05-07 14:15:16.881 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:15:16.885 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:15:16.920 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:15:16.922 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:15:16.981 +02:00 [DBG] Connection id "0HN3EHTDII9GS" completed keep alive response.
+2024-05-07 14:15:16.984 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 104.2333ms
+2024-05-07 14:15:17.112 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:15:17.116 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:15:17.117 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:15:17.121 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-07 14:15:17.234 +02:00 [DBG] Connection id "0HN3EHTDII9GS" completed keep alive response.
+2024-05-07 14:15:17.235 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 123.1908ms
+2024-05-07 14:16:04.743 +02:00 [INF] Application is shutting down...
+2024-05-07 14:16:04.743 +02:00 [DBG] Hosting stopping
+2024-05-07 14:16:04.748 +02:00 [DBG] Connection id "0HN3EHTDII9GT" disconnecting.
+2024-05-07 14:16:04.748 +02:00 [DBG] Connection id "0HN3EHTDII9GS" disconnecting.
+2024-05-07 14:16:04.750 +02:00 [DBG] Connection id "0HN3EHTDII9GT" stopped.
+2024-05-07 14:16:04.750 +02:00 [DBG] Connection id "0HN3EHTDII9GS" stopped.
+2024-05-07 14:16:04.751 +02:00 [DBG] Connection id "0HN3EHTDII9GT" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:16:04.752 +02:00 [DBG] Connection id "0HN3EHTDII9GS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:16:04.756 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:16:04.758 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:04.759 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:16:04.762 +02:00 [DBG] Hosting stopped
+2024-05-07 14:16:13.013 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:16:13.476 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:16:13.703 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:16:13.707 +02:00 [DBG] Created DbConnection. (2ms).
+2024-05-07 14:16:13.712 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:16:13.717 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (3ms).
+2024-05-07 14:16:13.719 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (9ms).
+2024-05-07 14:16:13.724 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.747 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.753 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:16:13.766 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:16:13.769 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.772 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:16:13.791 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:16:13.900 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:16:13.912 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.916 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.917 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:16:13.918 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:16:13.918 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:16:13.920 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:16:13.923 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:16:13.929 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.932 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 4ms reading results.
+2024-05-07 14:16:13.934 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.935 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:16:13.937 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:16:13.940 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:16:13.943 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.944 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.945 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:16:13.946 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:16:13.948 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2024-05-07 14:16:13.949 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:16:13.951 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:16:13.954 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.955 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 14:16:13.956 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.957 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:16:13.960 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:16:13.963 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:13.965 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (2ms).
+2024-05-07 14:16:13.982 +02:00 [DBG] Hosting starting
+2024-05-07 14:16:14.000 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:16:14.007 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:16:14.047 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:16:14.057 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:16:14.059 +02:00 [DBG] Created DbConnection. (1ms).
+2024-05-07 14:16:14.062 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:14.073 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:14.075 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:16:14.076 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:16:14.077 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2024-05-07 14:16:14.078 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:16:14.087 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:16:14.107 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:16:14.108 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:16:14.109 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:16:14.110 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:16:14.110 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:16:14.111 +02:00 [DBG] Hosting started
+2024-05-07 14:16:14.112 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:16:14.139 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:16:14.141 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:16:14.142 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:16:14.145 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:14.146 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 57ms reading results.
+2024-05-07 14:16:14.149 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:16:14.151 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:16:14.153 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:16:16.610 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" accepted.
+2024-05-07 14:16:16.612 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" started.
+2024-05-07 14:16:16.612 +02:00 [DBG] Connection id "0HN3EHTVCDLCP" accepted.
+2024-05-07 14:16:16.614 +02:00 [DBG] Connection id "0HN3EHTVCDLCP" started.
+2024-05-07 14:16:16.638 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:16:16.642 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:16:16.679 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:16:16.681 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:16:16.741 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" completed keep alive response.
+2024-05-07 14:16:16.743 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 106.2969ms
+2024-05-07 14:16:16.943 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:16:16.946 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:16:16.947 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:16:16.951 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-07 14:16:17.067 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" completed keep alive response.
+2024-05-07 14:16:17.068 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 125.091ms
+2024-05-07 14:16:31.735 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2024-05-07 14:16:31.739 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:16:31.741 +02:00 [DBG] Request matched endpoint 'HTTP: GET /'
+2024-05-07 14:16:31.743 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:16:31.746 +02:00 [INF] Executing endpoint 'HTTP: GET /'
+2024-05-07 14:16:31.748 +02:00 [INF] Executed endpoint 'HTTP: GET /'
+2024-05-07 14:16:31.749 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" completed keep alive response.
+2024-05-07 14:16:31.750 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/plain; charset=utf-8 15.689ms
+2024-05-07 14:17:25.090 +02:00 [DBG] Connection id "0HN3EHTVCDLCP" received FIN.
+2024-05-07 14:17:25.090 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/json 872
+2024-05-07 14:17:25.091 +02:00 [DBG] Connection id "0HN3EHTVCDLCP" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:17:25.092 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:17:25.093 +02:00 [DBG] Connection id "0HN3EHTVCDLCP" disconnecting.
+2024-05-07 14:17:25.094 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:17:25.096 +02:00 [DBG] Connection id "0HN3EHTVCDLCP" stopped.
+2024-05-07 14:17:25.096 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:17:25.097 +02:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:17:25.098 +02:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:17:25.099 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" completed keep alive response.
+2024-05-07 14:17:25.100 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 405 0 null 9.7464ms
+2024-05-07 14:17:25.103 +02:00 [DBG] Connection id "0HN3EHTVCDLCO", Request id "0HN3EHTVCDLCO:00000004": started reading request body.
+2024-05-07 14:17:25.104 +02:00 [DBG] Connection id "0HN3EHTVCDLCO", Request id "0HN3EHTVCDLCO:00000004": done reading request body.
+2024-05-07 14:19:35.150 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" disconnecting.
+2024-05-07 14:19:35.151 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" stopped.
+2024-05-07 14:19:35.152 +02:00 [DBG] Connection id "0HN3EHTVCDLCO" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:19:59.026 +02:00 [DBG] Connection id "0HN3EHTVCDLCQ" accepted.
+2024-05-07 14:19:59.027 +02:00 [DBG] Connection id "0HN3EHTVCDLCQ" received FIN.
+2024-05-07 14:19:59.027 +02:00 [DBG] Connection id "0HN3EHTVCDLCQ" started.
+2024-05-07 14:19:59.027 +02:00 [DBG] Connection id "0HN3EHTVCDLCR" accepted.
+2024-05-07 14:19:59.029 +02:00 [DBG] Connection id "0HN3EHTVCDLCQ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:19:59.030 +02:00 [DBG] Connection id "0HN3EHTVCDLCR" started.
+2024-05-07 14:19:59.031 +02:00 [DBG] Connection id "0HN3EHTVCDLCQ" disconnecting.
+2024-05-07 14:19:59.032 +02:00 [DBG] Connection id "0HN3EHTVCDLCQ" stopped.
+2024-05-07 14:19:59.032 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/upload - multipart/form-data; boundary=--------------------------111495935773147673924300 519
+2024-05-07 14:19:59.034 +02:00 [DBG] 1 candidate(s) found for the request path '/upload'
+2024-05-07 14:19:59.035 +02:00 [DBG] Request matched endpoint 'HTTP: POST /upload'
+2024-05-07 14:19:59.036 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:19:59.037 +02:00 [INF] Executing endpoint 'HTTP: POST /upload'
+2024-05-07 14:19:59.042 +02:00 [DBG] Connection id "0HN3EHTVCDLCR", Request id "0HN3EHTVCDLCR:00000001": started reading request body.
+2024-05-07 14:19:59.044 +02:00 [DBG] Connection id "0HN3EHTVCDLCR", Request id "0HN3EHTVCDLCR:00000001": done reading request body.
+2024-05-07 14:19:59.070 +02:00 [INF] Setting HTTP status code 400.
+2024-05-07 14:19:59.072 +02:00 [INF] Writing value of type 'String' as Json.
+2024-05-07 14:19:59.074 +02:00 [INF] Executed endpoint 'HTTP: POST /upload'
+2024-05-07 14:19:59.075 +02:00 [DBG] Connection id "0HN3EHTVCDLCR" completed keep alive response.
+2024-05-07 14:19:59.077 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/upload - 400 null application/json; charset=utf-8 45.2456ms
+2024-05-07 14:20:10.765 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/upload - application/json 1774
+2024-05-07 14:20:10.768 +02:00 [DBG] 1 candidate(s) found for the request path '/upload'
+2024-05-07 14:20:10.769 +02:00 [DBG] Request matched endpoint '415 HTTP Unsupported Media Type'
+2024-05-07 14:20:10.770 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:20:10.771 +02:00 [INF] Executing endpoint '415 HTTP Unsupported Media Type'
+2024-05-07 14:20:10.772 +02:00 [INF] Executed endpoint '415 HTTP Unsupported Media Type'
+2024-05-07 14:20:10.774 +02:00 [DBG] Connection id "0HN3EHTVCDLCR" completed keep alive response.
+2024-05-07 14:20:10.775 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/upload - 415 0 null 9.4308ms
+2024-05-07 14:20:10.778 +02:00 [DBG] Connection id "0HN3EHTVCDLCR", Request id "0HN3EHTVCDLCR:00000002": started reading request body.
+2024-05-07 14:20:10.780 +02:00 [DBG] Connection id "0HN3EHTVCDLCR", Request id "0HN3EHTVCDLCR:00000002": done reading request body.
+2024-05-07 14:22:21.190 +02:00 [DBG] Connection id "0HN3EHTVCDLCR" disconnecting.
+2024-05-07 14:22:21.191 +02:00 [DBG] Connection id "0HN3EHTVCDLCR" stopped.
+2024-05-07 14:22:21.192 +02:00 [DBG] Connection id "0HN3EHTVCDLCR" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:24:15.138 +02:00 [INF] Application is shutting down...
+2024-05-07 14:24:15.138 +02:00 [DBG] Hosting stopping
+2024-05-07 14:24:15.143 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:24:15.144 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:15.145 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:24:15.147 +02:00 [DBG] Hosting stopped
+2024-05-07 14:24:23.450 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:24:23.849 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:24:24.054 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:24:24.058 +02:00 [DBG] Created DbConnection. (2ms).
+2024-05-07 14:24:24.063 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:24:24.068 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (3ms).
+2024-05-07 14:24:24.069 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (8ms).
+2024-05-07 14:24:24.074 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.094 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.099 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:24:24.109 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:24:24.112 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.116 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:24:24.133 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:24:24.225 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:24:24.237 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.240 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.241 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:24:24.242 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:24:24.243 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:24:24.244 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:24:24.247 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:24:24.250 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.252 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 2ms reading results.
+2024-05-07 14:24:24.253 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.254 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:24:24.256 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:24:24.259 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:24:24.260 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.262 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.263 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:24:24.263 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:24:24.264 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:24:24.265 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:24:24.268 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:24:24.269 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.270 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 14:24:24.271 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.272 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:24:24.275 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:24:24.277 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.278 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:24:24.289 +02:00 [DBG] Hosting starting
+2024-05-07 14:24:24.305 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:24:24.311 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:24:24.348 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:24:24.357 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:24:24.358 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 14:24:24.360 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.367 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.369 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:24:24.370 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:24:24.371 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2024-05-07 14:24:24.373 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:24:24.379 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:24:24.401 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:24:24.402 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:24:24.403 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:24:24.405 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:24:24.406 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:24:24.407 +02:00 [DBG] Hosting started
+2024-05-07 14:24:24.408 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:24:24.434 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:24:24.435 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:24:24.436 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:24:24.440 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.441 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 60ms reading results.
+2024-05-07 14:24:24.443 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:24:24.444 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:24:24.446 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:24:26.887 +02:00 [DBG] Connection id "0HN3EI2HG2768" accepted.
+2024-05-07 14:24:26.889 +02:00 [DBG] Connection id "0HN3EI2HG2768" started.
+2024-05-07 14:24:26.889 +02:00 [DBG] Connection id "0HN3EI2HG2769" accepted.
+2024-05-07 14:24:26.891 +02:00 [DBG] Connection id "0HN3EI2HG2769" started.
+2024-05-07 14:24:26.910 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:24:26.914 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:24:26.949 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:24:26.950 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:24:27.006 +02:00 [DBG] Connection id "0HN3EI2HG2768" completed keep alive response.
+2024-05-07 14:24:27.009 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 99.4088ms
+2024-05-07 14:24:27.138 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:24:27.141 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:24:27.142 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:24:27.147 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-07 14:24:27.272 +02:00 [DBG] Connection id "0HN3EI2HG2768" completed keep alive response.
+2024-05-07 14:24:27.274 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 135.6888ms
+2024-05-07 14:24:42.862 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:24:42.864 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:24:42.865 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:24:42.872 +02:00 [DBG] Connection id "0HN3EI2HG2768" completed keep alive response.
+2024-05-07 14:24:42.874 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.7826ms
+2024-05-07 14:25:04.487 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/json 872
+2024-05-07 14:25:04.492 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:25:04.493 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:25:04.496 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:25:04.497 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:25:04.500 +02:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:25:04.501 +02:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:25:04.502 +02:00 [DBG] Connection id "0HN3EI2HG2768" completed keep alive response.
+2024-05-07 14:25:04.503 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 405 0 null 16.4569ms
+2024-05-07 14:25:04.507 +02:00 [DBG] Connection id "0HN3EI2HG2768", Request id "0HN3EI2HG2768:00000004": started reading request body.
+2024-05-07 14:25:04.508 +02:00 [DBG] Connection id "0HN3EI2HG2768", Request id "0HN3EI2HG2768:00000004": done reading request body.
+2024-05-07 14:25:05.735 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/json 872
+2024-05-07 14:25:05.738 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:25:05.740 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:25:05.741 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:25:05.741 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:25:05.742 +02:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:25:05.743 +02:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:25:05.744 +02:00 [DBG] Connection id "0HN3EI2HG2768" completed keep alive response.
+2024-05-07 14:25:05.746 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 405 0 null 10.5597ms
+2024-05-07 14:25:05.748 +02:00 [DBG] Connection id "0HN3EI2HG2768", Request id "0HN3EI2HG2768:00000005": started reading request body.
+2024-05-07 14:25:05.749 +02:00 [DBG] Connection id "0HN3EI2HG2768", Request id "0HN3EI2HG2768:00000005": done reading request body.
+2024-05-07 14:25:25.755 +02:00 [INF] Application is shutting down...
+2024-05-07 14:25:25.756 +02:00 [DBG] Hosting stopping
+2024-05-07 14:25:25.760 +02:00 [DBG] Connection id "0HN3EI2HG2769" disconnecting.
+2024-05-07 14:25:25.760 +02:00 [DBG] Connection id "0HN3EI2HG2768" disconnecting.
+2024-05-07 14:25:25.761 +02:00 [DBG] Connection id "0HN3EI2HG2769" stopped.
+2024-05-07 14:25:25.761 +02:00 [DBG] Connection id "0HN3EI2HG2768" stopped.
+2024-05-07 14:25:25.762 +02:00 [DBG] Connection id "0HN3EI2HG2769" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:25:25.762 +02:00 [DBG] Connection id "0HN3EI2HG2768" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:25:25.765 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:25:25.766 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:25.767 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:25:25.770 +02:00 [DBG] Hosting stopped
+2024-05-07 14:25:36.176 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:25:36.583 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:25:36.780 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:25:36.783 +02:00 [DBG] Created DbConnection. (2ms).
+2024-05-07 14:25:36.789 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:25:36.795 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (4ms).
+2024-05-07 14:25:36.797 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (10ms).
+2024-05-07 14:25:36.801 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:36.824 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:36.830 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:25:36.840 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:25:36.843 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:36.848 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:25:36.868 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:25:36.975 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:25:36.987 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:36.990 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:36.991 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:25:36.992 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:25:36.993 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:25:36.994 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:25:36.997 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:25:37.001 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.003 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 3ms reading results.
+2024-05-07 14:25:37.004 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.006 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:25:37.007 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:25:37.010 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:25:37.012 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.014 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.015 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:25:37.016 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:25:37.017 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:25:37.018 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:25:37.020 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:25:37.021 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.022 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 14:25:37.024 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.025 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:25:37.027 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:25:37.029 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.031 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:25:37.041 +02:00 [DBG] Hosting starting
+2024-05-07 14:25:37.056 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:25:37.062 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:25:37.095 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:25:37.103 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:25:37.104 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 14:25:37.107 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.114 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.116 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:25:37.117 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:25:37.118 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2024-05-07 14:25:37.119 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:25:37.125 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:25:37.141 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:25:37.142 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:25:37.143 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:25:37.144 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:25:37.144 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:25:37.144 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:25:37.145 +02:00 [DBG] Hosting started
+2024-05-07 14:25:37.170 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:25:37.172 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:25:37.173 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:25:37.175 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.176 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 49ms reading results.
+2024-05-07 14:25:37.179 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:25:37.180 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:25:37.181 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:25:42.629 +02:00 [DBG] Connection id "0HN3EI382CSOF" accepted.
+2024-05-07 14:25:42.631 +02:00 [DBG] Connection id "0HN3EI382CSOF" started.
+2024-05-07 14:25:42.631 +02:00 [DBG] Connection id "0HN3EI382CSOG" accepted.
+2024-05-07 14:25:42.633 +02:00 [DBG] Connection id "0HN3EI382CSOG" started.
+2024-05-07 14:25:42.650 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:25:42.653 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:25:42.689 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:25:42.690 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:25:42.748 +02:00 [DBG] Connection id "0HN3EI382CSOF" completed keep alive response.
+2024-05-07 14:25:42.750 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 101.1715ms
+2024-05-07 14:25:42.912 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/drinks/swagger/v1/swagger.json - null null
+2024-05-07 14:25:42.915 +02:00 [DBG] No candidates found for the request path '/drinks/swagger/v1/swagger.json'
+2024-05-07 14:25:42.917 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:25:42.919 +02:00 [DBG] The request path  does not match the path filter
+2024-05-07 14:25:42.926 +02:00 [INF] Unauthorized access attempt at 7-5-2024 14:25:42 with Key 
+2024-05-07 14:25:42.927 +02:00 [DBG] Connection id "0HN3EI382CSOF" completed keep alive response.
+2024-05-07 14:25:42.929 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/drinks/swagger/v1/swagger.json - 401 null null 17.1012ms
+2024-05-07 14:27:54.170 +02:00 [DBG] Connection id "0HN3EI382CSOF" disconnecting.
+2024-05-07 14:27:54.170 +02:00 [DBG] Connection id "0HN3EI382CSOG" disconnecting.
+2024-05-07 14:27:54.172 +02:00 [DBG] Connection id "0HN3EI382CSOF" stopped.
+2024-05-07 14:27:54.172 +02:00 [DBG] Connection id "0HN3EI382CSOG" stopped.
+2024-05-07 14:27:54.174 +02:00 [DBG] Connection id "0HN3EI382CSOF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:27:54.174 +02:00 [DBG] Connection id "0HN3EI382CSOG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:29:42.816 +02:00 [INF] Application is shutting down...
+2024-05-07 14:29:42.817 +02:00 [DBG] Hosting stopping
+2024-05-07 14:29:42.821 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:29:42.822 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:42.823 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:29:42.825 +02:00 [DBG] Hosting stopped
+2024-05-07 14:29:46.015 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:29:46.447 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:29:46.661 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:29:46.666 +02:00 [DBG] Created DbConnection. (3ms).
+2024-05-07 14:29:46.672 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:29:46.679 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (3ms).
+2024-05-07 14:29:46.681 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (10ms).
+2024-05-07 14:29:46.688 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.714 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.719 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:29:46.730 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:29:46.733 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.737 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:29:46.753 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:29:46.844 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:29:46.856 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.858 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.859 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:29:46.860 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:29:46.861 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:29:46.863 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:29:46.866 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:29:46.870 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.872 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 4ms reading results.
+2024-05-07 14:29:46.874 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.874 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:29:46.876 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:29:46.879 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:29:46.881 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.882 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.884 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:29:46.885 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:29:46.885 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:29:46.886 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:29:46.889 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:29:46.891 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.892 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 14:29:46.893 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.894 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:29:46.895 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:29:46.898 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.900 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:29:46.913 +02:00 [DBG] Hosting starting
+2024-05-07 14:29:46.929 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:29:46.935 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:29:46.969 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:29:46.977 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:29:46.977 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 14:29:46.980 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.987 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:46.989 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:29:46.990 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:29:46.991 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:29:46.992 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:29:46.998 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:29:47.013 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:29:47.014 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:29:47.015 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:29:47.016 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:29:47.017 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:29:47.017 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:29:47.017 +02:00 [DBG] Hosting started
+2024-05-07 14:29:47.040 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:29:47.041 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:29:47.042 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:29:47.045 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:47.046 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 46ms reading results.
+2024-05-07 14:29:47.048 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:29:47.050 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:29:47.052 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:29:49.600 +02:00 [DBG] Connection id "0HN3EI5HLMF1K" accepted.
+2024-05-07 14:29:49.602 +02:00 [DBG] Connection id "0HN3EI5HLMF1K" started.
+2024-05-07 14:29:49.602 +02:00 [DBG] Connection id "0HN3EI5HLMF1L" accepted.
+2024-05-07 14:29:49.605 +02:00 [DBG] Connection id "0HN3EI5HLMF1L" started.
+2024-05-07 14:29:49.623 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:29:49.627 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:29:49.657 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:29:49.659 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:29:49.671 +02:00 [DBG] The request path /Swagger/index.html does not match an existing file
+2024-05-07 14:29:49.715 +02:00 [DBG] Connection id "0HN3EI5HLMF1K" completed keep alive response.
+2024-05-07 14:29:49.717 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 95.3354ms
+2024-05-07 14:29:49.773 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:29:49.776 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:29:49.777 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:29:49.782 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-07 14:29:49.918 +02:00 [DBG] Connection id "0HN3EI5HLMF1K" completed keep alive response.
+2024-05-07 14:29:49.919 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 145.9061ms
+2024-05-07 14:30:03.708 +02:00 [INF] Application is shutting down...
+2024-05-07 14:30:03.709 +02:00 [DBG] Hosting stopping
+2024-05-07 14:30:03.713 +02:00 [DBG] Connection id "0HN3EI5HLMF1K" disconnecting.
+2024-05-07 14:30:03.713 +02:00 [DBG] Connection id "0HN3EI5HLMF1L" disconnecting.
+2024-05-07 14:30:03.714 +02:00 [DBG] Connection id "0HN3EI5HLMF1K" stopped.
+2024-05-07 14:30:03.714 +02:00 [DBG] Connection id "0HN3EI5HLMF1L" stopped.
+2024-05-07 14:30:03.715 +02:00 [DBG] Connection id "0HN3EI5HLMF1K" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:30:03.716 +02:00 [DBG] Connection id "0HN3EI5HLMF1L" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:30:03.720 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:30:03.721 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:03.722 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:30:03.724 +02:00 [DBG] Hosting stopped
+2024-05-07 14:30:12.949 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:30:13.349 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:30:13.541 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:30:13.544 +02:00 [DBG] Created DbConnection. (2ms).
+2024-05-07 14:30:13.549 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:30:13.554 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (3ms).
+2024-05-07 14:30:13.555 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (8ms).
+2024-05-07 14:30:13.559 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.582 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.589 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:30:13.604 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:30:13.607 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.612 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:30:13.627 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:30:13.725 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:30:13.739 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.742 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.743 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:30:13.744 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:30:13.745 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:30:13.746 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:30:13.749 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:30:13.753 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.755 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 3ms reading results.
+2024-05-07 14:30:13.756 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.757 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:30:13.758 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:30:13.761 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:30:13.763 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.764 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.766 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:30:13.766 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:30:13.767 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:30:13.769 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:30:13.771 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:30:13.773 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.774 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 14:30:13.775 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.776 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:30:13.778 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:30:13.780 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.781 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:30:13.791 +02:00 [DBG] Hosting starting
+2024-05-07 14:30:13.806 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:30:13.812 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:30:13.845 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:30:13.853 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:30:13.854 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 14:30:13.857 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.864 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.865 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:30:13.866 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:30:13.867 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:30:13.868 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:30:13.874 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:30:13.891 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:30:13.892 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:30:13.892 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:30:13.893 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:30:13.893 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:30:13.895 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:30:13.895 +02:00 [DBG] Hosting started
+2024-05-07 14:30:13.915 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:30:13.916 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:30:13.918 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:30:13.921 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.922 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 45ms reading results.
+2024-05-07 14:30:13.924 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:30:13.925 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:30:13.927 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:30:15.557 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" accepted.
+2024-05-07 14:30:15.558 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" started.
+2024-05-07 14:30:15.558 +02:00 [DBG] Connection id "0HN3EI5PD7MCK" accepted.
+2024-05-07 14:30:15.560 +02:00 [DBG] Connection id "0HN3EI5PD7MCK" started.
+2024-05-07 14:30:15.578 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:30:15.582 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:30:15.610 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:30:15.612 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:30:15.624 +02:00 [DBG] The request path /Swagger/index.html does not match an existing file
+2024-05-07 14:30:15.670 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" completed keep alive response.
+2024-05-07 14:30:15.672 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 94.618ms
+2024-05-07 14:30:15.751 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:30:15.754 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:30:15.756 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:30:15.761 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-07 14:30:15.881 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" completed keep alive response.
+2024-05-07 14:30:15.883 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 131.5871ms
+2024-05-07 14:30:34.949 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2024-05-07 14:30:34.954 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:30:34.956 +02:00 [DBG] Request matched endpoint 'HTTP: GET /'
+2024-05-07 14:30:34.957 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" completed keep alive response.
+2024-05-07 14:30:34.958 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 301 0 null 9.0257ms
+2024-05-07 14:30:34.961 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2024-05-07 14:30:34.963 +02:00 [DBG] No candidates found for the request path '/index.html'
+2024-05-07 14:30:34.963 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:30:35.020 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" completed keep alive response.
+2024-05-07 14:30:35.021 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 60.2654ms
+2024-05-07 14:30:46.290 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/4 - null null
+2024-05-07 14:30:46.292 +02:00 [DBG] No candidates found for the request path '/4'
+2024-05-07 14:30:46.292 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:30:46.293 +02:00 [DBG] The request path /4 does not match a supported file type
+2024-05-07 14:30:46.294 +02:00 [DBG] The request path  does not match the path filter
+2024-05-07 14:30:46.296 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" completed keep alive response.
+2024-05-07 14:30:46.297 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/4 - 404 0 null 6.8668ms
+2024-05-07 14:30:46.300 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/4, Response status code: 404
+2024-05-07 14:31:41.868 +02:00 [INF] Application is shutting down...
+2024-05-07 14:31:41.868 +02:00 [DBG] Hosting stopping
+2024-05-07 14:31:41.872 +02:00 [DBG] Connection id "0HN3EI5PD7MCK" disconnecting.
+2024-05-07 14:31:41.872 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" disconnecting.
+2024-05-07 14:31:41.874 +02:00 [DBG] Connection id "0HN3EI5PD7MCK" stopped.
+2024-05-07 14:31:41.874 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" stopped.
+2024-05-07 14:31:41.875 +02:00 [DBG] Connection id "0HN3EI5PD7MCK" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:31:41.875 +02:00 [DBG] Connection id "0HN3EI5PD7MCJ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:31:41.880 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:31:41.881 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:41.882 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:31:41.884 +02:00 [DBG] Hosting stopped
+2024-05-07 14:31:45.216 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 14:31:45.694 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:31:45.908 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:31:45.912 +02:00 [DBG] Created DbConnection. (3ms).
+2024-05-07 14:31:45.917 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 14:31:45.922 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (3ms).
+2024-05-07 14:31:45.924 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (8ms).
+2024-05-07 14:31:45.928 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:45.952 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:45.957 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:31:45.968 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'CocktailDb'
+2024-05-07 14:31:45.971 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:45.976 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:31:45.993 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 14:31:46.113 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:31:46.126 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.129 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.130 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:31:46.130 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:31:46.131 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:31:46.133 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:31:46.137 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 14:31:46.142 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.145 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 4ms reading results.
+2024-05-07 14:31:46.146 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.147 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:31:46.149 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 14:31:46.153 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 14:31:46.155 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.157 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.158 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:31:46.159 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:31:46.160 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:31:46.161 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:31:46.163 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 14:31:46.165 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.166 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 14:31:46.167 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.168 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:31:46.170 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:31:46.173 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.175 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:31:46.187 +02:00 [DBG] Hosting starting
+2024-05-07 14:31:46.205 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:31:46.211 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 14:31:46.251 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 14:31:46.260 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:31:46.261 +02:00 [DBG] Created DbConnection. (1ms).
+2024-05-07 14:31:46.264 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.272 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.275 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:31:46.276 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:31:46.277 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2024-05-07 14:31:46.278 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:31:46.285 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:31:46.303 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 14:31:46.304 +02:00 [DBG] Loaded hosting startup assembly cocktailDb
+2024-05-07 14:31:46.305 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-07 14:31:46.306 +02:00 [INF] Hosting environment: Development
+2024-05-07 14:31:46.307 +02:00 [INF] Content root path: C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDb
+2024-05-07 14:31:46.307 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:31:46.308 +02:00 [DBG] Hosting started
+2024-05-07 14:31:46.336 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:31:46.337 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:31:46.339 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:31:46.341 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.342 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 55ms reading results.
+2024-05-07 14:31:46.345 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:31:46.346 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (1ms).
+2024-05-07 14:31:46.348 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:31:51.053 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" accepted.
+2024-05-07 14:31:51.054 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" started.
+2024-05-07 14:31:51.054 +02:00 [DBG] Connection id "0HN3EI6LRUPU4" accepted.
+2024-05-07 14:31:51.055 +02:00 [DBG] Connection id "0HN3EI6LRUPU4" started.
+2024-05-07 14:31:51.073 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/index.html - null null
+2024-05-07 14:31:51.077 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 14:31:51.108 +02:00 [DBG] No candidates found for the request path '/Swagger/index.html'
+2024-05-07 14:31:51.109 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:31:51.121 +02:00 [DBG] The request path /Swagger/index.html does not match an existing file
+2024-05-07 14:31:51.165 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" completed keep alive response.
+2024-05-07 14:31:51.167 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/index.html - 200 null text/html;charset=utf-8 94.9699ms
+2024-05-07 14:31:51.263 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:31:51.265 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:31:51.267 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:31:51.271 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-07 14:31:51.374 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" completed keep alive response.
+2024-05-07 14:31:51.375 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 112.6223ms
+2024-05-07 14:31:59.867 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - null null
+2024-05-07 14:31:59.869 +02:00 [DBG] No candidates found for the request path '/Swagger/v1/swagger.json'
+2024-05-07 14:31:59.871 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:31:59.879 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" completed keep alive response.
+2024-05-07 14:31:59.880 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.61ms
+2024-05-07 14:32:26.587 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2024-05-07 14:32:26.589 +02:00 [DBG] No candidates found for the request path '/index.html'
+2024-05-07 14:32:26.590 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 14:32:26.641 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" completed keep alive response.
+2024-05-07 14:32:26.642 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 54.8231ms
+2024-05-07 14:32:33.371 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/json 872
+2024-05-07 14:32:33.377 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:32:33.380 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:32:33.383 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:32:33.384 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:32:33.392 +02:00 [INF] Unauthorized access attempt at 7-5-2024 14:32:33 with Key 
+2024-05-07 14:32:33.393 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" completed keep alive response.
+2024-05-07 14:32:33.395 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 401 null null 23.9719ms
+2024-05-07 14:32:33.399 +02:00 [DBG] Connection id "0HN3EI6LRUPU3", Request id "0HN3EI6LRUPU3:00000005": started reading request body.
+2024-05-07 14:32:33.401 +02:00 [DBG] Connection id "0HN3EI6LRUPU3", Request id "0HN3EI6LRUPU3:00000005": done reading request body.
+2024-05-07 14:32:51.294 +02:00 [DBG] Connection id "0HN3EI6LRUPU4" received FIN.
+2024-05-07 14:32:51.294 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/ - application/json 872
+2024-05-07 14:32:51.296 +02:00 [DBG] Connection id "0HN3EI6LRUPU4" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:32:51.297 +02:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-05-07 14:32:51.299 +02:00 [DBG] Connection id "0HN3EI6LRUPU4" disconnecting.
+2024-05-07 14:32:51.299 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:32:51.301 +02:00 [DBG] Connection id "0HN3EI6LRUPU4" stopped.
+2024-05-07 14:32:51.301 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:32:51.302 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 14:32:51.305 +02:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:32:51.306 +02:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2024-05-07 14:32:51.307 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" completed keep alive response.
+2024-05-07 14:32:51.308 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/ - 405 0 null 14.2976ms
+2024-05-07 14:32:51.310 +02:00 [DBG] Connection id "0HN3EI6LRUPU3", Request id "0HN3EI6LRUPU3:00000006": started reading request body.
+2024-05-07 14:32:51.312 +02:00 [DBG] Connection id "0HN3EI6LRUPU3", Request id "0HN3EI6LRUPU3:00000006": done reading request body.
+2024-05-07 14:35:02.355 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" disconnecting.
+2024-05-07 14:35:02.356 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" stopped.
+2024-05-07 14:35:02.356 +02:00 [DBG] Connection id "0HN3EI6LRUPU3" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-05-07 14:41:46.340 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:41:46.341 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:41:46.342 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:41:46.383 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 14:41:46.387 +02:00 [DBG] Creating DbConnection.
+2024-05-07 14:41:46.388 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 14:41:46.388 +02:00 [DBG] Opening connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:41:46.420 +02:00 [DBG] Opened connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:41:46.421 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 14:41:46.422 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 14:41:46.423 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2024-05-07 14:41:46.424 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:41:46.427 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 14:41:46.429 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:41:46.430 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:41:46.431 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:41:46.431 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 14:41:46.432 +02:00 [DBG] Closing data reader to 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:41:46.433 +02:00 [DBG] A data reader for 'CocktailDb' on server '127.0.0.1' is being disposed after spending 4ms reading results.
+2024-05-07 14:41:46.434 +02:00 [DBG] Closing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:41:46.435 +02:00 [DBG] Closed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:41:46.436 +02:00 [INF] There are 4 drinks currently in the database.
+2024-05-07 14:41:54.126 +02:00 [INF] Application is shutting down...
+2024-05-07 14:41:54.127 +02:00 [DBG] Hosting stopping
+2024-05-07 14:41:54.131 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 14:41:54.132 +02:00 [DBG] Disposing connection to database 'CocktailDb' on server '127.0.0.1'.
+2024-05-07 14:41:54.133 +02:00 [DBG] Disposed connection to database 'CocktailDb' on server '127.0.0.1' (0ms).
+2024-05-07 14:41:54.135 +02:00 [DBG] Hosting stopped

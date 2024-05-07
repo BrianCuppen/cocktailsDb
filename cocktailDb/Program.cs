@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +21,9 @@ var logger = new LoggerConfiguration()
     .CreateLogger();
 // Register Serilog
 builder.Logging.AddSerilog(logger);
+
+//gRPC
+builder.Services.AddGrpc();
 
 //caching
 builder.Services.AddMemoryCache();
@@ -48,9 +50,35 @@ builder.Services.AddEndpointsApiExplorer();
 // builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(c =>
 {
-    // Add the ConflictingActionsResolver as a workaround for conflicting method/path combinations
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+
+    // Define the API key security scheme
+    c.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
+    {
+        Description = "API key needed to access the endpoints.",
+        Name = "Api-Key",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey
+    });
+
+    // Make sure Swagger UI requires the API key to be provided
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "ApiKey"
+                }
+            },
+            new string[] {}
+        }
+    });
     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 });
+
 
 
 builder.Services.AddScoped<IDrinkRepository, DrinkRepository>();
@@ -71,10 +99,36 @@ builder.Services.AddApiVersioning(options =>
 
 
 var app = builder.Build(); // --- Build the app ---
-
 //swagger Doc
 app.UseSwagger();
-app.UseSwaggerUI(); //http://localhost:5000/Swagger/index.html
+//app.UseSwaggerUI(); //http://localhost:5000/Swagger/index.html
+// app.UseSwaggerUI(c =>
+// {
+//     c.SwaggerEndpoint("/drinks/swagger/v1/swagger.json", "My API V1");
+// });
+app.UseSwaggerUI(c =>
+{
+   app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/drinks/swagger/v1/swagger.json", "Your API V1");
+        c.RoutePrefix = string.Empty;
+        // Add API key input field to Swagger UI
+        c.ConfigObject.AdditionalItems["apiKey"] = new OpenApiParameter
+        {
+            Name = "Api-Key",
+            In = ParameterLocation.Header,
+            Description = "key2",
+            Required = true,
+            Schema = new OpenApiSchema
+            {
+                Type = "string"
+            }
+        };
+    });
+});
+
+//gRPC
+//app.MapGrpcService<GrpServices.CocktailService>();
 
 //define versioning
 var versionSet = app.NewApiVersionSet()

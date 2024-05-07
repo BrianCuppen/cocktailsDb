@@ -23,4 +23,5 @@ global using Asp.Versioning;
 global using Asp.Versioning.Conventions;
 global using Microsoft.Extensions.Caching.Memory;
 global using Serilog;
+global using Microsoft.OpenApi.Models;
 

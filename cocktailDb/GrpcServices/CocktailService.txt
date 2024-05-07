@@ -1,0 +1,32 @@
+using System.Threading.Tasks; // Add this using statement if not already added
+using Google.Protobuf.Collections;
+using Grpc.Core;
+using GrpcDrinks; //option csharp_namespace = "GrpcSneakers";
+namespace GrpServices;
+public class CocktailService : DrinksGrpc.DrinksGrpcBase
+{
+     private readonly ICocktailService _cocktailService;
+
+    public CocktailService(ICocktailService cocktailService )
+    {
+        _cocktailService = cocktailService;
+    }
+    
+    //public override  async Task<ListDrinksResponse>
+    public override async Task<ListDrinksResponse> GetDrinks(GetDrinkRequest request, ServerCallContext context)
+    {
+        var drinks = await _cocktailService.GetAllDrinksAsync();
+        var response = new ListDrinksResponse();
+        foreach (var drink in drinks)
+        {
+            response.Drinks.Add(new CocktailDb.RPC.Models.Drink
+            {
+                drink_id = drink.Id,
+                name = drink.Name
+            });
+        }
+        return response;
+    }
+
+  
+}
