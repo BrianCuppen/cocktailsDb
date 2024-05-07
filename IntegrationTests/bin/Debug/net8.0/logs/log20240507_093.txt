@@ -597,3 +597,127 @@ WHERE NOT (`d`.`IsDeleted`)
 2024-05-07 02:40:54.743 +02:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
 2024-05-07 02:40:54.743 +02:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
 2024-05-07 02:40:54.743 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost/drinks/1 - 405 null null 11.2036ms
+2024-05-07 13:40:49.024 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 13:40:49.491 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 13:40:49.794 +02:00 [DBG] Creating DbConnection.
+2024-05-07 13:40:49.799 +02:00 [DBG] Created DbConnection. (4ms).
+2024-05-07 13:40:49.804 +02:00 [DBG] Creating DbConnection.
+2024-05-07 13:40:49.805 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 13:40:49.810 +02:00 [DBG] Opening connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.828 +02:00 [DBG] Opened connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.832 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 13:40:49.835 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 13:40:49.839 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 13:40:49.845 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2024-05-07 13:40:49.846 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (7ms).
+2024-05-07 13:40:49.851 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP DATABASE IF EXISTS `cocktaildb2`;
+2024-05-07 13:40:49.923 +02:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP DATABASE IF EXISTS `cocktaildb2`;
+2024-05-07 13:40:49.924 +02:00 [DBG] Committing transaction.
+2024-05-07 13:40:49.925 +02:00 [DBG] Committed transaction.
+2024-05-07 13:40:49.927 +02:00 [DBG] Disposing transaction.
+2024-05-07 13:40:49.927 +02:00 [DBG] Closing connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.931 +02:00 [DBG] Closed connection to database '' on server '127.0.0.1' (1ms).
+2024-05-07 13:40:49.932 +02:00 [DBG] Disposing connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.933 +02:00 [DBG] Disposed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 13:40:49.952 +02:00 [DBG] Creating DbConnection.
+2024-05-07 13:40:49.952 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 13:40:49.953 +02:00 [DBG] Opening connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.968 +02:00 [DBG] Opened connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.968 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 13:40:49.969 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:49.969 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:49.969 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `cocktaildb2`
+2024-05-07 13:40:49.974 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `cocktaildb2`
+2024-05-07 13:40:49.974 +02:00 [DBG] Closing connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.975 +02:00 [DBG] Closed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 13:40:49.976 +02:00 [DBG] Disposing connection to database '' on server '127.0.0.1'.
+2024-05-07 13:40:49.976 +02:00 [DBG] Disposed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 13:40:50.138 +02:00 [DBG] Opening connection to database 'cocktaildb2' on server '127.0.0.1'.
+2024-05-07 13:40:50.166 +02:00 [DBG] Opened connection to database 'cocktaildb2' on server '127.0.0.1'.
+2024-05-07 13:40:50.166 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 13:40:50.166 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 13:40:50.167 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 13:40:50.167 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.167 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.167 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Categories` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.192 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Categories` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.193 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 13:40:50.193 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.193 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.193 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Emails` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `EmailAdress` longtext NULL,
+    `EmailsSent` int NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.220 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Emails` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `EmailAdress` longtext NULL,
+    `EmailsSent` int NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.220 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 13:40:50.220 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.221 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.221 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Glasses` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.248 +02:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Glasses` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.249 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 13:40:50.249 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.249 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 13:40:50.249 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Ingredients` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `Ingredient1` longtext NULL,
+    `Ingredient2` longtext NULL,
+    `Ingredient3` longtext NULL,
+    `Ingredient4` longtext NULL,
+    `Ingredient5` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.277 +02:00 [ERR] Failed executing DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Ingredients` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `Ingredient1` longtext NULL,
+    `Ingredient2` longtext NULL,
+    `Ingredient3` longtext NULL,
+    `Ingredient4` longtext NULL,
+    `Ingredient5` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 13:40:50.278 +02:00 [DBG] Disposing transaction.
+2024-05-07 13:40:50.279 +02:00 [DBG] Closing connection to database 'cocktaildb2' on server '127.0.0.1'.
+2024-05-07 13:40:50.279 +02:00 [DBG] Closed connection to database 'cocktaildb2' on server '127.0.0.1' (0ms).

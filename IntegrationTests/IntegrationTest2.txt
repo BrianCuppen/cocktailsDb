@@ -30,7 +30,7 @@ public class IntegrationTest
             // Other properties...
         };
 
-        var response = await client.PostAsJsonAsync("/drinks/Add", newDrink);
+        var response = await client.PostAsJsonAsync("/drinks", newDrink);
 
         response.EnsureSuccessStatusCode();
 
