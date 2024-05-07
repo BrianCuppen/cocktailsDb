@@ -54,10 +54,41 @@ This project will include :
     - Caching
     - Background Services
     - Logging
-## 4 Security & Testing
+## 4 - Security & Testing
     - API Keys
     - Unit Tests
     - Integration Tests
 
 ## 5 Blazor UI & Extensions
     - Blazor
+
+
+     {
+    DbDrinkId: "TestId",
+    Name: "IntegrationTestDrink",
+    AlternateName: "Tommy's Favorite",
+    Category: "Apple",
+    Iba: "Contemporary Classics",
+    Alcoholic: true,
+    ImageUrl: "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
+    IsEdited: false,
+    IsDeleted: false,
+    GlassType:
+        {
+        Name: "VeryCoolGlass"
+    },
+    Ingredient:
+        {
+        Ingredient1: "Yum",   
+      Ingredient3: "Yum2",   
+      Ingredient2: "Yum3",
+      IsDeleted: false
+    },
+    Measurement:
+        {
+        Measure1: "1 cup",
+        Measure2: "2 cups",
+        Measure3: "4 cups",
+      IsDeleted: false
+    }
+    }

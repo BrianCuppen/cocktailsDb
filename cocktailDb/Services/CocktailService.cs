@@ -81,32 +81,66 @@ public class CocktailService() : ICocktailService
         {
             throw new Exception("Drink already exists");
         }
+
         // If the glass type doesn't exist, add it to the database
-        if (await _glassRepository.GetGlassByNameAsync(drink.GlassType.Name) == null)
+        if (drink.GlassType != null)
         {
-            drink.GlassType = await _glassRepository.AddGlassAsync(drink.GlassType);
+            var existingGlass = await _glassRepository.GetGlassByNameAsync(drink.GlassType.Name);
+
+            if (existingGlass != null && existingGlass.Name == "")
+            {
+                // Add the new glass to the database
+                drink.GlassType = await _glassRepository.AddGlassAsync(drink.GlassType);
+            }
+            // else
+            // {
+            //     drink.GlassTypeId = existingGlass.Id;
+            // }
         }
-        else
-        {
-            // Set the drink's GlassType property to the existing glass type
-            drink.GlassType = await _glassRepository.GetGlassByNameAsync(drink.GlassType.Name);
-            //set Ingredient.DrinkName
-            drink.Ingredient.DrinkName = drink.Name;
-            drink.Measurement.DrinkName = drink.Name;
-        }
+
         // If the category doesn't exist, add it to the database
         if (await _drinkRepository.GetCategoryByNameAsync(drink.Category.ToLower()) == null)
         {
             await _drinkRepository.AddCategoryAsync(drink.Category);
         }
-        return await _drinkRepository.AddDrinkAsync(drink);
-    }
 
+        // Ensure that the ingredient and measurement entities are initialized
+        drink.Ingredient ??= new Ingredient(); // Initialize if null
+        drink.Measurement ??= new Measurement(); // Initialize if null
+
+        // Add the drink to the repository
+        var addedDrink = await _drinkRepository.AddDrinkAsync(drink);
+
+        // If the glass type was added, update the drink with the modified glass type
+        if (drink.GlassType != null && addedDrink.GlassTypeId == 0)
+        {
+            addedDrink.GlassTypeId = drink.GlassType.Id;
+            await _drinkRepository.UpdateDrinkAsync(addedDrink);
+        }
+
+        // Set the properties related to the drink
+        drink.Ingredient.DrinkName = drink.Name;
+        drink.Ingredient.IdOfDrink = addedDrink.Id;
+        drink.Measurement.DrinkName = drink.Name;
+        drink.Measurement.IdOfDrink = addedDrink.Id;
+
+        // Update the drink with the modified ingredient and measurement
+        await _drinkRepository.UpdateDrinkAsync(addedDrink);
+
+        return addedDrink;
+    }
 
     //update a drink
     public async Task<Drink> UpdateDrinkAsync(Drink drink)
     {
-        var result = await _drinkRepository.GetDrinkByNameAsync(drink.Name) ?? throw new Exception("Drink not found");
+        // Check if the drink exists
+        var existingDrink = await _drinkRepository.GetDrinkByNameAsync(drink.Name);
+        if (existingDrink == null)
+        {
+            throw new Exception("Drink not found");
+        }
+
+        // Perform the update
         return await _drinkRepository.UpdateDrinkAsync(drink);
     }
 
@@ -186,39 +220,39 @@ public class CocktailService() : ICocktailService
     }
 
     //download drinks
-public async Task<FileStreamResult> DownloadDrinksAsync(string category)
-{
-    // Retrieve all Drinks from that category
-    var drinks = await GetDrinkByCategoryAsync(category);
-
-    // Create a StringBuilder to construct the CSV content
-    var csvContent = new StringBuilder();
-
-    // Append header row
-    csvContent.AppendLine($"Name,AlternateName,Category,IBA,Alcoholic,GlassType");
-
-    // Append data rows
-    foreach (var drink in drinks)
+    public async Task<FileStreamResult> DownloadDrinksAsync(string category)
     {
-        // Construct the CSV row with the desired information
-        var alcoholic = drink.Alcoholic ? "Alcoholic" : "Non-Alcoholic";
-        var csvRow = $"{drink.Name},{drink.AlternateName ?? "N/A"},{drink.Category ?? "N/A"},{drink.Iba ?? "N/A"},{alcoholic},{drink.GlassType?.Name ?? "N/A"}";
+        // Retrieve all Drinks from that category
+        var drinks = await GetDrinkByCategoryAsync(category);
 
-        csvContent.AppendLine(csvRow);
+        // Create a StringBuilder to construct the CSV content
+        var csvContent = new StringBuilder();
+
+        // Append header row
+        csvContent.AppendLine($"Name,AlternateName,Category,IBA,Alcoholic,GlassType");
+
+        // Append data rows
+        foreach (var drink in drinks)
+        {
+            // Construct the CSV row with the desired information
+            var alcoholic = drink.Alcoholic ? "Alcoholic" : "Non-Alcoholic";
+            var csvRow = $"{drink.Name},{drink.AlternateName ?? "N/A"},{drink.Category ?? "N/A"},{drink.Iba ?? "N/A"},{alcoholic},{drink.GlassType?.Name ?? "N/A"}";
+
+            csvContent.AppendLine(csvRow);
+        }
+
+        // Convert the CSV content to bytes
+        byte[] csvBytes = Encoding.UTF8.GetBytes(csvContent.ToString());
+
+        // Create a MemoryStream from the CSV bytes
+        var memoryStream = new MemoryStream(csvBytes);
+
+        // Return the FileStreamResult
+        return new FileStreamResult(memoryStream, "text/csv")
+        {
+            FileDownloadName = "drinks.csv"
+        };
     }
-
-    // Convert the CSV content to bytes
-    byte[] csvBytes = Encoding.UTF8.GetBytes(csvContent.ToString());
-
-    // Create a MemoryStream from the CSV bytes
-    var memoryStream = new MemoryStream(csvBytes);
-
-    // Return the FileStreamResult
-    return new FileStreamResult(memoryStream, "text/csv")
-    {
-        FileDownloadName = "drinks.csv"
-    };
-}
 
     //upload a drink
     public async Task<IResult> UploadDrinkAsync(IFormFile file, IValidator<Drink> validator)

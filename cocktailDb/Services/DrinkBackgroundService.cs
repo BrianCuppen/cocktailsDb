@@ -32,7 +32,7 @@ public class DrinkBackgroundService : BackgroundService
                 }
 
                 // Delay for 1 minute
-                await Task.Delay(60000, stoppingToken);
+                await Task.Delay(600000, stoppingToken);
             }
         }
     }

@@ -1,0 +1,1492 @@
+2024-05-07 01:46:07.406 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:46:07.411 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:46:07.411 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:46:07.411 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:46:07.411 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:46:07.411 +02:00 [DBG] Opening connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.424 +02:00 [DBG] Opened connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.425 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:07.425 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:07.425 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.425 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.425 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.425 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP DATABASE IF EXISTS `cocktaildb`;
+2024-05-07 01:46:07.461 +02:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP DATABASE IF EXISTS `cocktaildb`;
+2024-05-07 01:46:07.462 +02:00 [DBG] Committing transaction.
+2024-05-07 01:46:07.462 +02:00 [DBG] Committed transaction.
+2024-05-07 01:46:07.462 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:46:07.462 +02:00 [DBG] Closing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.462 +02:00 [DBG] Closed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:07.462 +02:00 [DBG] Disposing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.462 +02:00 [DBG] Disposed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:07.473 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:46:07.473 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:46:07.474 +02:00 [DBG] Opening connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.484 +02:00 [DBG] Opened connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.484 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.484 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.484 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.484 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `cocktaildb`
+2024-05-07 01:46:07.488 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `cocktaildb`
+2024-05-07 01:46:07.488 +02:00 [DBG] Closing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.489 +02:00 [DBG] Closed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:07.489 +02:00 [DBG] Disposing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:46:07.489 +02:00 [DBG] Disposed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:07.492 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:07.503 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:07.503 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:07.503 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:07.503 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.503 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.503 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.504 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Categories` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.519 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Categories` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.520 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.520 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.520 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.520 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Emails` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `EmailAdress` longtext NULL,
+    `EmailsSent` int NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.538 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Emails` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `EmailAdress` longtext NULL,
+    `EmailsSent` int NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.538 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.538 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.538 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.539 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Glasses` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.562 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Glasses` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.562 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.562 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.562 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.562 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Ingredients` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `Ingredient1` longtext NULL,
+    `Ingredient2` longtext NULL,
+    `Ingredient3` longtext NULL,
+    `Ingredient4` longtext NULL,
+    `Ingredient5` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.580 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Ingredients` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `Ingredient1` longtext NULL,
+    `Ingredient2` longtext NULL,
+    `Ingredient3` longtext NULL,
+    `Ingredient4` longtext NULL,
+    `Ingredient5` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.580 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.580 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.580 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.580 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Measurements` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `Measure1` longtext NULL,
+    `Measure2` longtext NULL,
+    `Measure3` longtext NULL,
+    `Measure4` longtext NULL,
+    `Measure5` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.600 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Measurements` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `Measure1` longtext NULL,
+    `Measure2` longtext NULL,
+    `Measure3` longtext NULL,
+    `Measure4` longtext NULL,
+    `Measure5` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:46:07.601 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.601 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.601 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.601 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Drinks` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `DbDrinkId` longtext NULL,
+    `Name` longtext NULL,
+    `AlternateName` longtext NULL,
+    `Category` longtext NULL,
+    `Iba` longtext NULL,
+    `Alcoholic` tinyint(1) NOT NULL,
+    `Instructions` longtext NULL,
+    `ImageUrl` longtext NULL,
+    `IsEdited` tinyint(1) NOT NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `GlassTypeId` int NOT NULL,
+    `IngredientId` int NOT NULL,
+    `MeasurementId` int NOT NULL,
+    PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Drinks_Glasses_GlassTypeId` FOREIGN KEY (`GlassTypeId`) REFERENCES `Glasses` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Ingredients_IngredientId` FOREIGN KEY (`IngredientId`) REFERENCES `Ingredients` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Measurements_MeasurementId` FOREIGN KEY (`MeasurementId`) REFERENCES `Measurements` (`Id`) ON DELETE CASCADE
+);
+2024-05-07 01:46:07.638 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Drinks` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `DbDrinkId` longtext NULL,
+    `Name` longtext NULL,
+    `AlternateName` longtext NULL,
+    `Category` longtext NULL,
+    `Iba` longtext NULL,
+    `Alcoholic` tinyint(1) NOT NULL,
+    `Instructions` longtext NULL,
+    `ImageUrl` longtext NULL,
+    `IsEdited` tinyint(1) NOT NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `GlassTypeId` int NOT NULL,
+    `IngredientId` int NOT NULL,
+    `MeasurementId` int NOT NULL,
+    PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Drinks_Glasses_GlassTypeId` FOREIGN KEY (`GlassTypeId`) REFERENCES `Glasses` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Ingredients_IngredientId` FOREIGN KEY (`IngredientId`) REFERENCES `Ingredients` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Measurements_MeasurementId` FOREIGN KEY (`MeasurementId`) REFERENCES `Measurements` (`Id`) ON DELETE CASCADE
+);
+2024-05-07 01:46:07.638 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.638 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.639 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.639 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_GlassTypeId` ON `Drinks` (`GlassTypeId`);
+2024-05-07 01:46:07.657 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_GlassTypeId` ON `Drinks` (`GlassTypeId`);
+2024-05-07 01:46:07.658 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.658 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.658 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.658 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_IngredientId` ON `Drinks` (`IngredientId`);
+2024-05-07 01:46:07.671 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_IngredientId` ON `Drinks` (`IngredientId`);
+2024-05-07 01:46:07.671 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:46:07.671 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.671 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:46:07.671 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_MeasurementId` ON `Drinks` (`MeasurementId`);
+2024-05-07 01:46:07.686 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_MeasurementId` ON `Drinks` (`MeasurementId`);
+2024-05-07 01:46:07.687 +02:00 [DBG] Committing transaction.
+2024-05-07 01:46:07.687 +02:00 [DBG] Committed transaction.
+2024-05-07 01:46:07.687 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:46:07.687 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:07.687 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.690 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:46:09.691 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:46:09.691 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:46:09.691 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 01:46:09.691 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2024-05-07 01:46:09.691 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (0ms).
+2024-05-07 01:46:09.691 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.692 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.692 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'cocktaildb'
+2024-05-07 01:46:09.693 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'cocktaildb'
+2024-05-07 01:46:09.693 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.693 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.693 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.694 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.694 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:46:09.694 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.694 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.694 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 01:46:09.694 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 01:46:09.694 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.694 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:46:09.694 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.694 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.695 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Drink.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.695 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.695 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Glass.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.695 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.695 +02:00 [DBG] Context 'CocktailContext' started tracking 'Glass' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.695 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Ingredient.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.695 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.695 +02:00 [DBG] Context 'CocktailContext' started tracking 'Ingredient' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.695 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Measurement.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.696 +02:00 [DBG] Context 'CocktailContext' started tracking 'Measurement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Drink.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Glass.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.696 +02:00 [DBG] Context 'CocktailContext' started tracking 'Glass' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Ingredient.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.696 +02:00 [DBG] Context 'CocktailContext' started tracking 'Ingredient' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Measurement.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.696 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.696 +02:00 [DBG] Context 'CocktailContext' started tracking 'Measurement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Drink.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Glass.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.697 +02:00 [DBG] Context 'CocktailContext' started tracking 'Glass' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Ingredient.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.697 +02:00 [DBG] Context 'CocktailContext' started tracking 'Ingredient' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Measurement.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.697 +02:00 [DBG] Context 'CocktailContext' started tracking 'Measurement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.697 +02:00 [DBG] SaveChanges starting for 'CocktailContext'.
+2024-05-07 01:46:09.697 +02:00 [DBG] DetectChanges starting for 'CocktailContext'.
+2024-05-07 01:46:09.697 +02:00 [DBG] DetectChanges completed for 'CocktailContext'.
+2024-05-07 01:46:09.698 +02:00 [DBG] Executing 9 update commands as a batch.
+2024-05-07 01:46:09.698 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.698 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.699 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:09.699 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:09.699 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:46:09.699 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.699 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.699 +02:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = SByte), @p1='?' (Size = 4000), @p2='?' (DbType = SByte), @p3='?' (Size = 4000), @p4='?' (DbType = SByte), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = SByte), @p14='?' (Size = 4000), @p15='?' (DbType = Int32), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = SByte), @p22='?' (Size = 4000), @p23='?' (DbType = Int32), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (DbType = SByte), @p30='?' (Size = 4000), @p31='?' (DbType = Int32), @p32='?' (DbType = SByte), @p33='?' (Size = 4000), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (DbType = Int32), @p40='?' (DbType = SByte), @p41='?' (Size = 4000), @p42='?' (Size = 4000), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (Size = 4000), @p46='?' (Size = 4000), @p47='?' (DbType = Int32), @p48='?' (DbType = SByte), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (Size = 4000), @p52='?' (Size = 4000), @p53='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p4, @p5);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:46:09.701 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = SByte), @p1='?' (Size = 4000), @p2='?' (DbType = SByte), @p3='?' (Size = 4000), @p4='?' (DbType = SByte), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = SByte), @p14='?' (Size = 4000), @p15='?' (DbType = Int32), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = SByte), @p22='?' (Size = 4000), @p23='?' (DbType = Int32), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (DbType = SByte), @p30='?' (Size = 4000), @p31='?' (DbType = Int32), @p32='?' (DbType = SByte), @p33='?' (Size = 4000), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (DbType = Int32), @p40='?' (DbType = SByte), @p41='?' (Size = 4000), @p42='?' (Size = 4000), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (Size = 4000), @p46='?' (Size = 4000), @p47='?' (DbType = Int32), @p48='?' (DbType = SByte), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (Size = 4000), @p52='?' (Size = 4000), @p53='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p4, @p5);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:46:09.702 +02:00 [DBG] The foreign key property 'Glass.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.702 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.702 +02:00 [DBG] The foreign key property 'Glass.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.702 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.702 +02:00 [DBG] The foreign key property 'Glass.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.702 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Ingredient.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Ingredient.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Ingredient.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Measurement.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Measurement.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Measurement.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.703 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.704 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.704 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 01:46:09.704 +02:00 [DBG] Executing 3 update commands as a batch.
+2024-05-07 01:46:09.704 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:46:09.704 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.704 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.704 +02:00 [DBG] Executing DbCommand [Parameters=[@p54='?' (DbType = SByte), @p55='?' (Size = 4000), @p56='?' (Size = 4000), @p57='?' (Size = 4000), @p58='?' (DbType = Int32), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (DbType = Int32), @p62='?' (Size = 4000), @p63='?' (DbType = SByte), @p64='?' (DbType = SByte), @p65='?' (DbType = Int32), @p66='?' (Size = 4000), @p67='?' (DbType = SByte), @p68='?' (Size = 4000), @p69='?' (Size = 4000), @p70='?' (Size = 4000), @p71='?' (DbType = Int32), @p72='?' (Size = 4000), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (Size = 4000), @p76='?' (DbType = SByte), @p77='?' (DbType = SByte), @p78='?' (DbType = Int32), @p79='?' (Size = 4000), @p80='?' (DbType = SByte), @p81='?' (Size = 4000), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (DbType = Int32), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = Int32), @p88='?' (Size = 4000), @p89='?' (DbType = SByte), @p90='?' (DbType = SByte), @p91='?' (DbType = Int32), @p92='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:46:09.705 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p54='?' (DbType = SByte), @p55='?' (Size = 4000), @p56='?' (Size = 4000), @p57='?' (Size = 4000), @p58='?' (DbType = Int32), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (DbType = Int32), @p62='?' (Size = 4000), @p63='?' (DbType = SByte), @p64='?' (DbType = SByte), @p65='?' (DbType = Int32), @p66='?' (Size = 4000), @p67='?' (DbType = SByte), @p68='?' (Size = 4000), @p69='?' (Size = 4000), @p70='?' (Size = 4000), @p71='?' (DbType = Int32), @p72='?' (Size = 4000), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (Size = 4000), @p76='?' (DbType = SByte), @p77='?' (DbType = SByte), @p78='?' (DbType = Int32), @p79='?' (Size = 4000), @p80='?' (DbType = SByte), @p81='?' (Size = 4000), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (DbType = Int32), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = Int32), @p88='?' (Size = 4000), @p89='?' (DbType = SByte), @p90='?' (DbType = SByte), @p91='?' (DbType = Int32), @p92='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:46:09.706 +02:00 [DBG] The foreign key property 'Drink.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.706 +02:00 [DBG] The foreign key property 'Drink.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.706 +02:00 [DBG] The foreign key property 'Drink.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.706 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.706 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:46:09.706 +02:00 [DBG] Committing transaction.
+2024-05-07 01:46:09.709 +02:00 [DBG] Committed transaction.
+2024-05-07 01:46:09.709 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.709 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.709 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Drink' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Glass' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Ingredient' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Measurement' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Drink' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Glass' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Ingredient' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Measurement' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Drink' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Glass' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Ingredient' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.710 +02:00 [DBG] An entity of type 'Measurement' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.711 +02:00 [DBG] SaveChanges completed for 'CocktailContext' with 12 entities written to the database.
+2024-05-07 01:46:09.711 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.711 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.711 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:46:09.711 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.711 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.711 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 01:46:09.712 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 01:46:09.712 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.712 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:46:09.712 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.712 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.713 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Email.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.713 +02:00 [DBG] Context 'CocktailContext' started tracking 'Email' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.713 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Email.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.713 +02:00 [DBG] Context 'CocktailContext' started tracking 'Email' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.713 +02:00 [DBG] SaveChanges starting for 'CocktailContext'.
+2024-05-07 01:46:09.713 +02:00 [DBG] DetectChanges starting for 'CocktailContext'.
+2024-05-07 01:46:09.713 +02:00 [DBG] DetectChanges completed for 'CocktailContext'.
+2024-05-07 01:46:09.714 +02:00 [DBG] Executing 2 update commands as a batch.
+2024-05-07 01:46:09.714 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.714 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.714 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:09.714 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:46:09.715 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:46:09.715 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.715 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.715 +02:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:46:09.715 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:46:09.716 +02:00 [DBG] The foreign key property 'Email.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.716 +02:00 [DBG] The foreign key property 'Email.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:46:09.716 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.716 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:46:09.716 +02:00 [DBG] Committing transaction.
+2024-05-07 01:46:09.718 +02:00 [DBG] Committed transaction.
+2024-05-07 01:46:09.718 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.718 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.718 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:46:09.718 +02:00 [DBG] An entity of type 'Email' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.718 +02:00 [DBG] An entity of type 'Email' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.718 +02:00 [DBG] SaveChanges completed for 'CocktailContext' with 2 entities written to the database.
+2024-05-07 01:46:09.718 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 01:46:09.719 +02:00 [DBG] Disposing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.719 +02:00 [DBG] Disposed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.719 +02:00 [DBG] Hosting starting
+2024-05-07 01:46:09.720 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:46:09.720 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:46:09.720 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:46:09.720 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.721 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.721 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:46:09.721 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.721 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.721 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 01:46:09.721 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 01:46:09.722 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 01:46:09.722 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.722 +02:00 [DBG] Loaded hosting startup assembly cocktailDB
+2024-05-07 01:46:09.722 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.722 +02:00 [DBG] Hosting started
+2024-05-07 01:46:09.722 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:46:09.722 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.722 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:46:09.722 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.722 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.722 +02:00 [INF] There are 3 drinks currently in the database.
+2024-05-07 01:46:09.727 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost/drinks/Add - application/json; charset=utf-8 281
+2024-05-07 01:46:09.728 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 01:46:09.732 +02:00 [DBG] 1 candidate(s) found for the request path '/drinks/Add'
+2024-05-07 01:46:09.732 +02:00 [DBG] Request matched endpoint 'HTTP: POST drinks/Add'
+2024-05-07 01:46:09.733 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-05-07 01:46:09.733 +02:00 [DBG] Endpoint 'HTTP: POST drinks/Add' already set, skipping route matching.
+2024-05-07 01:46:09.733 +02:00 [INF] Executing endpoint 'HTTP: POST drinks/Add'
+2024-05-07 01:46:09.741 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:46:09.741 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .FirstOrDefault(d => d.Name == __name_0)'
+2024-05-07 01:46:09.744 +02:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Drink>(
+    asyncEnumerable: new SingleQueryingEnumerable<Drink>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+            SELECT TOP(1) d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+            FROM Drinks AS d
+            WHERE d.Name == @__name_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+        CocktailDb.Contexts.CocktailContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2024-05-07 01:46:09.744 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:46:09.744 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:46:09.744 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.745 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.745 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:46:09.745 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.745 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:46:09.745 +02:00 [DBG] Executing DbCommand [Parameters=[@__name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE `d`.`Name` = @__name_0
+LIMIT 1
+2024-05-07 01:46:09.746 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE `d`.`Name` = @__name_0
+LIMIT 1
+2024-05-07 01:46:09.746 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.746 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:46:09.746 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.746 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.747 +02:00 [INF] Executed endpoint 'HTTP: POST drinks/Add'
+2024-05-07 01:46:09.748 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CocktailDb.Services.CocktailService.AddDrinkAsync(Drink drink) in C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDB\Services\CocktailService.cs:line 102
+   at Program.<>c.<<<Main>$>b__0_11>d.MoveNext() in C:\Users\brian\Desktop\Backend\CocktailDb\cocktailsDb\cocktailDB\Program.cs:line 142
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass102_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.InvokeCore(HttpContext context, PathString matchedPath, PathString remainingPath)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-05-07 01:46:09.760 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 01:46:09.760 +02:00 [DBG] Disposing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:46:09.760 +02:00 [DBG] Disposed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:46:09.760 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost/drinks/Add - 400 null application/json; charset=utf-8 32.6651ms
+2024-05-07 01:50:38.060 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-05-07 01:50:38.477 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:50:38.654 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:50:38.657 +02:00 [DBG] Created DbConnection. (2ms).
+2024-05-07 01:50:38.660 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:50:38.660 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:50:38.663 +02:00 [DBG] Opening connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.676 +02:00 [DBG] Opened connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.679 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:38.681 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:38.682 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.685 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.686 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2024-05-07 01:50:38.689 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP DATABASE IF EXISTS `cocktaildb`;
+2024-05-07 01:50:38.733 +02:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP DATABASE IF EXISTS `cocktaildb`;
+2024-05-07 01:50:38.734 +02:00 [DBG] Committing transaction.
+2024-05-07 01:50:38.735 +02:00 [DBG] Committed transaction.
+2024-05-07 01:50:38.736 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:50:38.736 +02:00 [DBG] Closing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.739 +02:00 [DBG] Closed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:38.740 +02:00 [DBG] Disposing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.740 +02:00 [DBG] Disposed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:38.753 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:50:38.753 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:50:38.753 +02:00 [DBG] Opening connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.764 +02:00 [DBG] Opened connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.765 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.765 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.765 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.765 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `cocktaildb`
+2024-05-07 01:50:38.768 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `cocktaildb`
+2024-05-07 01:50:38.769 +02:00 [DBG] Closing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.769 +02:00 [DBG] Closed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:38.770 +02:00 [DBG] Disposing connection to database '' on server '127.0.0.1'.
+2024-05-07 01:50:38.770 +02:00 [DBG] Disposed connection to database '' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:38.837 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:38.850 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:38.851 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:38.851 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:38.851 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.851 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.851 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.852 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Categories` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.866 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Categories` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.866 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.866 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.866 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.866 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Emails` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `EmailAdress` longtext NULL,
+    `EmailsSent` int NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.885 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Emails` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `EmailAdress` longtext NULL,
+    `EmailsSent` int NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.885 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.885 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.885 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.885 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Glasses` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.902 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Glasses` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.902 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.903 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.903 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.903 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Ingredients` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `Ingredient1` longtext NULL,
+    `Ingredient2` longtext NULL,
+    `Ingredient3` longtext NULL,
+    `Ingredient4` longtext NULL,
+    `Ingredient5` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.921 +02:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Ingredients` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `Ingredient1` longtext NULL,
+    `Ingredient2` longtext NULL,
+    `Ingredient3` longtext NULL,
+    `Ingredient4` longtext NULL,
+    `Ingredient5` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.922 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.922 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.922 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.922 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Measurements` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `Measure1` longtext NULL,
+    `Measure2` longtext NULL,
+    `Measure3` longtext NULL,
+    `Measure4` longtext NULL,
+    `Measure5` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.942 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Measurements` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `IdOfDrink` int NOT NULL,
+    `DrinkName` longtext NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `Measure1` longtext NULL,
+    `Measure2` longtext NULL,
+    `Measure3` longtext NULL,
+    `Measure4` longtext NULL,
+    `Measure5` longtext NULL,
+    PRIMARY KEY (`Id`)
+);
+2024-05-07 01:50:38.943 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.943 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.943 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.943 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Drinks` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `DbDrinkId` longtext NULL,
+    `Name` longtext NULL,
+    `AlternateName` longtext NULL,
+    `Category` longtext NULL,
+    `Iba` longtext NULL,
+    `Alcoholic` tinyint(1) NOT NULL,
+    `Instructions` longtext NULL,
+    `ImageUrl` longtext NULL,
+    `IsEdited` tinyint(1) NOT NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `GlassTypeId` int NOT NULL,
+    `IngredientId` int NOT NULL,
+    `MeasurementId` int NOT NULL,
+    PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Drinks_Glasses_GlassTypeId` FOREIGN KEY (`GlassTypeId`) REFERENCES `Glasses` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Ingredients_IngredientId` FOREIGN KEY (`IngredientId`) REFERENCES `Ingredients` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Measurements_MeasurementId` FOREIGN KEY (`MeasurementId`) REFERENCES `Measurements` (`Id`) ON DELETE CASCADE
+);
+2024-05-07 01:50:38.980 +02:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Drinks` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `DbDrinkId` longtext NULL,
+    `Name` longtext NULL,
+    `AlternateName` longtext NULL,
+    `Category` longtext NULL,
+    `Iba` longtext NULL,
+    `Alcoholic` tinyint(1) NOT NULL,
+    `Instructions` longtext NULL,
+    `ImageUrl` longtext NULL,
+    `IsEdited` tinyint(1) NOT NULL,
+    `IsDeleted` tinyint(1) NOT NULL,
+    `GlassTypeId` int NOT NULL,
+    `IngredientId` int NOT NULL,
+    `MeasurementId` int NOT NULL,
+    PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Drinks_Glasses_GlassTypeId` FOREIGN KEY (`GlassTypeId`) REFERENCES `Glasses` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Ingredients_IngredientId` FOREIGN KEY (`IngredientId`) REFERENCES `Ingredients` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_Drinks_Measurements_MeasurementId` FOREIGN KEY (`MeasurementId`) REFERENCES `Measurements` (`Id`) ON DELETE CASCADE
+);
+2024-05-07 01:50:38.980 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.980 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.980 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.981 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_GlassTypeId` ON `Drinks` (`GlassTypeId`);
+2024-05-07 01:50:38.999 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_GlassTypeId` ON `Drinks` (`GlassTypeId`);
+2024-05-07 01:50:38.999 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:38.999 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.999 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:38.999 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_IngredientId` ON `Drinks` (`IngredientId`);
+2024-05-07 01:50:39.012 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_IngredientId` ON `Drinks` (`IngredientId`);
+2024-05-07 01:50:39.012 +02:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2024-05-07 01:50:39.012 +02:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:39.012 +02:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2024-05-07 01:50:39.012 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_MeasurementId` ON `Drinks` (`MeasurementId`);
+2024-05-07 01:50:39.027 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `IX_Drinks_MeasurementId` ON `Drinks` (`MeasurementId`);
+2024-05-07 01:50:39.027 +02:00 [DBG] Committing transaction.
+2024-05-07 01:50:39.027 +02:00 [DBG] Committed transaction.
+2024-05-07 01:50:39.027 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:50:39.027 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:39.028 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.062 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:50:41.066 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:50:41.066 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:50:41.066 +02:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-05-07 01:50:41.067 +02:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2024-05-07 01:50:41.067 +02:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (0ms).
+2024-05-07 01:50:41.067 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.067 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.068 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'cocktaildb'
+2024-05-07 01:50:41.069 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+        FROM information_schema.tables
+        WHERE table_type = 'BASE TABLE' AND table_schema = 'cocktaildb'
+2024-05-07 01:50:41.069 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.069 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.084 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Any()'
+2024-05-07 01:50:41.176 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Drinks AS d)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 01:50:41.186 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.187 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.187 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.187 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.187 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.187 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 01:50:41.188 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Drinks` AS `d`)
+2024-05-07 01:50:41.190 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.191 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 01:50:41.191 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.191 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.215 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Drink.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.250 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.251 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Glass.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.259 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.262 +02:00 [DBG] Context 'CocktailContext' started tracking 'Glass' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.262 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Ingredient.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.272 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.273 +02:00 [DBG] Context 'CocktailContext' started tracking 'Ingredient' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.273 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Measurement.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.283 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.283 +02:00 [DBG] Context 'CocktailContext' started tracking 'Measurement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.284 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Drink.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.284 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.284 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Glass.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.284 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.285 +02:00 [DBG] Context 'CocktailContext' started tracking 'Glass' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.285 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Ingredient.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.285 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.285 +02:00 [DBG] Context 'CocktailContext' started tracking 'Ingredient' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.285 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Measurement.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.285 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.285 +02:00 [DBG] Context 'CocktailContext' started tracking 'Measurement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.286 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Drink.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.286 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.286 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Glass.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.286 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.286 +02:00 [DBG] Context 'CocktailContext' started tracking 'Glass' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.286 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Ingredient.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.286 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.286 +02:00 [DBG] Context 'CocktailContext' started tracking 'Ingredient' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.287 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Measurement.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.287 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.287 +02:00 [DBG] Context 'CocktailContext' started tracking 'Measurement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.288 +02:00 [DBG] SaveChanges starting for 'CocktailContext'.
+2024-05-07 01:50:41.289 +02:00 [DBG] DetectChanges starting for 'CocktailContext'.
+2024-05-07 01:50:41.302 +02:00 [DBG] DetectChanges completed for 'CocktailContext'.
+2024-05-07 01:50:41.336 +02:00 [DBG] Executing 9 update commands as a batch.
+2024-05-07 01:50:41.337 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.337 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.337 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:41.338 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:41.338 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.338 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.341 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2024-05-07 01:50:41.342 +02:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = SByte), @p1='?' (Size = 4000), @p2='?' (DbType = SByte), @p3='?' (Size = 4000), @p4='?' (DbType = SByte), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = SByte), @p14='?' (Size = 4000), @p15='?' (DbType = Int32), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = SByte), @p22='?' (Size = 4000), @p23='?' (DbType = Int32), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (DbType = SByte), @p30='?' (Size = 4000), @p31='?' (DbType = Int32), @p32='?' (DbType = SByte), @p33='?' (Size = 4000), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (DbType = Int32), @p40='?' (DbType = SByte), @p41='?' (Size = 4000), @p42='?' (Size = 4000), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (Size = 4000), @p46='?' (Size = 4000), @p47='?' (DbType = Int32), @p48='?' (DbType = SByte), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (Size = 4000), @p52='?' (Size = 4000), @p53='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p4, @p5);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:50:41.347 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = SByte), @p1='?' (Size = 4000), @p2='?' (DbType = SByte), @p3='?' (Size = 4000), @p4='?' (DbType = SByte), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = SByte), @p14='?' (Size = 4000), @p15='?' (DbType = Int32), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = SByte), @p22='?' (Size = 4000), @p23='?' (DbType = Int32), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (DbType = SByte), @p30='?' (Size = 4000), @p31='?' (DbType = Int32), @p32='?' (DbType = SByte), @p33='?' (Size = 4000), @p34='?' (Size = 4000), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (DbType = Int32), @p40='?' (DbType = SByte), @p41='?' (Size = 4000), @p42='?' (Size = 4000), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (Size = 4000), @p46='?' (Size = 4000), @p47='?' (DbType = Int32), @p48='?' (DbType = SByte), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (Size = 4000), @p52='?' (Size = 4000), @p53='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Glasses` (`IsDeleted`, `Name`)
+VALUES (@p4, @p5);
+SELECT `Id`
+FROM `Glasses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Ingredients` (`DrinkName`, `IdOfDrink`, `Ingredient1`, `Ingredient2`, `Ingredient3`, `Ingredient4`, `Ingredient5`, `IsDeleted`)
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29);
+SELECT `Id`
+FROM `Ingredients`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Measurements` (`DrinkName`, `IdOfDrink`, `IsDeleted`, `Measure1`, `Measure2`, `Measure3`, `Measure4`, `Measure5`)
+VALUES (@p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53);
+SELECT `Id`
+FROM `Measurements`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:50:41.353 +02:00 [DBG] The foreign key property 'Glass.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.353 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.354 +02:00 [DBG] The foreign key property 'Glass.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.354 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.354 +02:00 [DBG] The foreign key property 'Glass.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.354 +02:00 [DBG] The foreign key property 'Drink.GlassTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.355 +02:00 [DBG] The foreign key property 'Ingredient.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.355 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.355 +02:00 [DBG] The foreign key property 'Ingredient.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.355 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.356 +02:00 [DBG] The foreign key property 'Ingredient.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.356 +02:00 [DBG] The foreign key property 'Drink.IngredientId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.356 +02:00 [DBG] The foreign key property 'Measurement.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.356 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.357 +02:00 [DBG] The foreign key property 'Measurement.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.357 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.357 +02:00 [DBG] The foreign key property 'Measurement.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.357 +02:00 [DBG] The foreign key property 'Drink.MeasurementId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.357 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.357 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 9ms reading results.
+2024-05-07 01:50:41.358 +02:00 [DBG] Executing 3 update commands as a batch.
+2024-05-07 01:50:41.358 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.359 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.359 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.359 +02:00 [DBG] Executing DbCommand [Parameters=[@p54='?' (DbType = SByte), @p55='?' (Size = 4000), @p56='?' (Size = 4000), @p57='?' (Size = 4000), @p58='?' (DbType = Int32), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (DbType = Int32), @p62='?' (Size = 4000), @p63='?' (DbType = SByte), @p64='?' (DbType = SByte), @p65='?' (DbType = Int32), @p66='?' (Size = 4000), @p67='?' (DbType = SByte), @p68='?' (Size = 4000), @p69='?' (Size = 4000), @p70='?' (Size = 4000), @p71='?' (DbType = Int32), @p72='?' (Size = 4000), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (Size = 4000), @p76='?' (DbType = SByte), @p77='?' (DbType = SByte), @p78='?' (DbType = Int32), @p79='?' (Size = 4000), @p80='?' (DbType = SByte), @p81='?' (Size = 4000), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (DbType = Int32), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = Int32), @p88='?' (Size = 4000), @p89='?' (DbType = SByte), @p90='?' (DbType = SByte), @p91='?' (DbType = Int32), @p92='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:50:41.360 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p54='?' (DbType = SByte), @p55='?' (Size = 4000), @p56='?' (Size = 4000), @p57='?' (Size = 4000), @p58='?' (DbType = Int32), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (DbType = Int32), @p62='?' (Size = 4000), @p63='?' (DbType = SByte), @p64='?' (DbType = SByte), @p65='?' (DbType = Int32), @p66='?' (Size = 4000), @p67='?' (DbType = SByte), @p68='?' (Size = 4000), @p69='?' (Size = 4000), @p70='?' (Size = 4000), @p71='?' (DbType = Int32), @p72='?' (Size = 4000), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (Size = 4000), @p76='?' (DbType = SByte), @p77='?' (DbType = SByte), @p78='?' (DbType = Int32), @p79='?' (Size = 4000), @p80='?' (DbType = SByte), @p81='?' (Size = 4000), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (DbType = Int32), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = Int32), @p88='?' (Size = 4000), @p89='?' (DbType = SByte), @p90='?' (DbType = SByte), @p91='?' (DbType = Int32), @p92='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Drinks` (`Alcoholic`, `AlternateName`, `Category`, `DbDrinkId`, `GlassTypeId`, `Iba`, `ImageUrl`, `IngredientId`, `Instructions`, `IsDeleted`, `IsEdited`, `MeasurementId`, `Name`)
+VALUES (@p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92);
+SELECT `Id`
+FROM `Drinks`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:50:41.361 +02:00 [DBG] The foreign key property 'Drink.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.361 +02:00 [DBG] The foreign key property 'Drink.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.362 +02:00 [DBG] The foreign key property 'Drink.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.362 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.362 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 01:50:41.362 +02:00 [DBG] Committing transaction.
+2024-05-07 01:50:41.365 +02:00 [DBG] Committed transaction.
+2024-05-07 01:50:41.366 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.366 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.366 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:50:41.372 +02:00 [DBG] An entity of type 'Drink' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.372 +02:00 [DBG] An entity of type 'Glass' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.373 +02:00 [DBG] An entity of type 'Ingredient' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.373 +02:00 [DBG] An entity of type 'Measurement' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.373 +02:00 [DBG] An entity of type 'Drink' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.373 +02:00 [DBG] An entity of type 'Glass' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.373 +02:00 [DBG] An entity of type 'Ingredient' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.374 +02:00 [DBG] An entity of type 'Measurement' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.374 +02:00 [DBG] An entity of type 'Drink' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.379 +02:00 [DBG] An entity of type 'Glass' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.379 +02:00 [DBG] An entity of type 'Ingredient' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.380 +02:00 [DBG] An entity of type 'Measurement' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.380 +02:00 [DBG] SaveChanges completed for 'CocktailContext' with 12 entities written to the database.
+2024-05-07 01:50:41.381 +02:00 [DBG] Compiling query expression: 
+'DbSet<Email>()
+    .Any()'
+2024-05-07 01:50:41.382 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Emails AS e)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2024-05-07 01:50:41.383 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.383 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.383 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.383 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.384 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.384 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 01:50:41.385 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Emails` AS `e`)
+2024-05-07 01:50:41.385 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.385 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:50:41.385 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.386 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.386 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Email.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.390 +02:00 [DBG] Context 'CocktailContext' started tracking 'Email' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.390 +02:00 [DBG] 'CocktailContext' generated a temporary value for the property 'Email.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.390 +02:00 [DBG] Context 'CocktailContext' started tracking 'Email' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.391 +02:00 [DBG] SaveChanges starting for 'CocktailContext'.
+2024-05-07 01:50:41.391 +02:00 [DBG] DetectChanges starting for 'CocktailContext'.
+2024-05-07 01:50:41.392 +02:00 [DBG] DetectChanges completed for 'CocktailContext'.
+2024-05-07 01:50:41.393 +02:00 [DBG] Executing 2 update commands as a batch.
+2024-05-07 01:50:41.393 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.394 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.394 +02:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:41.394 +02:00 [DBG] Began transaction with isolation level 'Unspecified'.
+2024-05-07 01:50:41.394 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.394 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.395 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.395 +02:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:50:41.396 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p0, @p1);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Emails` (`EmailAdress`, `EmailsSent`)
+VALUES (@p2, @p3);
+SELECT `Id`
+FROM `Emails`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-05-07 01:50:41.396 +02:00 [DBG] The foreign key property 'Email.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.396 +02:00 [DBG] The foreign key property 'Email.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+2024-05-07 01:50:41.397 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.397 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 01:50:41.397 +02:00 [DBG] Committing transaction.
+2024-05-07 01:50:41.399 +02:00 [DBG] Committed transaction.
+2024-05-07 01:50:41.399 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.399 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.400 +02:00 [DBG] Disposing transaction.
+2024-05-07 01:50:41.400 +02:00 [DBG] An entity of type 'Email' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.400 +02:00 [DBG] An entity of type 'Email' tracked by 'CocktailContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.400 +02:00 [DBG] SaveChanges completed for 'CocktailContext' with 2 entities written to the database.
+2024-05-07 01:50:41.401 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 01:50:41.402 +02:00 [DBG] Disposing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.402 +02:00 [DBG] Disposed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.420 +02:00 [DBG] Hosting starting
+2024-05-07 01:50:41.457 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:50:41.460 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .Where(drink => !(drink.IsDeleted))'
+2024-05-07 01:50:41.488 +02:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Drink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+        SELECT d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+        FROM Drinks AS d
+        WHERE Not(d.IsDeleted)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+    CocktailDb.Contexts.CocktailContext, 
+    False, 
+    False, 
+    True
+)'
+2024-05-07 01:50:41.494 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:50:41.494 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:50:41.495 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.501 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.502 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.502 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.502 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.503 +02:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 01:50:41.507 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE NOT (`d`.`IsDeleted`)
+2024-05-07 01:50:41.510 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.511 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.511 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.513 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.513 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 5ms reading results.
+2024-05-07 01:50:41.514 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.514 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.515 +02:00 [INF] There are 3 drinks currently in the database.
+2024-05-07 01:50:41.519 +02:00 [INF] Now listening on: http://localhost:5000
+2024-05-07 01:50:41.519 +02:00 [DBG] Loaded hosting startup assembly cocktailDB
+2024-05-07 01:50:41.519 +02:00 [DBG] Hosting started
+2024-05-07 01:50:41.539 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost/drinks/1?api-version=2.0 - null null
+2024-05-07 01:50:41.540 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-05-07 01:50:41.578 +02:00 [DBG] No candidates found for the request path '/drinks/1'
+2024-05-07 01:50:41.579 +02:00 [DBG] Request did not match any endpoints
+2024-05-07 01:50:41.594 +02:00 [DBG] The request path  does not match the path filter
+2024-05-07 01:50:41.631 +02:00 [DBG] 2 candidate(s) found for the request path '/1'
+2024-05-07 01:50:41.631 +02:00 [DBG] Endpoint 'HTTP: GET /{id}' with route pattern '/{id}' is valid for the request path '/1'
+2024-05-07 01:50:41.631 +02:00 [DBG] Endpoint 'HTTP: GET /{id}' with route pattern '/{id}' is valid for the request path '/1'
+2024-05-07 01:50:41.637 +02:00 [DBG] Request matched endpoint 'HTTP: GET /{id}'
+2024-05-07 01:50:41.639 +02:00 [INF] Executing endpoint 'HTTP: GET /{id}'
+2024-05-07 01:50:41.644 +02:00 [DBG] Entity Framework Core 8.0.4 initialized 'CocktailContext' using provider 'MySql.EntityFrameworkCore:null' with options: None
+2024-05-07 01:50:41.647 +02:00 [DBG] Compiling query expression: 
+'DbSet<Drink>()
+    .FirstOrDefault(d => d.Id == __id_0 && !(d.IsDeleted))'
+2024-05-07 01:50:41.656 +02:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Drink>(
+    asyncEnumerable: new SingleQueryingEnumerable<Drink>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Drink.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Drink.Alcoholic (no field, bool) Required, 1], [Property: Drink.AlternateName (_alternateName, string), 2], [Property: Drink.Category (string), 3], [Property: Drink.DbDrinkId (string), 4], [Property: Drink.GlassTypeId (int) Required FK Index, 5], [Property: Drink.Iba (string), 6], [Property: Drink.ImageUrl (string), 7], [Property: Drink.IngredientId (int) Required FK Index, 8], [Property: Drink.Instructions (string), 9], [Property: Drink.IsDeleted (bool) Required, 10], [Property: Drink.IsEdited (bool) Required, 11], [Property: Drink.MeasurementId (int) Required FK Index, 12], [Property: Drink.Name (string), 13] }
+            SELECT TOP(1) d.Id, d.Alcoholic, d.AlternateName, d.Category, d.DbDrinkId, d.GlassTypeId, d.Iba, d.ImageUrl, d.IngredientId, d.Instructions, d.IsDeleted, d.IsEdited, d.MeasurementId, d.Name
+            FROM Drinks AS d
+            WHERE (d.Id == @__id_0) && Not(d.IsDeleted)), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Drink>, 
+        CocktailDb.Contexts.CocktailContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2024-05-07 01:50:41.661 +02:00 [DBG] Creating DbConnection.
+2024-05-07 01:50:41.661 +02:00 [DBG] Created DbConnection. (0ms).
+2024-05-07 01:50:41.661 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.664 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.664 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.664 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.665 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.665 +02:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE (`d`.`Id` = @__id_0) AND NOT (`d`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.666 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`Alcoholic`, `d`.`AlternateName`, `d`.`Category`, `d`.`DbDrinkId`, `d`.`GlassTypeId`, `d`.`Iba`, `d`.`ImageUrl`, `d`.`IngredientId`, `d`.`Instructions`, `d`.`IsDeleted`, `d`.`IsEdited`, `d`.`MeasurementId`, `d`.`Name`
+FROM `Drinks` AS `d`
+WHERE (`d`.`Id` = @__id_0) AND NOT (`d`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.666 +02:00 [DBG] Context 'CocktailContext' started tracking 'Drink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.667 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.667 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:50:41.667 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.667 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.669 +02:00 [DBG] Compiling query expression: 
+'DbSet<Glass>()
+    .FirstOrDefault(g => g.Id == __id_0 && !(g.IsDeleted))'
+2024-05-07 01:50:41.671 +02:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Glass>(
+    asyncEnumerable: new SingleQueryingEnumerable<Glass>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Glass.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Glass.IsDeleted (bool) Required, 1], [Property: Glass.Name (string), 2] }
+            SELECT TOP(1) g.Id, g.IsDeleted, g.Name
+            FROM Glasses AS g
+            WHERE (g.Id == @__id_0) && Not(g.IsDeleted)), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Glass>, 
+        CocktailDb.Contexts.CocktailContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2024-05-07 01:50:41.672 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.673 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.673 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.673 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.673 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.673 +02:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `g`.`Id`, `g`.`IsDeleted`, `g`.`Name`
+FROM `Glasses` AS `g`
+WHERE (`g`.`Id` = @__id_0) AND NOT (`g`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.674 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `g`.`Id`, `g`.`IsDeleted`, `g`.`Name`
+FROM `Glasses` AS `g`
+WHERE (`g`.`Id` = @__id_0) AND NOT (`g`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.676 +02:00 [DBG] The navigation 'Drink.GlassType' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.676 +02:00 [DBG] Context 'CocktailContext' started tracking 'Glass' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.677 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.677 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 2ms reading results.
+2024-05-07 01:50:41.677 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.677 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.678 +02:00 [DBG] Compiling query expression: 
+'DbSet<Ingredient>()
+    .FirstOrDefault(i => i.Id == __id_0 && !(i.IsDeleted))'
+2024-05-07 01:50:41.681 +02:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Ingredient>(
+    asyncEnumerable: new SingleQueryingEnumerable<Ingredient>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Ingredient.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Ingredient.DrinkName (string), 1], [Property: Ingredient.IdOfDrink (int) Required, 2], [Property: Ingredient.Ingredient1 (_ingredient1, string), 3], [Property: Ingredient.Ingredient2 (_ingredient2, string), 4], [Property: Ingredient.Ingredient3 (_ingredient3, string), 5], [Property: Ingredient.Ingredient4 (_ingredient4, string), 6], [Property: Ingredient.Ingredient5 (_ingredient5, string), 7], [Property: Ingredient.IsDeleted (bool) Required, 8] }
+            SELECT TOP(1) i.Id, i.DrinkName, i.IdOfDrink, i.Ingredient1, i.Ingredient2, i.Ingredient3, i.Ingredient4, i.Ingredient5, i.IsDeleted
+            FROM Ingredients AS i
+            WHERE (i.Id == @__id_0) && Not(i.IsDeleted)), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Ingredient>, 
+        CocktailDb.Contexts.CocktailContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2024-05-07 01:50:41.682 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.682 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.683 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.683 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.683 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.683 +02:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`DrinkName`, `i`.`IdOfDrink`, `i`.`Ingredient1`, `i`.`Ingredient2`, `i`.`Ingredient3`, `i`.`Ingredient4`, `i`.`Ingredient5`, `i`.`IsDeleted`
+FROM `Ingredients` AS `i`
+WHERE (`i`.`Id` = @__id_0) AND NOT (`i`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.684 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`DrinkName`, `i`.`IdOfDrink`, `i`.`Ingredient1`, `i`.`Ingredient2`, `i`.`Ingredient3`, `i`.`Ingredient4`, `i`.`Ingredient5`, `i`.`IsDeleted`
+FROM `Ingredients` AS `i`
+WHERE (`i`.`Id` = @__id_0) AND NOT (`i`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.685 +02:00 [DBG] The navigation 'Drink.Ingredient' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.685 +02:00 [DBG] Context 'CocktailContext' started tracking 'Ingredient' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.685 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.685 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 1ms reading results.
+2024-05-07 01:50:41.685 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.685 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.687 +02:00 [DBG] Compiling query expression: 
+'DbSet<Measurement>()
+    .FirstOrDefault(m => m.Id == __id_0 && !(m.IsDeleted))'
+2024-05-07 01:50:41.689 +02:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Measurement>(
+    asyncEnumerable: new SingleQueryingEnumerable<Measurement>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Measurement.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Measurement.DrinkName (string), 1], [Property: Measurement.IdOfDrink (int) Required, 2], [Property: Measurement.IsDeleted (bool) Required, 3], [Property: Measurement.Measure1 (_measure1, string), 4], [Property: Measurement.Measure2 (_measure2, string), 5], [Property: Measurement.Measure3 (_measure3, string), 6], [Property: Measurement.Measure4 (_measure4, string), 7], [Property: Measurement.Measure5 (_measure5, string), 8] }
+            SELECT TOP(1) m.Id, m.DrinkName, m.IdOfDrink, m.IsDeleted, m.Measure1, m.Measure2, m.Measure3, m.Measure4, m.Measure5
+            FROM Measurements AS m
+            WHERE (m.Id == @__id_0) && Not(m.IsDeleted)), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Measurement>, 
+        CocktailDb.Contexts.CocktailContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2024-05-07 01:50:41.690 +02:00 [DBG] Opening connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.691 +02:00 [DBG] Opened connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.691 +02:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-05-07 01:50:41.691 +02:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.691 +02:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-05-07 01:50:41.691 +02:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`Id`, `m`.`DrinkName`, `m`.`IdOfDrink`, `m`.`IsDeleted`, `m`.`Measure1`, `m`.`Measure2`, `m`.`Measure3`, `m`.`Measure4`, `m`.`Measure5`
+FROM `Measurements` AS `m`
+WHERE (`m`.`Id` = @__id_0) AND NOT (`m`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.692 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `m`.`Id`, `m`.`DrinkName`, `m`.`IdOfDrink`, `m`.`IsDeleted`, `m`.`Measure1`, `m`.`Measure2`, `m`.`Measure3`, `m`.`Measure4`, `m`.`Measure5`
+FROM `Measurements` AS `m`
+WHERE (`m`.`Id` = @__id_0) AND NOT (`m`.`IsDeleted`)
+LIMIT 1
+2024-05-07 01:50:41.693 +02:00 [DBG] The navigation 'Drink.Measurement' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.693 +02:00 [DBG] Context 'CocktailContext' started tracking 'Measurement' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-05-07 01:50:41.693 +02:00 [DBG] Closing data reader to 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.693 +02:00 [DBG] A data reader for 'cocktaildb' on server '127.0.0.1' is being disposed after spending 0ms reading results.
+2024-05-07 01:50:41.693 +02:00 [DBG] Closing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.694 +02:00 [DBG] Closed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.694 +02:00 [INF] Margarita was requested by version 1
+2024-05-07 01:50:41.695 +02:00 [INF] Setting HTTP status code 200.
+2024-05-07 01:50:41.696 +02:00 [INF] Writing value of type 'Drink' as Json.
+2024-05-07 01:50:41.709 +02:00 [INF] Executed endpoint 'HTTP: GET /{id}'
+2024-05-07 01:50:41.711 +02:00 [DBG] 'CocktailContext' disposed.
+2024-05-07 01:50:41.712 +02:00 [DBG] Disposing connection to database 'cocktaildb' on server '127.0.0.1'.
+2024-05-07 01:50:41.713 +02:00 [DBG] Disposed connection to database 'cocktaildb' on server '127.0.0.1' (0ms).
+2024-05-07 01:50:41.714 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost/drinks/1?api-version=2.0 - 200 null application/json; charset=utf-8 176.1839ms

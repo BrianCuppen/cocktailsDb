@@ -19,3 +19,16 @@ public class DrinkValidator : AbstractValidator<Drink>
             .WithMessage("Category cannot be empty");
     }
 }
+
+public class GlassValidator : AbstractValidator<Glass>
+{
+    public GlassValidator()
+    {
+        //not Empty, glassName not empty and less than 50 characters
+        RuleFor(x => x.Name)
+            .NotEmpty()
+            .WithMessage("Glass name cannot be empty")
+            .MaximumLength(50)
+            .WithMessage("Glass name cannot be more than 50 characters");
+    }
+}

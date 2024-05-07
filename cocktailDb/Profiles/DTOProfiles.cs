@@ -5,9 +5,9 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<Drink, DrinkDTO>()
-            .ForMember(dest => dest.GlassType, opt => opt.MapFrom<GlassResolver>())
-            .ForMember(dest => dest.IngredientList, opt => opt.MapFrom<IngredientResolver>())
-            .ForMember(dest => dest.MeasurementList, opt => opt.MapFrom<MeasurementResolver>());
+            .ForMember(dest => dest.Ingredient, opt => opt.MapFrom(src => src.Ingredient))
+            .ForMember(dest => dest.Measurement, opt => opt.MapFrom(src => src.Measurement))
+            .ForMember(dest => dest.GlassType, opt => opt.MapFrom(src => src.GlassType));
     }
 }
 

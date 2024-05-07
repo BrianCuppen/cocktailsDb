@@ -10,9 +10,11 @@ public class CocktailContext : DbContext
     public DbSet<Category> Categories { get; set; }
 
 
+    public CocktailContext()
+    {}
     public CocktailContext(DbContextOptions<CocktailContext> options) : base(options)
-    {
-    }
+    {}
+
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Drink>()

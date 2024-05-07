@@ -8,6 +8,7 @@ global using Microsoft.AspNetCore.Diagnostics;
 global using AutoMapper;
 
 global using CocktailDb.Models;
+global using CocktailDb.Middleware;
 global using CocktailDb.Configuration;
 global using CocktailDb.Repositories;
 global using CocktailDb.Services;
