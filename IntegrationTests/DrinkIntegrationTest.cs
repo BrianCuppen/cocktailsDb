@@ -9,7 +9,7 @@ using System.Net.Http.Json;
 
 namespace test;
 [Collection("IntegrationTest")]
-public class IntegrationTest
+public class DrinkIntegrationTest
 {
     [Fact]
     public async Task Get_Drinks()
@@ -84,7 +84,7 @@ public class IntegrationTest
     }
 
     [Fact]
-    public async Task Add_New_Drink()
+    public async Task Get_Drink_By_Alcoholic()
     {
         var factory = new DrinkFactory();
         var client = factory.CreateClient();
@@ -92,19 +92,53 @@ public class IntegrationTest
         // Add your API key to the request headers
         client.DefaultRequestHeaders.Add("Api-Key", "key2");
 
-        // Create a new Drink object to add
-        Drink newDrink = new Drink
-        {
-            DbDrinkId = "TestId",
-            Name = "IntegrationTestDrink",
-            AlternateName = "Tommy's Favorite"
-            // Other properties...
-        };
+        // Specify the alcoholic type you want to retrieve drinks for
+        bool alcoholic = true;
 
-        var response = await client.PostAsJsonAsync("/drinks/Add", newDrink);
+        var response = await client.GetAsync($"/drinks/alcoholic/{alcoholic}");
 
         response.EnsureSuccessStatusCode();
 
-        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
+
+    [Fact]
+    public async Task Get_Drink_By_Glass()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        // Specify the glass type you want to retrieve drinks for
+        string glass = "Highball glass";
+
+        var response = await client.GetAsync($"/drinks/glasses/{glass}");
+
+        response.EnsureSuccessStatusCode();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+
+    [Fact]
+    public async Task Delete_Drink()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        // Specify the ID of the drink to delete
+        int drinkIdToDelete = 1;
+
+        var response = await client.DeleteAsync($"/drinks/{drinkIdToDelete}");
+
+        response.EnsureSuccessStatusCode();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
 }

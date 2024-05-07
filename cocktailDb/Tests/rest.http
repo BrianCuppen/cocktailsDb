@@ -20,7 +20,7 @@ GET http://localhost:5000/drinks/1 HTTP/1.1
 Api-Key: {{apikey2}}
 api-version: 2.0      
 ###
-POST http://localhost:5000/drinks/Add HTTP/1.1
+POST http://localhost:5000/drinks HTTP/1.1
 Api-Key: {{apikey2}}
 Content-Type: application/json
 
@@ -82,7 +82,7 @@ Content-Type: application/json
     }
 }
 ###
-DELETE http://localhost:5000/drinks/12
+DELETE http://localhost:5000/drinks/delete/12 HTTP/1.1
 Api-Key: {{apikey2}}
 ###
 GET http://localhost:5000/drinks/categories

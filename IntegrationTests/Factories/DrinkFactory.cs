@@ -13,7 +13,7 @@ public class DrinkFactory : WebApplicationFactory<Program>
         builder.ConfigureServices(services =>
         {
             services.RemoveAll(typeof(DbContextOptions<CocktailContext>));
-            services.AddDbContext<CocktailContext>(options => options.UseMySQL("Server=127.0.0.1;Database=cocktaildb;Uid=root;Pwd=QNewx-72;"));
+            services.AddDbContext<CocktailContext>(options => options.UseMySQL("Server=127.0.0.1;Database=cocktaildb2;Uid=root;Pwd=QNewx-72;"));
 
             var context = CreateContext(services);
             context.Database.EnsureDeleted();

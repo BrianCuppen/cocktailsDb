@@ -1,0 +1,49 @@
+using System.Net;
+using System.Text;
+using CocktailDb.Models;
+using FluentAssertions;
+using Newtonsoft.Json;
+using tests.Factories;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+
+namespace test;
+[Collection("IntegrationTest")]
+public class IngredientIntegrationTest
+{
+    [Fact]
+    public async Task Get_Ingredients()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        var response = await client.GetAsync("/ingredients");
+
+        response.EnsureSuccessStatusCode();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task Get_Ingredient_By_Id()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        // Specify the ingredient ID you want to retrieve
+        int ingredientId = 1;
+
+        var response = await client.GetAsync($"/ingredients/{ingredientId}");
+
+        response.EnsureSuccessStatusCode();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+}

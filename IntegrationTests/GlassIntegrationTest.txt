@@ -1,0 +1,91 @@
+using System.Net;
+using System.Text;
+using CocktailDb.Models;
+using FluentAssertions;
+using Newtonsoft.Json;
+using tests.Factories;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+
+namespace test;
+[Collection("IntegrationTest")]
+public class GlassIntegrationTest
+{
+    [Fact]
+    public async Task Get_Glasses()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        var response = await client.GetAsync("/glasses");
+
+        response.EnsureSuccessStatusCode();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task Get_Glass_By_Id()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        // Specify the glass ID you want to retrieve
+        int glassId = 1;
+
+        var response = await client.GetAsync($"/glasses/{glassId}?api-version=1.0");
+
+        response.EnsureSuccessStatusCode();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+    [Fact]
+    //add a glass
+    public async Task Post_Glass()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        var glass = new Glass
+        {
+            Name = "Test Glass"
+        };
+
+        var response = await client.PostAsJsonAsync("/glasses/Add", glass);
+
+        response.EnsureSuccessStatusCode();
+        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+
+        var responseString = await response.Content.ReadAsStringAsync();
+        var responseGlass = JsonConvert.DeserializeObject<Glass>(responseString);
+
+        // responseGlass.Name.Should().Be(glass.Name);
+    }
+
+    [Fact]
+    //delete glass
+    public async Task Delete_Glass()
+    {
+        var factory = new DrinkFactory();
+        var client = factory.CreateClient();
+
+        // Add your API key to the request headers
+        client.DefaultRequestHeaders.Add("Api-Key", "key2");
+
+        var deleteResponse = await client.DeleteAsync($"/glasses/1");
+
+        deleteResponse.EnsureSuccessStatusCode();
+        Assert.Equal(HttpStatusCode.OK, deleteResponse.StatusCode);
+    }
+
+}

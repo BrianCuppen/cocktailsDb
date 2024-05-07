@@ -107,14 +107,6 @@ using (var scope = app.Services.CreateScope())
     context.SeedData();
 }
 
-//SetupData 
-app.MapGet("/setup", (IGlassRepository glassRepository, IDrinkRepository drinkRepository) =>
-{
-    drinkRepository.AddCategories();
-    glassRepository.AddGlasses();
-    return "Data setup completed";
-});
-
 app.MapGet("/", () => "Hello Backend!");
 
 app.MapGet("/stop", (DrinkBackgroundService bs) =>
@@ -136,11 +128,6 @@ app.MapGet("settings", (IOptions<MailServerSettings> settings) =>
     return Results.Ok(settings);
 });
 
-
-app.MapPost("drinks/Add", async (ICocktailService service, Drink drink) =>
-{
-    return Results.Created("Drink added to database", await service.AddDrinkAsync(drink)); // normally code 201 CREATED
-});
 
 // Drinks Endpoints
 app.Map("/drinks", drinks =>
@@ -207,10 +194,10 @@ app.Map("/drinks", drinks =>
     });
 
     // //add a drink
-    // endpoints.MapPost("/Add", async (ICocktailService service, Drink drink) =>
-    // {
-    //     return Results.Created("Drink added to database", await service.AddDrinkAsync(drink)); // normally code 201 CREATED
-    // });
+    endpoints.MapPost("/", async (ICocktailService service, Drink drink) =>
+    {
+        return Results.Created("Drink added to database", await service.AddDrinkAsync(drink)); // normally code 201 CREATED
+    });
 
     //update a drink (doesnt really update for some reason)
     endpoints.MapPut("/", async (ICocktailService service, Drink drink) =>
@@ -219,7 +206,7 @@ app.Map("/drinks", drinks =>
     });
 
     //delete a drink
-    endpoints.MapDelete("/{id}", async (ICocktailService service, int id) =>
+    endpoints.MapDelete("/delete/{id}", async (ICocktailService service, int id) =>
     {
         await service.DeleteDrinkAsync(id);
         return Results.Ok("Drink deleted.");

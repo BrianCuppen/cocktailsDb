@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDB\\cocktailDB.csproj": {}
+    "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDb\\cocktailDb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDB\\cocktailDB.csproj": {
+    "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDb\\cocktailDb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDB\\cocktailDB.csproj",
-        "projectName": "cocktailDB",
-        "projectPath": "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDB\\cocktailDB.csproj",
+        "projectUniqueName": "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDb\\cocktailDb.csproj",
+        "projectName": "cocktailDb",
+        "projectPath": "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDb\\cocktailDb.csproj",
         "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDB\\obj\\",
+        "outputPath": "C:\\Users\\brian\\Desktop\\Backend\\CocktailDb\\cocktailsDb\\cocktailDb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
