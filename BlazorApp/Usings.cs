@@ -1,0 +1,11 @@
+global using CocktailDb.Models;
+global using CocktailDb.Services;
+global using Newtonsoft.Json;
+global using System.ComponentModel.DataAnnotations;
+global using Microsoft.EntityFrameworkCore;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using FluentValidation;
+global using FluentValidation.AspNetCore;
+global using Microsoft.AspNetCore.Diagnostics;
+global using AutoMapper;
+//Server=127.0.0.1;Database=CocktailDb;Uid=root;Pwd=QNewx-72;

@@ -47,11 +47,15 @@ public class Drink
 
     public bool IsDeleted { get; set; } = false; // Set default value
 
+
     // Navigation properties
-    [ForeignKey("Glass")]
-    public int GlassTypeId { get; set; }
+
     [ForeignKey("Ingredient")]
     public int IngredientId { get; set; }
+    
+    [ForeignKey("GlassType")]
+    public int GlassTypeId { get; set; }
+    
     [ForeignKey("Measurement")]
     public int MeasurementId { get; set; }
 

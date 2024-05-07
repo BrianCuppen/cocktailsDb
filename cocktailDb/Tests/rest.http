@@ -25,12 +25,12 @@ Api-Key: {{apikey2}}
 Content-Type: application/json
 
 {
-    "DbDrinkId": "aRandomNumber2",
-    "Name": "aRandomNumber2",
+    "DbDrinkId": "aRandomNumber3",
+    "Name": "aRandomNumber6",
     "AlternateName": "Tommy's Margarita",
     "Category": "Shake",
     "Iba": "Contemporary Classics",
-    "Alcoholic": true,
+    "Alcoholic": false,
     "ImageUrl": "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
     "IsEdited": false,
     "IsDeleted": false,
@@ -51,13 +51,14 @@ Content-Type: application/json
     }
 }
 ###
-PUT http://localhost:5000/drinks
+PUT http://localhost:5000/drinks/update/4 HTTP/1.1
 Api-Key: {{apikey2}}
 Content-Type: application/json
 
 {
-    "DbDrinkId": "aRandomNumber8",
-    "Name": "aRandomNumber8",
+    "Id": 4,
+    "DbDrinkId": "aRandomNumber4",
+    "Name": "aRandomNumber4",
     "AlternateName": "Tommy's Favorite",
     "Category": "Shake",
     "Iba": "Contemporary Classics",
@@ -65,9 +66,6 @@ Content-Type: application/json
     "ImageUrl": "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg",
     "IsEdited": false,
     "IsDeleted": false,
-    "GlassType": {
-        "Name": "CoolGLass"
-    },
     "Ingredient": {
       "Ingredient1":"Yum",   
       "Ingredient3":"Yum2",   
@@ -82,10 +80,7 @@ Content-Type: application/json
     }
 }
 ###
-DELETE http://localhost:5000/drinks/delete/12 HTTP/1.1
-Api-Key: {{apikey2}}
-###
-GET http://localhost:5000/drinks/categories
+DELETE http://localhost:5000/drinks/delete/1 HTTP/1.1
 Api-Key: {{apikey2}}
 ###
 GET http://localhost:5000/drinks/category/Shake
@@ -94,7 +89,7 @@ Api-Key: {{apikey2}}
 GET http://localhost:5000/glasses
 Api-Key: {{apikey2}}
 ### 
-GET http://localhost:5000/drinks/glasses/Cocktail glass
+GET http://localhost:5000/drinks/glasses/CoolGLass
 Api-Key: {{apikey2}}
 ###
 GET http://localhost:5000/drinks/alcoholic/alcoholic
@@ -121,6 +116,9 @@ GET http://localhost:5000/ingredients
 Api-Key: {{apikey2}}
 ###
 GET http://localhost:5000/ingredients/2
+Api-Key: {{apikey2}}
+###
+DELETE  http://localhost:5000/ingredients/2
 Api-Key: {{apikey2}}
 ###
 GET http://localhost:5000/download/Cocktail

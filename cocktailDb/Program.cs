@@ -36,8 +36,9 @@ builder.Services.Configure<MailServerSettings>(mailSettingsSection);
 
 //validator
 //builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<DrinkValidator>());
-builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<GlassValidator>());
+//builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<GlassValidator>());
 //builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
 
 //automapper
 builder.Services.AddAutoMapper(typeof(Program));
@@ -144,8 +145,11 @@ app.Map("/drinks", drinks =>
     {
         var logger = loggerFactory.CreateLogger("DrinkRequestLogger");
         var result = await service.GetDrinkByIdAsync(id);
+        if (result == null)
+        {
+            return Results.NotFound();
+        }
         logger.LogInformation($"{result.Name} was requested by version 1", result);
-
         return Results.Ok(result);
     }).WithApiVersionSet(versionSet).MapToApiVersion(1.0);
 
@@ -157,16 +161,14 @@ app.Map("/drinks", drinks =>
             opts.Items["Ingredient"] = service.GetIngredientByIdAsync(id);
             opts.Items["Measurement"] = service.GetMeasurementByIdAsync(id);
         });
+        if (mapped == null)
+        {
+            return Results.NotFound();
+        }
         var logger = loggerFactory.CreateLogger("DrinkRequestLogger");
         logger.LogInformation($"{mapped.Name} was requested by version 2", mapped);
         return Results.Ok(mapped);
     }).WithApiVersionSet(versionSet).MapToApiVersion(2.0);
-
-    //GetCategory
-    endpoints.MapGet("/categories", async (ICocktailService service) =>
-    {
-        return Results.Ok(await service.GetCategoriesAsync());
-    });
 
     //GetDrinkByCategory
     endpoints.MapGet("/category/{category}", async (ICocktailService service, string category) =>
@@ -194,19 +196,41 @@ app.Map("/drinks", drinks =>
     });
 
     // //add a drink
-    endpoints.MapPost("/", async (ICocktailService service, Drink drink) =>
+    endpoints.MapPost("/", async (ICocktailService service, Drink drink, IValidator<Drink> validator) =>
     {
-        return Results.Created("Drink added to database", await service.AddDrinkAsync(drink)); // normally code 201 CREATED
+        var result = validator.Validate(drink);
+        if (!result.IsValid)
+        {
+            return Results.BadRequest(result.Errors);
+        }
+        await service.AddDrinkAsync(drink);
+        return Results.Created("Drink added to database", drink); // normally code 201 CREATED
     });
 
     //update a drink (doesnt really update for some reason)
-    endpoints.MapPut("/", async (ICocktailService service, Drink drink) =>
+    endpoints.MapPut("/update/{id}", async (ICocktailService service, Drink drink, int id) =>
     {
+        if (id != drink.Id)
+        {
+            return Results.BadRequest();
+        }
+        var validator = new DrinkValidator();
+        var result = validator.Validate(drink);
+        if (!result.IsValid)
+        {
+            return Results.BadRequest(result.Errors);
+        }
         return Results.Ok(await service.UpdateDrinkAsync(drink));
     });
 
     //delete a drink
     endpoints.MapDelete("/delete/{id}", async (ICocktailService service, int id) =>
+    {
+        await service.DeleteDrinkAsync(id);
+        return Results.Ok("Drink deleted.");
+    });
+    //delete a drink
+    endpoints.MapDelete("/{id}", async (ICocktailService service, int id) =>
     {
         await service.DeleteDrinkAsync(id);
         return Results.Ok("Drink deleted.");
@@ -265,6 +289,13 @@ app.Map("/ingredients", ingredients =>
     {
         return Results.Ok(await service.GetIngredientByIdAsync(id));
     });
+
+    //delete
+    endpoints.MapDelete("/{id}", async (ICocktailService service, int id) =>
+    {
+        await service.DeleteIngredientAsync(id);
+        return Results.Ok("Ingredient deleted.");
+    });
 });
 });
 
@@ -279,11 +310,16 @@ app.MapGet("/download/{category}", async (ICocktailService service, string categ
 });
 
 //upload a drink
-// app.MapPost("/upload", async (ICocktailService service, IFormFile file, IValidator<Drink> validator) =>
-// {
-//     var drinks = await service.UploadDrinkAsync(file, validator);
-//     return Results.Created("Drinks added to database", drinks);
-// }).DisableAntiforgery();
+app.MapPost("/upload", async (ICocktailService service, IFormFile file, IValidator<Drink> validator) =>
+{
+    Console.WriteLine(file);
+    if (file == null || file.Length == 0)
+    {
+        return Results.BadRequest("File is empty");
+    }
+    var drinks = await service.UploadDrinkAsync(file, validator);
+    return Results.Created("Drinks added to database", drinks);
+}).DisableAntiforgery();
 
 
 app.Run("http://localhost:5000");

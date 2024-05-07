@@ -1,0 +1,270 @@
+@page "/drinks"
+@rendermode InteractiveServer
+@inject ICocktailService CocktailService
+
+<PageTitle>Call Drinks web API</PageTitle>
+
+<h3>Drinks</h3>
+@if (drinks != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>AlternateName</th>
+                <th>IBA</th>
+                <th>Alcoholic</th>
+                <th>Instructions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var drink in drinks)
+            {
+                <tr>
+                    <td><img src="@drink.ImageUrl" alt="Drink Image" style="max-height: 100px;" /></td>
+                    <td>@drink.Name</td>
+                    <td>@drink.Category</td>
+                    <td>@drink.AlternateName</td>
+                    <td>@drink.Iba</td>
+                    <td>@(drink.Alcoholic ? "Alcoholic" : "Non Alcoholic")</td>
+                    <td>@drink.Instructions</td>
+                    <td>
+                        <button class="btn btn-warning" @onclick="@(() => EditDrink(drink))">Edit</button>
+                        <button class="btn btn-danger" @onclick="@(async () => await DeleteDrink(drink))">Delete</button>
+                    </td>
+
+                </tr>
+
+                @if (editingDrinkId == drink.Id)
+                {
+                    <!-- Editable row -->
+                    <tr>
+                        <td><input class="form-control" placeholder="Name" @bind="editDrink.Name" /></td>
+                        <td><input class="form-control" placeholder="Category" @bind="editDrink.Category" /></td>
+                        <td><input class="form-control" placeholder="AlternateName" @bind="editDrink.AlternateName" /></td>
+                        <td><input class="form-control" placeholder="IBA" @bind="editDrink.Iba" /></td>
+                        <td>
+                            <input type="checkbox" @bind="editDrink.Alcoholic" />
+                        </td>
+                        <td><textarea class="form-control" @bind="editDrink.Instructions"></textarea></td>
+                        <td><input class="form-control" placeholder="Image URL" @bind="editDrink.ImageUrl" /></td>
+                        <td class="text-center">
+                            <button class="btn btn-success" @onclick="SaveDrink">Save</button>
+                            <button class="btn btn-secondary" @onclick="@(() => editingDrinkId = null)">Cancel</button>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <!-- Add new person row -->
+    <h4>Add a drink</h4>
+    <tr>
+        <td><input class="form-control" placeholder="Name" @bind="newDrinkName" /></td>
+        <td><input class="form-control" placeholder="Category" @bind="newDrinkCategory" /></td>
+        <td><input class="form-control" placeholder="AlternateName" @bind="AlternateName" /></td>
+        <td><input class="form-control" placeholder="IBA" @bind="Iba" /></td>
+    </tr>
+    <tr>
+        <td>
+            <label for="newDrinkAlcoholic">Alcoholic:</label>
+            <input id="newDrinkAlcoholic" type="checkbox" @bind="newDrinkAlcoholic" />
+        </td>
+        <td><textarea class="form-control" placeholder="Instructions" @bind="newDrinkInstructions"></textarea></td>
+        <td><input class="form-control" placeholder="Image URL" @bind="newDrinkImageUrl" /></td>
+        <td class="text-center">
+            <button class="btn btn-success" @onclick="AddDrink">Add New</button>
+        </td>
+    </tr>
+    <h3>Find Drink by ID</h3>
+    <p>Insert the Id of the drink you want to search</p>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter Drink ID" @bind="drinkId" />
+        <button class="btn btn-primary" @onclick="@(async () => GetDrink())">Get Drink</button>
+    </div>
+    @if (drink != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>AlternateName</th>
+                    <th>IBA</th>
+                    <th>Alcoholic</th>
+                    <th>Instructions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="@drink.ImageUrl" alt="Drink Image" style="max-height: 100px;" /></td>
+                    <td>@drink.Name</td>
+                    <td>@drink.Category</td>
+                    <td>@drink.AlternateName</td>
+                    <td>@drink.Iba</td>
+                    <td>@(drink.Alcoholic ? "Alcoholic" : "Non Alcoholic")</td>
+                    <td>@drink.Instructions</td>
+                </tr>
+            </tbody>
+        </table>
+
+<div style="display: flex;">
+    <div style="flex: 1; margin-right: 20px;">
+        <h4>Ingredients</h4>
+        <ul>
+            @if (drink.Ingredient.Ingredient1 != null)
+            {
+                <li>@drink.Ingredient.Ingredient1</li>
+            }
+            @if (drink.Ingredient.Ingredient2 != null)
+            {
+                <li>@drink.Ingredient.Ingredient2</li>
+            }
+            @if (drink.Ingredient.Ingredient3 != null)
+            {
+                <li>@drink.Ingredient.Ingredient3</li>
+            }
+            @if (drink.Ingredient.Ingredient4 != null)
+            {
+                <li>@drink.Ingredient.Ingredient4</li>
+            }
+            @if (drink.Ingredient.Ingredient5 != null)
+            {
+                <li>@drink.Ingredient.Ingredient5</li>
+            }
+        </ul>
+    </div>
+    <div style="flex: 1;">
+        <h4>Measurements</h4>
+        <ul>
+            @if (drink.Measurement.Measure1 != null)
+            {
+                <li>@drink.Measurement.Measure1</li>
+            }
+            @if (drink.Measurement.Measure2 != null)
+            {
+                <li>@drink.Measurement.Measure2</li>
+            }
+            @if (drink.Measurement.Measure3 != null)
+            {
+                <li>@drink.Measurement.Measure3</li>
+            }
+            @if (drink.Measurement.Measure4 != null)
+            {
+                <li>@drink.Measurement.Measure4</li>
+            }
+            @if (drink.Measurement.Measure5 != null)
+            {
+                <li>@drink.Measurement.Measure5</li>
+            }
+        </ul>
+    </div>
+</div>
+
+    }
+    else if (showErrorMessage)
+    {
+        <p class="text-danger">Drink not found. Please enter a valid ID.</p>
+    }
+}
+else
+{
+    <p><em>Loading...</em></p>
+}
+@code {
+    private int? editingDrinkId;
+    private Drink editDrink = new Drink();
+    private string? newDrinkName;
+    private string? newDrinkCategory;
+    private string? AlternateName;
+    private string? Iba;
+    private bool newDrinkAlcoholic;
+    private string? newDrinkInstructions;
+    private string? newDrinkImageUrl;
+    private IEnumerable<Drink>? drinks;
+    private int drinkId;
+    private Drink drink;
+    private bool showErrorMessage;
+
+    protected override async Task OnInitializedAsync() => await RefreshDrinksList();
+
+    private async Task RefreshDrinksList()
+    {
+        drinks = await CocktailService.GetAllDrinksAsync() ?? Array.Empty<Drink>();
+    }
+
+    private void EditDrink(Drink drink)
+    {
+        editDrink = drink;
+        editingDrinkId = drink.Id;
+    }
+
+    private async Task SaveDrink()
+    {
+        if (editingDrinkId.HasValue)
+        {
+            await CocktailService.UpdateDrinkAsync(editDrink);
+            await RefreshDrinksList();
+            ResetEditState();
+        }
+    }
+    private void ResetEditState()
+    {
+        editingDrinkId = null;
+        editDrink = new Drink();
+    }
+
+    private async Task DeleteDrink(Drink drink)
+    {
+        await CocktailService.DeleteDrinkAsync(drink.Id);
+        await RefreshDrinksList();
+        if (editingDrinkId == drink.Id) ResetEditState();
+    }
+
+    //AddDrink
+    private async Task AddDrink()
+    {
+        var newDrink = new Drink
+            {
+                Name = newDrinkName,
+                Category = newDrinkCategory,
+                AlternateName = AlternateName,
+                Iba = Iba,
+                Alcoholic = newDrinkAlcoholic,
+                Instructions = newDrinkInstructions,
+                ImageUrl = newDrinkImageUrl
+            };
+        await CocktailService.AddDrinkAsync(newDrink);
+        ResetNewDrinkInputs();
+    }
+
+    private void ResetNewDrinkInputs()
+    {
+        newDrinkName = null;
+        newDrinkCategory = null;
+        AlternateName = null;
+        Iba = null;
+        newDrinkAlcoholic = false;
+        newDrinkInstructions = null;
+        newDrinkImageUrl = null;
+    }
+
+    private async Task GetDrink()
+    {
+        drink = await CocktailService.GetDrinkByIdAsync(drinkId);
+        if (drink == null)
+        {
+            showErrorMessage = true;
+        }
+        else
+        {
+            showErrorMessage = false;
+        }
+    }
+}

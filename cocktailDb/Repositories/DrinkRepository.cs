@@ -92,9 +92,15 @@ public class DrinkRepository : IDrinkRepository
     //update a drink
     public async Task<Drink> UpdateDrinkAsync(Drink drink)
     {
+        var existingDrink = await _context.Drinks.FindAsync(drink.Id);
+        if (existingDrink == null)
+        {
+            return null;
+        }
         //set IsEdited to true
         drink.IsEdited = true;
-        _context.Entry(drink).State = EntityState.Modified;
+        _context.Entry(existingDrink).CurrentValues.SetValues(drink);
+        //_context.Drinks.Update(drink);
         await _context.SaveChangesAsync();
         return drink;
     }

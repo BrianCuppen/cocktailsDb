@@ -27,14 +27,14 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
         .HasKey(i => i.Id);
 
     modelBuilder.Entity<Drink>()
-        .HasOne(d => d.GlassType)
-        .WithOne()
-        .HasForeignKey<Drink>(d => d.GlassTypeId);
-
-    modelBuilder.Entity<Drink>()
         .HasOne(d => d.Ingredient)
         .WithOne()
         .HasForeignKey<Drink>(d => d.IngredientId);
+
+    modelBuilder.Entity<Drink>()
+        .HasOne(d => d.GlassType)
+        .WithOne()
+        .HasForeignKey<Drink>(d => d.GlassTypeId);
 
     modelBuilder.Entity<Drink>()
         .HasOne(d => d.Measurement)

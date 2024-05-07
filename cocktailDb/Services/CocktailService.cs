@@ -19,6 +19,7 @@ public interface ICocktailService
     Task DeleteGlassAsync(int id);
     Task<IEnumerable<Ingredient>> GetAllIngredientsAsync();
     Task<Ingredient> GetIngredientByIdAsync(int id);
+    Task DeleteIngredientAsync(int id);
     Task<IEnumerable<Drink>> GetDrinksByAlcoholicAsync(bool alcoholic);
     Task<FileStreamResult> DownloadDrinksAsync(string category);
     Task<IResult> UploadDrinkAsync(IFormFile file, IValidator<Drink> validator);
@@ -96,6 +97,10 @@ public class CocktailService() : ICocktailService
             // {
             //     drink.GlassTypeId = existingGlass.Id;
             // }
+        }
+        else
+        {
+            drink.GlassType = new Glass { Name = "N/A" };
         }
 
         // If the category doesn't exist, add it to the database
@@ -214,6 +219,12 @@ public class CocktailService() : ICocktailService
         return result;
     }
 
+    //DeleteIngredientAsync
+    public async Task DeleteIngredientAsync(int id)
+    {
+        var result = await _ingredientRepository.GetIngredientByIdAsync(id) ?? throw new Exception("Can't delete ingredient, ingredient not found");
+        await _ingredientRepository.DeleteIngredientAsync(id);
+    }
     public async Task<IEnumerable<Drink>> GetDrinksByAlcoholicAsync(bool alcoholic)
     {
         return await _drinkRepository.GetDrinkByAlcoholicAsync(alcoholic);
@@ -259,10 +270,6 @@ public class CocktailService() : ICocktailService
     {
         try
         {
-            if (file == null || file.Length == 0)
-            {
-                return Results.BadRequest("File not selected or empty.");
-            }
 
             // Save the uploaded file to a local folder
             string uploadFolder = "./uploads";
